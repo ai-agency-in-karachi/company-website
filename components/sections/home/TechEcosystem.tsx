@@ -144,7 +144,7 @@ export function TechEcosystem() {
                           className="orbit__spin"
                           style={cssVars({ "--dur": ring.duration, "--counter": ring.counter })}
                         >
-                          <span className="orbit__tile relative flex size-[clamp(2rem,8.6cqw,3.375rem)] items-center justify-center rounded-[28%] border border-line bg-white text-ink">
+                          <span className="orbit__tile flex size-[clamp(2rem,8.6cqw,3.375rem)] items-center justify-center rounded-[28%] border border-line bg-white text-ink">
                             <TechIcon name={tool.name} />
                             <span className="orbit__label pointer-events-none absolute top-[calc(100%+0.375rem)] left-1/2 rounded-md bg-ink px-2 py-1 text-[0.6875rem] font-semibold whitespace-nowrap text-white">
                               {tool.name}

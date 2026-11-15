@@ -62,7 +62,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
   return (
     <PageTransition>
       <article aria-labelledby="service-title">
-        <header className="pt-8 pb-16 md:pt-12 lg:pb-24">
+        <header className="pt-8 pb-[var(--section-y)] md:pt-12">
           <div className="container-wide">
             <ArrowLink href="/services" direction="left">
               {serviceDetail.backLabel}

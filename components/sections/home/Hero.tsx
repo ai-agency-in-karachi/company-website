@@ -39,7 +39,7 @@ export function Hero() {
   const content = home.hero;
   return (
     <section aria-labelledby="hero-title" className="relative isolate overflow-hidden">
-      <div className="container-wide grid grid-cols-1 items-center gap-x-10 gap-y-12 pt-10 pb-16 md:pt-16 lg:min-h-[calc(100svh-var(--nav-h))] lg:grid-cols-12 lg:pt-8 lg:pb-20">
+      <div className="container-wide grid grid-cols-1 items-center gap-x-10 gap-y-12 pt-10 pb-[var(--section-y)] md:pt-16 lg:grid-cols-12 lg:pt-14">
         <div className="lg:col-span-8">
           <div className="hero-anim hero-rise" style={cssVars({ "--d": "0ms" })}>
             <Eyebrow>{content.eyebrow}</Eyebrow>

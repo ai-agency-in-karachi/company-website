@@ -2,6 +2,7 @@ import { home } from "@/content/site";
 import { MaskedText } from "@/components/motion/MaskedText";
 import { Reveal } from "@/components/motion/Reveal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { RatingSummary } from "./RatingSummary";
 
 /* Review-platform conventions kept quiet: five stars in a muted gold (the
    rating signal people recognise) and initials instead of photos. No
@@ -70,33 +71,13 @@ export function Reviews() {
             <MaskedText id="reviews-title" lines={content.title} className="mt-6 text-h2 text-fg" />
             <Reveal delay={100}>
               <p className="mt-6 text-lead text-fg-soft">{content.description}</p>
-              <div className="mt-10 rounded-card bg-raise p-6">
-                <p className="eyebrow text-fg-soft">{content.ratingLabel}</p>
-                <div className="mt-2 flex items-center gap-4">
-                  <span className="font-display text-[3.5rem] leading-none font-extrabold tracking-[-0.04em] text-fg">
-                    5.0
-                  </span>
-                  <span>
-                    <Stars size="size-5" />
-                    <span className="sr-only">5 out of 5 stars.</span>
-                    <span className="mt-1 block text-small text-fg-soft">{content.basedOn(content.items.length)}</span>
-                  </span>
-                </div>
-                <ul aria-hidden="true" className="mt-5 space-y-1.5">
-                  {[5, 4, 3, 2, 1].map((stars) => (
-                    <li key={stars} className="flex items-center gap-3 text-small text-fg-soft">
-                      <span className="numeral w-3">{stars}</span>
-                      <span className="h-2 flex-1 overflow-hidden rounded-full bg-line">
-                        <span
-                          className="block h-full rounded-full"
-                          style={{ width: stars === 5 ? "100%" : "0%", backgroundColor: STAR }}
-                        />
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-5 text-[0.8125rem] text-fg-soft">{content.disclaimer}</p>
-              </div>
+              <RatingSummary
+                label={content.ratingLabel}
+                basedOn={content.basedOn(content.items.length)}
+                disclaimer={content.disclaimer}
+                stars={<Stars size="size-5" />}
+                starColor={STAR}
+              />
             </Reveal>
           </div>
         </div>

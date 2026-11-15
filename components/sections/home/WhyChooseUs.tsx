@@ -10,8 +10,7 @@ const steps = ["lg:ml-0", "lg:ml-[8%]", "lg:ml-[16%]", "lg:ml-[24%]", "lg:ml-[32
 /**
  * Why choose us: five points as a rising ladder of typography instead of
  * cards. Each point has a numbered ink tile, and they step diagonally
- * across the page in reading order; the last one, "Designed to Grow",
- * carries the cobalt accent.
+ * across the page in reading order.
  */
 export function WhyChooseUs() {
   const content = home.why;
@@ -37,7 +36,7 @@ export function WhyChooseUs() {
                     aria-hidden="true"
                     className={cn(
                       "flex size-12 items-center justify-center rounded-[0.875rem] font-display text-[1.25rem] font-extrabold md:size-14",
-                      index === content.points.length - 1 ? "bg-cobalt text-white" : "bg-ink text-paper",
+                      "bg-ink text-paper",
                     )}
                   >
                     {index + 1}

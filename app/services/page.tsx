@@ -31,7 +31,7 @@ export default function ServicesPage() {
   return (
     <PageTransition>
       <div>
-        <section aria-labelledby="services-title" className="pt-12 pb-16 md:pt-20 lg:pb-24">
+        <section aria-labelledby="services-title" className="pt-12 pb-[var(--section-y)] md:pt-16 lg:pt-20">
           <div className="container-wide grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end lg:gap-10">
             <div className="lg:col-span-8">
               <div className="hero-anim hero-rise" style={cssVars({ "--d": "0ms" })}>

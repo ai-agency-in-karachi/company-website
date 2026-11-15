@@ -135,7 +135,10 @@
   /* Layout tokens. */
   --gutter: 1rem;
   --nav-h: 4rem;
-  --section-y: clamp(5rem, 3rem + 7vw, 10rem);
+  /* Vertical padding of every section, top and bottom, so the gap between
+     any two sections is always twice this: about 112px on phones and 172px
+     on large screens. */
+  --section-y: clamp(3.5rem, 2.25rem + 3.5vw, 5.5rem);
 
   color-scheme: light;
 }
@@ -678,16 +681,23 @@
   transition: opacity var(--dur-slow) var(--ease-brand);
 }
 
-/* The ring's own rotation, undone so the tile stays upright. */
+/* The ring's own rotation, undone so the tile stays upright. The wrapper is
+   zero-size, so it turns exactly on the track point; with a size it would
+   turn around its own centre and swing the tile off the line. */
 .orbit__spin {
   position: absolute;
   left: 0;
   top: 0;
+  width: 0;
+  height: 0;
   animation: nv-spin var(--dur) linear infinite;
   animation-direction: var(--counter, reverse);
 }
 
 .orbit__tile {
+  position: absolute;
+  left: 0;
+  top: 0;
   transform: translate(-50%, -50%);
   transition:
     transform var(--dur-slow) var(--ease-brand),
@@ -767,6 +777,21 @@
   transform-origin: center bottom;
   transition: transform 900ms var(--ease-brand);
   transition-delay: calc(200ms + var(--i, 0) * 50ms);
+}
+
+/* ==========================================================================
+   Reviews: rating bars fill from the left when the rating card comes into
+   view (components/sections/home/RatingSummary.tsx sets data-rating).
+   ========================================================================== */
+
+.rating-bar {
+  transform-origin: left center;
+  transition: transform 1200ms var(--ease-brand);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+
+.rating[data-rating="ready"] .rating-bar {
+  transform: scaleX(0);
 }
 
 /* ==========================================================================
@@ -1067,7 +1092,8 @@
     animation: none;
   }
 
-  .chart-bar {
+  .chart-bar,
+  .rating-bar {
     transition: none;
   }
 
