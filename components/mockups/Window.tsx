@@ -17,20 +17,20 @@ export function Window({
     <div
       className={cn(
         "overflow-hidden rounded-[14px] shadow-mock",
-        dark ? "bg-indigo-deep text-white" : "bg-white text-ink",
+        dark ? "bg-ink text-white" : "bg-white text-ink",
         className,
       )}
     >
       <div
         className={cn(
           "flex h-9 items-center gap-3 border-b px-3.5",
-          dark ? "border-white/10 bg-indigo" : "border-ink/8 bg-[#F7F4EE]",
+          dark ? "border-white/10 bg-night" : "border-ink/8 bg-[#F6F5F2]",
         )}
       >
         <span className="flex gap-1.5" aria-hidden="true">
-          <span className="size-2.5 rounded-full bg-coral" />
-          <span className="size-2.5 rounded-full bg-sun" />
-          <span className="size-2.5 rounded-full bg-emerald" />
+          <span className="size-2.5 rounded-full bg-stone-deep" />
+          <span className="size-2.5 rounded-full bg-stone-deep" />
+          <span className="size-2.5 rounded-full bg-stone-deep" />
         </span>
         <span className={cn("truncate text-[11px] font-semibold", dark ? "text-white/70" : "text-ink/60")}>
           {title}

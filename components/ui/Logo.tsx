@@ -2,16 +2,16 @@ import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 
 /**
- * The NOVARY® mark: an N built from two violet blocks and a lime diagonal,
- * on a rounded square. Flat colour, so it works at any size.
+ * The NOVARY® mark: an N built from two light uprights and a cobalt
+ * diagonal on an ink square. Flat colour, so it works at any size.
  */
 export function NMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" className={className}>
-      <rect width="32" height="32" rx="9" fill="#5B3DF5" />
-      <rect x="8" y="8" width="4.5" height="16" rx="1.2" fill="#FFFDF8" />
-      <rect x="19.5" y="8" width="4.5" height="16" rx="1.2" fill="#FFFDF8" />
-      <path d="M8 8h4.5L24 24h-4.5z" fill="#D4F36A" />
+      <rect width="32" height="32" rx="9" fill="#111322" />
+      <rect x="8" y="8" width="4.5" height="16" rx="1.2" fill="#F3F1EC" />
+      <rect x="19.5" y="8" width="4.5" height="16" rx="1.2" fill="#F3F1EC" />
+      <path d="M8 8h4.5L24 24h-4.5z" fill="#5B6BE8" />
     </svg>
   );
 }

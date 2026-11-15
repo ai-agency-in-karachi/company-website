@@ -316,8 +316,7 @@ export const contactPage = {
     successAgain: "Send another message",
     failureTitle: "Your message could not be sent.",
     failureText: "Please try again in a moment, or email us directly.",
-    notConfigured:
-      "Email is not set up yet. Add RESEND_API_KEY, CONTACT_TO_EMAIL and CONTACT_FROM_EMAIL to .env.local (see README.md).",
+    notConfigured: 'Email sending is not configured on this server yet. See "Environment variables" in README.md.',
     rateLimited: "You've sent a few messages already. Please wait a few minutes and try again.",
     retry: "Try again",
     errorSummary: (count: number) =>

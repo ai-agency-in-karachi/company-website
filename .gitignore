@@ -22,7 +22,7 @@
 
 # misc
 .DS_Store
-*.pem
+Thumbs.db
 
 # debug
 npm-debug.log*
@@ -30,12 +30,39 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# ---------------------------------------------------------------------------
+# Secrets: never commit these. Real values live in .env.local (local) and in
+# the hosting provider's environment settings (Vercel). Only .env.example,
+# which holds no values, is tracked.
+# ---------------------------------------------------------------------------
+.env
 .env*
 !.env.example
+*.env
+.envrc
+.secret*
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+credentials.json
+service-account*.json
+# Package-manager config can hold registry auth tokens.
+.npmrc
+.yarnrc.yml
 
 # vercel
 .vercel
+
+# editors
+.idea/
+.vscode/*
+!.vscode/extensions.json
 
 # typescript
 *.tsbuildinfo

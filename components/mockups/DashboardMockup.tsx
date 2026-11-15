@@ -3,18 +3,18 @@ import { cn, cssVars } from "@/lib/cn";
 import { Initial, Window } from "./Window";
 
 const kpis = [
-  { label: "Revenue", value: "PKR 4.82M", change: "+12.4%", tone: "bg-violet text-white" },
-  { label: "Orders", value: "1,284", change: "+8.1%", tone: "bg-lime text-ink" },
-  { label: "Customers", value: "836", change: "+5.6%", tone: "bg-sky text-ink" },
+  { label: "Revenue", value: "PKR 4.82M", change: "+12.4%", tone: "bg-cobalt text-white" },
+  { label: "Orders", value: "1,284", change: "+8.1%", tone: "bg-white text-ink" },
+  { label: "Customers", value: "836", change: "+5.6%", tone: "bg-white text-ink" },
 ];
 
 const months = [42, 55, 48, 62, 58, 71, 66, 78, 74, 86, 80, 94];
 const monthLabels = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
 
 const branches = [
-  { name: "Karachi", share: 42, color: "#5B3DF5" },
-  { name: "Lahore", share: 33, color: "#FF6B4A" },
-  { name: "Islamabad", share: 25, color: "#D4F36A" },
+  { name: "Karachi", share: 42, color: "#3245D1" },
+  { name: "Lahore", share: 33, color: "#111322" },
+  { name: "Islamabad", share: 25, color: "#C9C5BB" },
 ];
 
 /** Where each donut segment starts (the circle's circumference is 100). */
@@ -26,16 +26,16 @@ const orders = [
     client: "Nexora Retail",
     amount: "PKR 84,200",
     status: "Paid",
-    tone: "bg-emerald/15 text-[#0B7A5E]",
+    tone: "bg-success/12 text-success",
   },
   {
     id: "#ORD-2290",
     client: "Vertex Labs",
     amount: "PKR 126,500",
     status: "Pending",
-    tone: "bg-sun/30 text-[#8A5A00]",
+    tone: "bg-warning/15 text-warning",
   },
-  { id: "#ORD-2289", client: "Cloudnest", amount: "PKR 39,900", status: "Paid", tone: "bg-emerald/15 text-[#0B7A5E]" },
+  { id: "#ORD-2289", client: "Cloudnest", amount: "PKR 39,900", status: "Paid", tone: "bg-success/12 text-success" },
 ];
 
 /** Donut chart drawn with stroke segments on a circle. */
@@ -43,7 +43,7 @@ function Donut() {
   const radius = 15.9155; // circumference of 100
   return (
     <svg viewBox="0 0 42 42" className="size-24 shrink-0" aria-hidden="true">
-      <circle cx="21" cy="21" r={radius} fill="none" stroke="#EFEAF9" strokeWidth="6" />
+      <circle cx="21" cy="21" r={radius} fill="none" stroke="#ECEAE5" strokeWidth="6" />
       {branches.map((branch, index) => (
         <circle
           key={branch.name}
@@ -73,8 +73,8 @@ export function DashboardMockup() {
     <div className="relative @container">
       <Window title="Operations Hub · Dashboard" className="text-[12px]">
         <div className="flex">
-          <nav aria-hidden="true" className="hidden w-14 shrink-0 flex-col items-center gap-2 bg-indigo py-4 @lg:flex">
-            <span className="mb-2 grid size-8 place-items-center rounded-lg bg-lime font-display text-[13px] font-extrabold text-ink">
+          <nav aria-hidden="true" className="hidden w-14 shrink-0 flex-col items-center gap-2 bg-ink py-4 @lg:flex">
+            <span className="mb-2 grid size-8 place-items-center rounded-lg bg-cobalt font-display text-[13px] font-extrabold text-white">
               O
             </span>
             {[LayoutDashboard, ChartColumn, Package, Users, Wallet, Settings].map((Icon, index) => (
@@ -90,7 +90,7 @@ export function DashboardMockup() {
             ))}
           </nav>
 
-          <div className="min-w-0 flex-1 bg-[#F8F6FF] p-3.5 @lg:p-4">
+          <div className="min-w-0 flex-1 bg-[#F6F5F2] p-3.5 @lg:p-4">
             <div className="flex items-center gap-2.5">
               <div className="min-w-0 flex-1">
                 <p className="text-[10.5px] text-ink/50">Good morning, Ahmed</p>
@@ -102,7 +102,7 @@ export function DashboardMockup() {
               <span className="grid size-8 place-items-center rounded-lg bg-white">
                 <Bell aria-hidden="true" className="size-3.5" />
               </span>
-              <Initial name="Ahmed Raza" className="bg-coral text-ink" />
+              <Initial name="Ahmed Raza" className="bg-cobalt-tint text-cobalt" />
             </div>
 
             <div className="mt-3.5 grid grid-cols-3 gap-2.5">
@@ -121,9 +121,7 @@ export function DashboardMockup() {
               <div className="rounded-xl bg-white p-3">
                 <div className="flex items-center justify-between">
                   <p className="font-semibold">Revenue</p>
-                  <span className="rounded-md bg-[#F2EFFB] px-2 py-0.5 text-[10px] font-semibold text-ink/60">
-                    2026
-                  </span>
+                  <span className="rounded-md bg-stone px-2 py-0.5 text-[10px] font-semibold text-ink/60">2026</span>
                 </div>
                 <div aria-hidden="true" className="mt-3 flex h-28 items-end gap-1.5">
                   {months.map((value, index) => (
@@ -131,7 +129,7 @@ export function DashboardMockup() {
                       <span
                         className={cn(
                           "chart-bar w-full rounded-t-[4px]",
-                          index === months.length - 1 ? "bg-violet" : "bg-[#D9D2FF]",
+                          index === months.length - 1 ? "bg-cobalt" : "bg-cobalt-tint",
                         )}
                         style={cssVars({ "--i": index }, { height: `${value}%` })}
                       />

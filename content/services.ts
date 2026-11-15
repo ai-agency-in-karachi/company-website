@@ -17,9 +17,6 @@ export type ServiceIconName =
   | "pen-tool"
   | "plug";
 
-/** Accent colours from the palette (see lib/tokens.ts). */
-export type ServiceColor = "violet" | "coral" | "lime" | "sky" | "sun" | "rose" | "emerald" | "periwinkle";
-
 export type Service = {
   slug: string;
   index: string;
@@ -27,7 +24,6 @@ export type Service = {
   /** Short name for the footer, dropdowns and small labels. */
   shortTitle: string;
   icon: ServiceIconName;
-  color: ServiceColor;
   /** One line, from the brand content. */
   summary: string;
   /** Opening paragraph of the detail view. */
@@ -53,7 +49,6 @@ export const services: Service[] = [
     title: "Software Development",
     shortTitle: "Software Development",
     icon: "code",
-    color: "violet",
     summary: "Custom software designed around your business operations, workflows and long-term goals.",
     intro:
       "Off-the-shelf tools make you work their way. We build software that works your way: platforms, portals and internal systems shaped around how your business actually runs today, and where it is heading next.",
@@ -123,7 +118,6 @@ export const services: Service[] = [
     title: "AI Solutions & Intelligent Agents",
     shortTitle: "AI Solutions",
     icon: "bot",
-    color: "coral",
     summary:
       "AI-powered assistants, voice agents, chatbots and intelligent systems that make everyday operations smarter.",
     intro:
@@ -194,7 +188,6 @@ export const services: Service[] = [
     title: "Business Automation",
     shortTitle: "Automation",
     icon: "workflow",
-    color: "lime",
     summary: "Connect your tools, eliminate repetitive tasks and create seamless automated workflows.",
     intro:
       "Copying data between apps, chasing approvals and sending the same updates by hand quietly costs hours every week. We map those tasks and automate them, so your tools talk to each other and your team focuses on real work.",
@@ -261,7 +254,6 @@ export const services: Service[] = [
     title: "Website Development",
     shortTitle: "Web Development",
     icon: "globe",
-    color: "sky",
     summary: "Modern, responsive and high-performance websites that turn visitors into customers.",
     intro:
       "Your website is often the first conversation with a customer. We design and build fast, clear and search-ready websites that explain what you do in seconds and make it easy to take the next step.",
@@ -316,7 +308,6 @@ export const services: Service[] = [
     title: "Mobile App Development",
     shortTitle: "Mobile Applications",
     icon: "smartphone",
-    color: "sun",
     summary: "Intuitive Android and iOS applications designed to deliver meaningful user experiences.",
     intro:
       "A good app earns a place on someone's home screen. We build Android and iOS apps that are simple to use, reliable on real networks and connected to the systems behind your business.",
@@ -374,7 +365,6 @@ export const services: Service[] = [
     title: "E-commerce Solutions",
     shortTitle: "E-commerce",
     icon: "shopping-bag",
-    color: "rose",
     summary: "Scalable online stores and custom shopping experiences built to support growing businesses.",
     intro:
       "Selling online is more than a product page. We build stores with smooth discovery, quick checkout, local payment options and the back-office tools to manage orders, stock and delivery without the chaos.",
@@ -432,7 +422,6 @@ export const services: Service[] = [
     title: "UI/UX & Product Design",
     shortTitle: "UI/UX Design",
     icon: "pen-tool",
-    color: "emerald",
     summary: "Thoughtful interfaces, interactive prototypes and user-focused digital experiences.",
     intro:
       "Good design is how a product feels to use. We research, structure and design interfaces that are clear on the first visit and pleasant on the hundredth, then hand developers everything they need to build them precisely.",
@@ -487,7 +476,6 @@ export const services: Service[] = [
     title: "API & System Integrations",
     shortTitle: "API Integrations",
     icon: "plug",
-    color: "periwinkle",
     summary: "Connect platforms, services and business tools into one seamless ecosystem.",
     intro:
       "Most businesses run on a dozen tools that do not talk to each other. We connect them through clean, secure integrations, so data flows once, stays accurate and is available wherever your team needs it.",

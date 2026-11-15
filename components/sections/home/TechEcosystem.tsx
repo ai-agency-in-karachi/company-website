@@ -11,8 +11,6 @@ import { NMark } from "@/components/ui/Logo";
 
 type Category = (typeof home.tech.categories)[number];
 
-const dots = ["bg-coral", "bg-sun", "bg-violet", "bg-emerald", "bg-rose", "bg-sky", "bg-periwinkle", "bg-lime"];
-
 const rings = [
   { ring: 1, radius: "21cqw", duration: "80s", direction: "normal", counter: "reverse" },
   { ring: 2, radius: "33cqw", duration: "110s", direction: "reverse", counter: "normal" },
@@ -61,12 +59,7 @@ export function TechEcosystem() {
   }, []);
 
   return (
-    <section
-      id="technology"
-     
-      aria-labelledby="tech-title"
-      className="section-y relative overflow-hidden"
-    >
+    <section id="technology" aria-labelledby="tech-title" className="section-y relative overflow-hidden">
       <div className="container-wide">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
           <div className="lg:col-span-7">
@@ -84,7 +77,7 @@ export function TechEcosystem() {
             className="grid grid-cols-1 gap-x-8 sm:grid-cols-2 lg:col-span-5"
             onMouseLeave={() => setHovered(null)}
           >
-            {content.categories.map((category, index) => {
+            {content.categories.map((category) => {
               const on = filter === category.id;
               return (
                 <li key={category.id} className="border-t border-line">
@@ -101,9 +94,8 @@ export function TechEcosystem() {
                       <span
                         aria-hidden="true"
                         className={cn(
-                          "size-2.5 shrink-0 rounded-[3px] transition-transform duration-[var(--dur-base)] ease-brand",
-                          dots[index],
-                          on && "scale-150",
+                          "size-2.5 shrink-0 rounded-[3px] transition-[transform,background-color] duration-[var(--dur-base)] ease-brand",
+                          on ? "scale-150 bg-cobalt" : "bg-ink/25",
                         )}
                       />
                       <span
@@ -152,7 +144,7 @@ export function TechEcosystem() {
                           className="orbit__spin"
                           style={cssVars({ "--dur": ring.duration, "--counter": ring.counter })}
                         >
-                          <span className="orbit__tile relative flex size-[clamp(2rem,8.6cqw,3.375rem)] items-center justify-center rounded-[28%] border border-line bg-white">
+                          <span className="orbit__tile relative flex size-[clamp(2rem,8.6cqw,3.375rem)] items-center justify-center rounded-[28%] border border-line bg-white text-ink">
                             <TechIcon name={tool.name} />
                             <span className="orbit__label pointer-events-none absolute top-[calc(100%+0.375rem)] left-1/2 rounded-md bg-ink px-2 py-1 text-[0.6875rem] font-semibold whitespace-nowrap text-white">
                               {tool.name}
@@ -165,7 +157,7 @@ export function TechEcosystem() {
                 );
               })}
 
-              <div className="absolute top-1/2 left-1/2 flex size-[28cqw] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-indigo text-center text-paper">
+              <div className="absolute top-1/2 left-1/2 flex size-[28cqw] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-ink text-center text-paper">
                 <NMark className="size-[8cqw]" />
                 <span className="mt-[1.5cqw] font-display text-[4.6cqw] leading-none font-extrabold">{total}+</span>
                 <span className="mt-[0.8cqw] text-[2.1cqw] font-semibold tracking-[0.12em] uppercase opacity-70">

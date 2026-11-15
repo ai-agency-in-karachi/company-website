@@ -3,7 +3,7 @@ import { palette } from "@/lib/tokens";
 
 /**
  * Isometric building blocks for the hero: a small "platform" of solid
- * modules in the brand colours. Drawn as flat-shaded SVG polygons with a
+ * modules in calm neutrals, with a single cobalt block as the accent. Drawn as flat-shaded SVG polygons with a
  * true isometric projection (no gloss, no gradients, no blur). Blocks
  * drop into place on load; two small modules drift gently.
  */
@@ -39,22 +39,28 @@ function poly(points: [number, number, number][]) {
 function shade(hex: string, amount: number) {
   const parse = (value: string) => [1, 3, 5].map((i) => parseInt(value.slice(i, i + 2), 16));
   const [r, g, b] = parse(hex);
-  const [tr, tg, tb] = parse(palette.indigoDeep);
+  const [tr, tg, tb] = parse(palette.ink);
   const mix = (a: number, t: number) => Math.round(a + (t - a) * amount);
   return `#${[mix(r!, tr!), mix(g!, tg!), mix(b!, tb!)].map((v) => v.toString(16).padStart(2, "0")).join("")}`;
 }
 
+/** The tower: a lifted navy, so its shaded faces still read against the ink. */
+const TOWER = "#2A2E4A";
+
+/** Blocks dark enough to need light details on their top face. */
+const dark = (color: string) => color === TOWER || color === palette.night || color === palette.cobalt;
+
 const boxes: Box[] = [
   // The platform everything stands on.
-  { x: 0, y: 0, z: 0, w: 8.4, d: 8.4, h: 0.55, color: "#D8CFFF" },
-  { x: 0.7, y: 0.7, z: 0.55, w: 2.4, d: 2.4, h: 5.2, color: palette.violet, top: "grid" },
-  { x: 3.9, y: 0.8, z: 0.55, w: 3.6, d: 2.3, h: 2.3, color: palette.coral, top: "bars" },
-  { x: 0.8, y: 4.1, z: 0.55, w: 2.6, d: 3.5, h: 1.3, color: palette.lime, top: "rows" },
-  { x: 4.3, y: 4.2, z: 0.55, w: 3.1, d: 3.3, h: 3.3, color: palette.sky, top: "rows" },
-  { x: 5.1, y: 1.4, z: 3.35, w: 1.3, d: 1.3, h: 1.3, color: palette.sun, float: 0, top: "dot" },
-  { x: 1.5, y: 5.2, z: 2.35, w: 1.2, d: 1.2, h: 1.2, color: palette.rose, float: 1.6 },
+  { x: 0, y: 0, z: 0, w: 8.4, d: 8.4, h: 0.55, color: "#E2DED5" },
+  { x: 0.7, y: 0.7, z: 0.55, w: 2.4, d: 2.4, h: 5.2, color: TOWER, top: "grid" },
+  { x: 3.9, y: 0.8, z: 0.55, w: 3.6, d: 2.3, h: 2.3, color: palette.white, top: "bars" },
+  { x: 0.8, y: 4.1, z: 0.55, w: 2.6, d: 3.5, h: 1.3, color: palette.stoneDeep, top: "rows" },
+  { x: 4.3, y: 4.2, z: 0.55, w: 3.1, d: 3.3, h: 3.3, color: palette.cobalt, top: "rows" },
+  { x: 5.1, y: 1.4, z: 3.35, w: 1.3, d: 1.3, h: 1.3, color: palette.cobaltTint, float: 0, top: "dot" },
+  { x: 1.5, y: 5.2, z: 2.35, w: 1.2, d: 1.2, h: 1.2, color: palette.white, float: 1.6 },
   // A thin "screen" slab hovering above the tower.
-  { x: 0.4, y: 0.4, z: 6.75, w: 3, d: 3, h: 0.22, color: palette.indigo, float: 0.8, top: "rows" },
+  { x: 0.4, y: 0.4, z: 6.75, w: 3, d: 3, h: 0.22, color: palette.night, float: 0.8, top: "rows" },
 ];
 
 function TopDetail({ box }: { box: Box }) {
@@ -62,9 +68,9 @@ function TopDetail({ box }: { box: Box }) {
   const { x, y, w, d } = box;
   const ink = shade(box.color, 0.55);
   if (box.top === "rows") {
-    const light = box.color === palette.indigo ? palette.lime : ink;
+    const light = box.color === palette.night ? palette.cobaltSoft : dark(box.color) ? palette.white : ink;
     return (
-      <g fill={light} opacity={box.color === palette.indigo ? 1 : 0.55}>
+      <g fill={light} opacity={box.color === palette.night ? 1 : dark(box.color) ? 0.55 : 0.35}>
         {[0.22, 0.45, 0.68].map((t, i) => (
           <polygon
             key={t}
@@ -91,8 +97,8 @@ function TopDetail({ box }: { box: Box }) {
         {cells.map(([u, v], i) => (
           <polygon
             key={`${u}-${v}`}
-            fill={i === 1 ? palette.lime : palette.white}
-            opacity={i === 1 ? 1 : 0.3}
+            fill={i === 1 ? palette.cobaltSoft : palette.white}
+            opacity={i === 1 ? 1 : 0.22}
             points={poly([
               [x + w * u, y + d * v, z],
               [x + w * (u + 0.3), y + d * v, z],
@@ -106,7 +112,7 @@ function TopDetail({ box }: { box: Box }) {
   }
   if (box.top === "bars") {
     return (
-      <g fill={palette.white} opacity={0.5}>
+      <g fill={palette.ink} opacity={0.18}>
         {[0.25, 0.5, 0.75].map((t, i) => (
           <polygon
             key={t}
@@ -123,7 +129,7 @@ function TopDetail({ box }: { box: Box }) {
   }
   if (box.top === "dot") {
     const [cx, cy] = project(x + w / 2, y + d / 2, z);
-    return <ellipse cx={cx} cy={cy} rx={w * S * 0.28} ry={w * S * 0.16} fill={palette.white} opacity={0.6} />;
+    return <ellipse cx={cx} cy={cy} rx={w * S * 0.28} ry={w * S * 0.16} fill={palette.cobalt} opacity={0.5} />;
   }
   return null;
 }

@@ -1,14 +1,12 @@
 import { home } from "@/content/site";
-import { cn } from "@/lib/cn";
 import { MaskedText } from "@/components/motion/MaskedText";
 import { Reveal } from "@/components/motion/Reveal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
-/* Google-inspired touches only: the four-colour palette, yellow stars and
-   initial avatars. No Google logo, and no claim that reviews are verified. */
-const avatarColors = ["#4285F4", "#EA4335", "#34A853", "#FBBC04", "#4285F4", "#EA4335"];
-const avatarText = ["text-white", "text-white", "text-white", "text-ink", "text-white", "text-white"];
-const STAR = "#FBBC04";
+/* Review-platform conventions kept quiet: five stars in a muted gold (the
+   rating signal people recognise) and initials instead of photos. No
+   platform logo, and no claim that reviews are verified. */
+const STAR = "#C99A2E";
 
 function Stars({ size = "size-4" }: { size?: string }) {
   return (
@@ -41,11 +39,7 @@ export function Reviews() {
           <figcaption className="flex items-center gap-3">
             <span
               aria-hidden="true"
-              className={cn(
-                "flex size-10 shrink-0 items-center justify-center rounded-full font-display text-[1rem] font-bold",
-                avatarText[index],
-              )}
-              style={{ backgroundColor: avatarColors[index] }}
+              className="flex size-10 shrink-0 items-center justify-center rounded-full bg-stone font-display text-[1rem] font-bold text-ink"
             >
               {review.name[0]}
             </span>
@@ -77,13 +71,7 @@ export function Reviews() {
             <Reveal delay={100}>
               <p className="mt-6 text-lead text-fg-soft">{content.description}</p>
               <div className="mt-10 rounded-card bg-raise p-6">
-                <span aria-hidden="true" className="flex h-1 overflow-hidden rounded-full">
-                  <span className="flex-1 bg-[#4285F4]" />
-                  <span className="flex-1 bg-[#EA4335]" />
-                  <span className="flex-1 bg-[#FBBC04]" />
-                  <span className="flex-1 bg-[#34A853]" />
-                </span>
-                <p className="eyebrow mt-5 text-fg-soft">{content.ratingLabel}</p>
+                <p className="eyebrow text-fg-soft">{content.ratingLabel}</p>
                 <div className="mt-2 flex items-center gap-4">
                   <span className="font-display text-[3.5rem] leading-none font-extrabold tracking-[-0.04em] text-fg">
                     5.0

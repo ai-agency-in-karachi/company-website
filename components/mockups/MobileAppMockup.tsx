@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 function Phone({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <div className={cn("w-[15.5rem] shrink-0 rounded-[2.25rem] bg-ink p-2 shadow-mock", className)}>
-      <div className="relative h-[31rem] overflow-hidden rounded-[1.75rem] bg-[#FBF9F5] text-ink">
+      <div className="relative h-[31rem] overflow-hidden rounded-[1.75rem] bg-[#F8F7F4] text-ink">
         <div className="flex items-center justify-between px-5 pt-3 text-[10px] font-semibold">
           <span>9:41</span>
           <span aria-hidden="true" className="h-4 w-16 rounded-full bg-ink" />
@@ -18,10 +18,10 @@ function Phone({ children, className }: { children: ReactNode; className?: strin
 }
 
 const actions = [
-  { label: "New order", icon: Plus, tone: "bg-violet text-white" },
-  { label: "Approvals", icon: ClipboardCheck, tone: "bg-coral text-ink", badge: 3 },
-  { label: "Stock", icon: Package, tone: "bg-sky text-ink" },
-  { label: "Customers", icon: Users, tone: "bg-lime text-ink" },
+  { label: "New order", icon: Plus, tone: "bg-cobalt text-white" },
+  { label: "Approvals", icon: ClipboardCheck, tone: "bg-white text-ink", badge: 3 },
+  { label: "Stock", icon: Package, tone: "bg-white text-ink" },
+  { label: "Customers", icon: Users, tone: "bg-white text-ink" },
 ];
 
 /** Two screens of a mobile business app: home and approvals. */
@@ -37,15 +37,15 @@ export function MobileAppMockup() {
             </div>
             <span className="relative grid size-8 place-items-center rounded-full bg-white">
               <Bell aria-hidden="true" className="size-3.5" />
-              <span className="absolute top-1.5 right-2 size-1.5 rounded-full bg-coral" />
+              <span className="absolute top-1.5 right-2 size-1.5 rounded-full bg-cobalt" />
             </span>
           </div>
 
-          <div className="mt-4 rounded-2xl bg-indigo p-4 text-white">
+          <div className="mt-4 rounded-2xl bg-ink p-4 text-white">
             <p className="text-[10px] text-white/60">Today&apos;s sales</p>
             <p className="mt-1 font-display text-[22px] leading-none font-extrabold">PKR 186,400</p>
             <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/15">
-              <span className="block h-full w-[72%] rounded-full bg-lime" />
+              <span className="block h-full w-[72%] rounded-full bg-cobalt-soft" />
             </div>
             <p className="mt-1.5 flex justify-between text-[9.5px] text-white/60">
               <span>72% of daily target</span>
@@ -80,7 +80,7 @@ export function MobileAppMockup() {
                 <span
                   className={cn(
                     "grid size-5 place-items-center rounded-full border-[1.5px]",
-                    done ? "border-emerald bg-emerald text-white" : "border-ink/25",
+                    done ? "border-success bg-success text-white" : "border-ink/25",
                   )}
                 >
                   {done ? <Check aria-hidden="true" className="size-3" /> : null}
@@ -94,7 +94,7 @@ export function MobileAppMockup() {
           </ul>
         </div>
         <div className="absolute inset-x-0 bottom-0 flex justify-around border-t border-ink/8 bg-white py-3 text-[9px] font-semibold text-ink/45">
-          <span className="text-violet">Home</span>
+          <span className="text-cobalt">Home</span>
           <span>Orders</span>
           <span>Stock</span>
           <span>Profile</span>
@@ -103,7 +103,7 @@ export function MobileAppMockup() {
 
       <Phone className="-ml-16 hidden translate-y-10 text-[11px] @lg:block">
         <div className="mx-3 mt-3 flex items-center gap-2 rounded-2xl bg-ink px-3 py-2.5 text-white">
-          <span className="grid size-6 place-items-center rounded-full bg-lime text-ink">
+          <span className="grid size-6 place-items-center rounded-full bg-cobalt-soft text-ink">
             <Check aria-hidden="true" className="size-3.5" />
           </span>
           <span className="text-[10px] leading-tight">
@@ -116,9 +116,9 @@ export function MobileAppMockup() {
           <p className="text-[10px] text-ink/55">3 waiting for you</p>
           <ul className="mt-3 space-y-2.5">
             {[
-              ["Discount request", "Vertex Labs · 8% off", "bg-sun"],
-              ["Stock transfer", "Lahore → Karachi · 40 units", "bg-sky"],
-              ["Expense claim", "Fuel · PKR 6,500", "bg-rose"],
+              ["Discount request", "Vertex Labs · 8% off", "bg-cobalt"],
+              ["Stock transfer", "Lahore → Karachi · 40 units", "bg-ink"],
+              ["Expense claim", "Fuel · PKR 6,500", "bg-stone-deep"],
             ].map(([title, detail, tone]) => (
               <li key={title} className="rounded-2xl bg-white p-3">
                 <div className="flex items-center gap-2">
@@ -130,7 +130,7 @@ export function MobileAppMockup() {
                   <span className="flex h-7 items-center justify-center gap-1 rounded-full border border-ink/15">
                     <X aria-hidden="true" className="size-3" /> Decline
                   </span>
-                  <span className="flex h-7 items-center justify-center gap-1 rounded-full bg-violet text-white">
+                  <span className="flex h-7 items-center justify-center gap-1 rounded-full bg-cobalt text-white">
                     <Check aria-hidden="true" className="size-3" /> Approve
                   </span>
                 </div>

@@ -55,7 +55,7 @@ export function MobileMenu({ open, onClose, isActive }: MobileMenuProps) {
       id="mobile-menu"
       aria-label={site.ui.menuTitle}
       className="menu-dialog"
-      data-tone-fixed="indigo"
+      data-tone-fixed="night"
       onClose={() => {
         unlockScroll();
         onClose();

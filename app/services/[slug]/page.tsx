@@ -7,7 +7,7 @@ import { serviceDetail, site } from "@/content/site";
 import { getAdjacentServices, getService, services } from "@/content/services";
 import { cn, cssVars } from "@/lib/cn";
 import { pageMetadata } from "@/lib/seo";
-import { serviceColors, serviceIcons } from "@/lib/service-style";
+import { serviceIcons, serviceStyle } from "@/lib/service-style";
 import { TechIcon } from "@/lib/tech-icons";
 import { MaskedText } from "@/components/motion/MaskedText";
 import { PageTransition } from "@/components/motion/PageTransition";
@@ -56,7 +56,6 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
   if (!service) notFound();
 
   const { previous, next } = getAdjacentServices(service.slug);
-  const colors = serviceColors[service.color];
   const Icon = serviceIcons[service.icon];
   const total = String(services.length).padStart(2, "0");
 
@@ -72,7 +71,13 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
             <div className="mt-10 grid grid-cols-1 gap-10 lg:mt-14 lg:grid-cols-12 lg:gap-10">
               <div className="lg:col-span-8">
                 <div className="hero-anim hero-rise flex items-center gap-4" style={cssVars({ "--d": "0ms" })}>
-                  <span className={cn("flex size-14 items-center justify-center rounded-2xl", colors.bg, colors.fg)}>
+                  <span
+                    className={cn(
+                      "flex size-14 items-center justify-center rounded-2xl",
+                      serviceStyle.surface,
+                      serviceStyle.onSurface,
+                    )}
+                  >
                     <Icon aria-hidden="true" strokeWidth={1.75} className="size-7" />
                   </span>
                   <span className="numeral text-small font-semibold text-fg-soft">
@@ -127,7 +132,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
                     index={index}
                     className="border-t border-line py-6 first:border-t-0 sm:[&:nth-child(2)]:border-t-0"
                   >
-                    <span aria-hidden="true" className={cn("block h-1 w-8 rounded-full", colors.bg)} />
+                    <span aria-hidden="true" className={cn("block h-1 w-8 rounded-full", serviceStyle.accent)} />
                     <h3 className="mt-4 font-display text-title font-bold text-fg">{offering.title}</h3>
                     <p className="mt-2 text-fg-soft">{offering.text}</p>
                   </StaggerItem>
@@ -192,8 +197,8 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
                         <span
                           className={cn(
                             "mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full",
-                            colors.bg,
-                            colors.fg,
+                            serviceStyle.accent,
+                            serviceStyle.onAccent,
                           )}
                         >
                           <Check aria-hidden="true" strokeWidth={2.5} className="size-3.5" />

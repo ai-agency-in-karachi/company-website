@@ -4,14 +4,14 @@ import { MaskedText } from "@/components/motion/MaskedText";
 import { Reveal } from "@/components/motion/Reveal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
-const accents = ["bg-violet", "bg-coral", "bg-emerald", "bg-sky", "bg-sun"];
 /** Each point steps further in, so the list rises like a ladder towards "Designed to Grow". */
 const steps = ["lg:ml-0", "lg:ml-[8%]", "lg:ml-[16%]", "lg:ml-[24%]", "lg:ml-[32%]"];
 
 /**
  * Why choose us: five points as a rising ladder of typography instead of
- * cards. Each point has its own colour block, and they step diagonally
- * across the page in reading order.
+ * cards. Each point has a numbered ink tile, and they step diagonally
+ * across the page in reading order; the last one, "Designed to Grow",
+ * carries the cobalt accent.
  */
 export function WhyChooseUs() {
   const content = home.why;
@@ -37,8 +37,7 @@ export function WhyChooseUs() {
                     aria-hidden="true"
                     className={cn(
                       "flex size-12 items-center justify-center rounded-[0.875rem] font-display text-[1.25rem] font-extrabold md:size-14",
-                      accents[index],
-                      index === 0 || index === 2 ? "text-white" : "text-ink",
+                      index === content.points.length - 1 ? "bg-cobalt text-white" : "bg-ink text-paper",
                     )}
                   >
                     {index + 1}

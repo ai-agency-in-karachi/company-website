@@ -14,7 +14,7 @@ const nodes: Node[] = [
     title: "New lead",
     detail: "Form · WhatsApp · Email",
     icon: Webhook,
-    tone: "bg-violet text-white",
+    tone: "bg-cobalt text-white",
   },
   {
     id: "ai",
@@ -23,7 +23,7 @@ const nodes: Node[] = [
     title: "AI classify",
     detail: "Score and tag the lead",
     icon: Bot,
-    tone: "bg-coral text-ink",
+    tone: "bg-ink text-white",
   },
   {
     id: "branch",
@@ -32,7 +32,7 @@ const nodes: Node[] = [
     title: "If hot lead",
     detail: "Score above 80",
     icon: GitBranch,
-    tone: "bg-sun text-ink",
+    tone: "bg-stone text-ink",
   },
   {
     id: "crm",
@@ -41,7 +41,7 @@ const nodes: Node[] = [
     title: "Update CRM",
     detail: "Create deal, assign owner",
     icon: Database,
-    tone: "bg-sky text-ink",
+    tone: "bg-stone text-ink",
   },
   {
     id: "notify",
@@ -50,7 +50,7 @@ const nodes: Node[] = [
     title: "Notify sales",
     detail: "Message the team",
     icon: MessageCircle,
-    tone: "bg-emerald text-white",
+    tone: "bg-stone text-ink",
   },
   {
     id: "nurture",
@@ -59,7 +59,7 @@ const nodes: Node[] = [
     title: "Nurture",
     detail: "Send follow-up emails",
     icon: Mail,
-    tone: "bg-rose text-ink",
+    tone: "bg-stone text-ink",
   },
 ];
 
@@ -95,28 +95,28 @@ export function WorkflowMockup() {
       <Window title="Lead Flow · Automation" className="text-[12px]">
         <div className="flex items-center gap-2 border-b border-ink/8 bg-white px-4 py-2.5">
           <span className="font-semibold">Lead capture to CRM</span>
-          <span className="inline-flex items-center gap-1 rounded-full bg-emerald/15 px-2 py-0.5 text-[10px] font-bold text-[#0B7A5E]">
-            <span className="live-dot size-1.5 rounded-full bg-emerald" /> Active
+          <span className="inline-flex items-center gap-1 rounded-full bg-success/12 px-2 py-0.5 text-[10px] font-bold text-success">
+            <span className="live-dot size-1.5 rounded-full bg-success" /> Active
           </span>
           <span className="ml-auto hidden text-[10.5px] text-ink/50 @md:inline">Last run 2 min ago</span>
         </div>
 
         <div
-          className="relative bg-[#FBFAF6]"
+          className="relative bg-[#F8F7F4]"
           style={{
             aspectRatio: `${W} / ${H}`,
-            backgroundImage: "radial-gradient(rgba(22,18,63,0.14) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(rgba(17,19,34,0.14) 1px, transparent 1px)",
             backgroundSize: "18px 18px",
           }}
         >
           <svg viewBox={`0 0 ${W} ${H}`} className="absolute inset-0 h-full w-full" aria-hidden="true">
             {edges.map(([from, to]) => (
               <g key={`${from}-${to}`}>
-                <path d={edgePath(from, to)} fill="none" stroke="#16123F" strokeOpacity="0.15" strokeWidth="2.5" />
+                <path d={edgePath(from, to)} fill="none" stroke="#111322" strokeOpacity="0.12" strokeWidth="2.5" />
                 <path
                   d={edgePath(from, to)}
                   fill="none"
-                  stroke={to === "nurture" ? "#FF7EB3" : "#5B3DF5"}
+                  stroke={to === "nurture" ? "#8D8A99" : "#3245D1"}
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   className="flow-edge"
@@ -129,7 +129,7 @@ export function WorkflowMockup() {
             <div
               key={node.id}
               className={cn(
-                "absolute flex items-center gap-2 rounded-xl border border-ink/10 bg-white p-2 shadow-[0_2px_0_rgba(22,18,63,0.06)]",
+                "absolute flex items-center gap-2 rounded-xl border border-ink/10 bg-white p-2 shadow-[0_2px_0_rgba(17,19,34,0.06)]",
               )}
               style={{
                 left: `${(node.x / W) * 100}%`,
@@ -156,7 +156,7 @@ export function WorkflowMockup() {
             ["Run #1040", "CRM deal created", "1.4s"],
           ].map(([run, detail, time], index) => (
             <div key={run} className={cn("flex items-start gap-2", index > 0 && "hidden @md:flex")}>
-              <CircleCheck aria-hidden="true" className="mt-px size-3.5 shrink-0 text-emerald" />
+              <CircleCheck aria-hidden="true" className="mt-px size-3.5 shrink-0 text-success" />
               <span className="min-w-0">
                 <span className="block font-semibold">
                   {run} <span className="numeral font-normal text-ink/45">· {time}</span>
@@ -170,7 +170,7 @@ export function WorkflowMockup() {
 
       <div className="absolute -top-4 right-4 rounded-xl bg-ink px-3.5 py-2.5 text-white shadow-mock @lg:-right-4">
         <p className="text-[10px] text-white/60">Hours saved this week</p>
-        <p className="font-display text-[1.25rem] leading-tight font-bold text-lime">31 h</p>
+        <p className="font-display text-[1.25rem] leading-tight font-bold text-cobalt-soft">31 h</p>
       </div>
     </div>
   );

@@ -9,8 +9,8 @@
 
 export type ProjectVisual = "whatsapp" | "voice" | "dashboard" | "ecommerce" | "mobile" | "workflow";
 
-/** The colour of the panel behind the mockup. */
-export type ProjectStage = "emerald" | "coral" | "violet" | "rose" | "sun" | "lime";
+/** The surface behind the mockup: deep ink or light stone. */
+export type ProjectStage = "night" | "stone";
 
 export type Project = {
   slug: string;
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     ],
     stack: ["WhatsApp API", "Node.js", "React", "PostgreSQL", "Redis"],
     visual: "whatsapp",
-    stage: "emerald",
+    stage: "night",
     service: "business-automation",
   },
   {
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     ],
     stack: ["OpenAI", "Python", "LangChain", "Twilio", "PostgreSQL"],
     visual: "voice",
-    stage: "coral",
+    stage: "stone",
     service: "ai-solutions",
   },
   {
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     ],
     stack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
     visual: "dashboard",
-    stage: "violet",
+    stage: "night",
     service: "software-development",
   },
   {
@@ -122,7 +122,7 @@ export const projects: Project[] = [
     ],
     stack: ["Next.js", "Shopify", "Tailwind CSS", "Stripe", "Vercel"],
     visual: "ecommerce",
-    stage: "rose",
+    stage: "stone",
     service: "ecommerce-solutions",
   },
   {
@@ -145,7 +145,7 @@ export const projects: Project[] = [
     ],
     stack: ["Flutter", "Firebase", "Node.js", "PostgreSQL"],
     visual: "mobile",
-    stage: "sun",
+    stage: "night",
     service: "mobile-app-development",
   },
   {
@@ -168,7 +168,7 @@ export const projects: Project[] = [
     ],
     stack: ["n8n", "OpenAI", "Webhooks", "REST APIs", "Google Cloud"],
     visual: "workflow",
-    stage: "lime",
+    stage: "stone",
     service: "business-automation",
   },
 ];

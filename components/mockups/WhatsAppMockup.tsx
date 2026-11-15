@@ -9,7 +9,7 @@ const chats = [
     time: "10:42",
     unread: 2,
     label: "Orders",
-    tone: "bg-sun text-ink",
+    tone: "bg-cobalt-tint text-cobalt",
     active: true,
   },
   {
@@ -18,7 +18,7 @@ const chats = [
     time: "10:31",
     unread: 0,
     label: "Sales",
-    tone: "bg-sky text-ink",
+    tone: "bg-stone text-ink",
   },
   {
     name: "Zainab Qureshi",
@@ -26,7 +26,7 @@ const chats = [
     time: "10:18",
     unread: 1,
     label: "Support",
-    tone: "bg-rose text-ink",
+    tone: "bg-stone text-ink",
   },
   {
     name: "Omar Siddiqui",
@@ -34,7 +34,7 @@ const chats = [
     time: "09:56",
     unread: 0,
     label: "Orders",
-    tone: "bg-lime text-ink",
+    tone: "bg-stone text-ink",
   },
   {
     name: "Mehwish Ali",
@@ -42,7 +42,7 @@ const chats = [
     time: "09:40",
     unread: 0,
     label: "Sales",
-    tone: "bg-periwinkle text-ink",
+    tone: "bg-stone text-ink",
   },
 ];
 
@@ -55,34 +55,34 @@ export function WhatsAppMockup() {
           {/* Conversation list */}
           <div className="hidden border-r border-ink/8 bg-white @xl:block">
             <div className="p-3">
-              <div className="flex h-8 items-center gap-2 rounded-lg bg-[#F2EEE6] px-2.5 text-ink/50">
+              <div className="flex h-8 items-center gap-2 rounded-lg bg-paper px-2.5 text-ink/50">
                 <Search aria-hidden="true" className="size-3.5" />
                 Search chats
               </div>
               <div className="mt-2.5 flex gap-1.5 text-[10.5px] font-semibold">
-                <span className="rounded-full bg-emerald px-2.5 py-1 text-white">All</span>
-                <span className="rounded-full bg-[#F2EEE6] px-2.5 py-1">Unread</span>
-                <span className="rounded-full bg-[#F2EEE6] px-2.5 py-1">Orders</span>
+                <span className="rounded-full bg-ink px-2.5 py-1 text-white">All</span>
+                <span className="rounded-full bg-paper px-2.5 py-1">Unread</span>
+                <span className="rounded-full bg-paper px-2.5 py-1">Orders</span>
               </div>
             </div>
             <ul>
               {chats.map((chat) => (
                 <li
                   key={chat.name}
-                  className={cn("flex gap-2.5 border-t border-ink/6 px-3 py-2.5", chat.active && "bg-[#E9F7F1]")}
+                  className={cn("flex gap-2.5 border-t border-ink/6 px-3 py-2.5", chat.active && "bg-cobalt-tint/50")}
                 >
                   <Initial name={chat.name} className={chat.tone} />
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between gap-2">
                       <span className="truncate font-semibold">{chat.name}</span>
-                      <span className={cn("text-[10px]", chat.unread ? "font-semibold text-emerald" : "text-ink/45")}>
+                      <span className={cn("text-[10px]", chat.unread ? "font-semibold text-cobalt" : "text-ink/45")}>
                         {chat.time}
                       </span>
                     </div>
                     <div className="mt-0.5 flex items-center justify-between gap-2">
                       <span className="truncate text-ink/55">{chat.text}</span>
                       {chat.unread ? (
-                        <span className="flex size-4 shrink-0 items-center justify-center rounded-full bg-emerald text-[9px] font-bold text-white">
+                        <span className="flex size-4 shrink-0 items-center justify-center rounded-full bg-cobalt text-[9px] font-bold text-white">
                           {chat.unread}
                         </span>
                       ) : null}
@@ -94,39 +94,39 @@ export function WhatsAppMockup() {
           </div>
 
           {/* Conversation */}
-          <div className="flex min-h-[23rem] flex-col bg-[#EFEAE2]">
+          <div className="flex min-h-[23rem] flex-col bg-[#F1EFEA]">
             <div className="flex items-center gap-2.5 border-b border-ink/8 bg-white px-3.5 py-2.5">
-              <Initial name="Fatima Noor" className="bg-sun text-ink" />
+              <Initial name="Fatima Noor" className="bg-cobalt-tint text-cobalt" />
               <div className="min-w-0 flex-1">
                 <p className="font-semibold">Fatima Noor</p>
-                <p className="text-[10.5px] text-emerald">online · assigned to Sana</p>
+                <p className="text-[10.5px] text-success">online · assigned to Sana</p>
               </div>
-              <span className="rounded-full bg-sun/30 px-2 py-0.5 text-[10px] font-semibold">Orders</span>
+              <span className="rounded-full bg-stone px-2 py-0.5 text-[10px] font-semibold">Orders</span>
             </div>
 
             <div className="flex-1 space-y-2.5 p-3.5">
               <p className="mx-auto w-fit rounded-md bg-white/80 px-2 py-0.5 text-[10px] text-ink/55">Today</p>
-              <div className="max-w-[78%] rounded-xl rounded-tl-sm bg-white px-3 py-2 shadow-[0_1px_0_rgba(22,18,63,0.06)]">
+              <div className="max-w-[78%] rounded-xl rounded-tl-sm bg-white px-3 py-2 shadow-[0_1px_0_rgba(17,19,34,0.06)]">
                 Assalam o Alaikum! Is my order #4821 shipped?
                 <span className="mt-0.5 block text-right text-[9.5px] text-ink/40">10:41</span>
               </div>
-              <div className="ml-auto max-w-[84%] rounded-xl rounded-tr-sm bg-[#D9FDD3] px-3 py-2 shadow-[0_1px_0_rgba(22,18,63,0.06)]">
-                <span className="mb-1 inline-flex items-center gap-1 rounded bg-emerald/15 px-1.5 py-0.5 text-[9.5px] font-bold text-[#0B7A5E]">
+              <div className="ml-auto max-w-[84%] rounded-xl rounded-tr-sm bg-cobalt-tint px-3 py-2 shadow-[0_1px_0_rgba(17,19,34,0.06)]">
+                <span className="mb-1 inline-flex items-center gap-1 rounded bg-cobalt/12 px-1.5 py-0.5 text-[9.5px] font-bold text-cobalt">
                   <Zap aria-hidden="true" className="size-2.5" /> Auto-reply
                 </span>
                 <p>Walaikum Assalam Fatima! Your order has shipped and arrives on Thursday.</p>
                 <div className="mt-2 flex items-center gap-2.5 rounded-lg bg-white p-2">
-                  <span aria-hidden="true" className="grid size-10 shrink-0 place-items-center rounded-md bg-violet">
-                    <span className="h-5 w-4 rounded-t-full bg-lime" />
+                  <span aria-hidden="true" className="grid size-10 shrink-0 place-items-center rounded-md bg-ink">
+                    <span className="h-5 w-4 rounded-t-full bg-cobalt-soft" />
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block truncate font-semibold">Order #4821 · 2 items</span>
                     <span className="block text-[10.5px] text-ink/55">Courier · Tracking LHR-90213</span>
                   </span>
-                  <span className="rounded-full bg-emerald px-2 py-0.5 text-[9.5px] font-bold text-white">Shipped</span>
+                  <span className="rounded-full bg-success px-2 py-0.5 text-[9.5px] font-bold text-white">Shipped</span>
                 </div>
                 <span className="mt-1 flex items-center justify-end gap-1 text-[9.5px] text-ink/40">
-                  10:41 <CheckCheck aria-hidden="true" className="size-3 text-sky" />
+                  10:41 <CheckCheck aria-hidden="true" className="size-3 text-cobalt" />
                 </span>
               </div>
               <div className="max-w-[60%] rounded-xl rounded-tl-sm bg-white px-3 py-2">
@@ -146,7 +146,7 @@ export function WhatsAppMockup() {
 
             <div className="flex flex-wrap gap-1.5 px-3.5 pb-2.5 text-[10.5px] font-semibold">
               {["Track order", "Return policy", "Talk to an agent"].map((chip) => (
-                <span key={chip} className="rounded-full border border-emerald/40 bg-white px-2.5 py-1 text-[#0B7A5E]">
+                <span key={chip} className="rounded-full border border-cobalt/30 bg-white px-2.5 py-1 text-cobalt">
                   {chip}
                 </span>
               ))}
@@ -155,7 +155,7 @@ export function WhatsAppMockup() {
               <Smile aria-hidden="true" className="size-4" />
               <Paperclip aria-hidden="true" className="size-4" />
               <span className="flex h-8 flex-1 items-center rounded-full bg-white px-3">Type a message</span>
-              <span className="flex size-8 items-center justify-center rounded-full bg-emerald text-white">
+              <span className="flex size-8 items-center justify-center rounded-full bg-cobalt text-white">
                 <Send aria-hidden="true" className="size-3.5" />
               </span>
             </div>
@@ -164,8 +164,8 @@ export function WhatsAppMockup() {
       </Window>
 
       {/* Floating insight chips */}
-      <div className="absolute -top-4 right-4 rounded-xl bg-ink px-3.5 py-2.5 text-white shadow-mock @lg:-right-4">
-        <p className="text-[10px] text-white/60">Avg. first reply</p>
+      <div className="absolute -top-4 right-4 rounded-xl bg-white px-3.5 py-2.5 text-ink shadow-mock @lg:-right-4">
+        <p className="text-[10px] text-ink/55">Avg. first reply</p>
         <p className="font-display text-[1.25rem] leading-tight font-bold">12 sec</p>
       </div>
       <div className="absolute -bottom-5 left-4 hidden rounded-xl bg-white px-3.5 py-2.5 shadow-mock @md:block @lg:-left-5">
@@ -173,7 +173,7 @@ export function WhatsAppMockup() {
         <div className="mt-1 flex items-center gap-2">
           <span className="font-display text-[1.25rem] leading-tight font-bold text-ink">68%</span>
           <span className="h-1.5 w-20 overflow-hidden rounded-full bg-ink/10">
-            <span className="block h-full w-[68%] rounded-full bg-emerald" />
+            <span className="block h-full w-[68%] rounded-full bg-cobalt" />
           </span>
         </div>
       </div>

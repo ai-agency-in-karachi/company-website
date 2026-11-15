@@ -1,3 +1,6 @@
+// Reads RESEND_API_KEY and the contact addresses. "server-only" makes the
+// build fail if this module is ever imported into browser code.
+import "server-only";
 import { Resend } from "resend";
 import { site } from "@/content/site";
 import { getService } from "@/content/services";
@@ -42,22 +45,22 @@ function layout(content: string) {
   return `<!doctype html><html><body style="margin:0;padding:0;background:${palette.paper};">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${palette.paper};padding:32px 16px;">
 <tr><td align="center">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:${palette.white};border:1px solid ${palette.paperDeep};border-radius:8px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:${palette.white};border:1px solid ${palette.stone};border-radius:8px;">
 <tr><td style="padding:32px;font-family:Inter,Arial,sans-serif;color:${palette.ink};font-size:16px;line-height:1.6;">
 ${content}
 </td></tr></table>
-<p style="font-family:Inter,Arial,sans-serif;font-size:13px;color:${palette.indigo};margin:16px 0 0;">${escapeHtml(site.name)}</p>
+<p style="font-family:Inter,Arial,sans-serif;font-size:13px;color:${palette.mist};margin:16px 0 0;">${escapeHtml(site.name)}</p>
 </td></tr></table></body></html>`;
 }
 
 function row(label: string, value: string) {
-  return `<tr><td style="padding:10px 0;border-bottom:1px solid ${palette.paperDeep};vertical-align:top;width:110px;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:${palette.indigo};">${escapeHtml(label)}</td><td style="padding:10px 0;border-bottom:1px solid ${palette.paperDeep};vertical-align:top;">${value}</td></tr>`;
+  return `<tr><td style="padding:10px 0;border-bottom:1px solid ${palette.stone};vertical-align:top;width:110px;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:${palette.mist};">${escapeHtml(label)}</td><td style="padding:10px 0;border-bottom:1px solid ${palette.stone};vertical-align:top;">${value}</td></tr>`;
 }
 
 export function enquiryEmail(input: ContactInput) {
   const message = escapeHtml(input.message).replace(/\r?\n/g, "<br>");
   const html = layout(`
-<p style="margin:0 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:${palette.indigo};">New enquiry</p>
+<p style="margin:0 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:${palette.mist};">New enquiry</p>
 <h1 style="margin:0 0 24px;font-size:24px;line-height:1.2;font-weight:600;">${escapeHtml(input.name)}</h1>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:15px;">
 ${row("Name", escapeHtml(input.name))}
@@ -65,7 +68,7 @@ ${row("Email", `<a href="mailto:${escapeHtml(input.email)}" style="color:${palet
 ${row("Phone", escapeHtml(input.phone || "Not given"))}
 ${row("Service", escapeHtml(serviceTitle(input.service)))}
 </table>
-<p style="margin:24px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:${palette.indigo};">Message</p>
+<p style="margin:24px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:${palette.mist};">Message</p>
 <p style="margin:0;">${message}</p>`);
 
   const text = [

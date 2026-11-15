@@ -6,7 +6,7 @@ import { home, servicesPage } from "@/content/site";
 import { services } from "@/content/services";
 import { cn, cssVars } from "@/lib/cn";
 import { pageMetadata } from "@/lib/seo";
-import { serviceColors, serviceIcons } from "@/lib/service-style";
+import { serviceIcons, serviceStyle } from "@/lib/service-style";
 import { MaskedText } from "@/components/motion/MaskedText";
 import { PageTransition } from "@/components/motion/PageTransition";
 import { Reveal } from "@/components/motion/Reveal";
@@ -20,16 +20,10 @@ export const metadata: Metadata = pageMetadata({
   path: "/services",
 });
 
-/** Text on the hover band must read on that service's colour. */
-const hoverText: Record<string, string> = {
-  "text-white": "group-hover:text-white group-focus-visible:text-white",
-  "text-ink": "group-hover:text-ink group-focus-visible:text-ink",
-};
-
 /**
  * Services index: clean, text-first and scannable. Each service is one
- * row (number, name, summary, what it includes); hovering slides the
- * service's colour band up behind it. Each row opens the service's own
+ * row (number, name, summary, what it includes); hovering slides an
+ * ink band up behind it. Each row opens the service's own
  * detail page, and the title morphs into its heading.
  */
 export default function ServicesPage() {
@@ -66,7 +60,6 @@ export default function ServicesPage() {
             </p>
             <Stagger as="ol" stagger={50}>
               {services.map((service, index) => {
-                const colors = serviceColors[service.color];
                 const Icon = serviceIcons[service.icon];
                 return (
                   <StaggerItem as="li" key={service.slug} index={index} className="border-b border-line">
@@ -75,11 +68,14 @@ export default function ServicesPage() {
                       prefetch
                       className="service-row group relative block overflow-hidden focus-visible:outline-offset-[-2px]"
                     >
-                      <span aria-hidden="true" className={cn("service-row__band absolute inset-0", colors.bg)} />
+                      <span
+                        aria-hidden="true"
+                        className={cn("service-row__band absolute inset-0", serviceStyle.surface)}
+                      />
                       <span
                         className={cn(
                           "service-row__shift relative grid grid-cols-[2.25rem_1fr_auto] gap-x-4 gap-y-4 py-7 transition-colors duration-[var(--dur-base)] md:grid-cols-[4rem_1fr_auto] md:py-9 lg:grid-cols-[4rem_minmax(0,1.25fr)_minmax(0,1fr)_auto] lg:items-center lg:gap-x-10 lg:px-4",
-                          hoverText[colors.fg],
+                          "group-hover:text-paper group-focus-visible:text-paper",
                         )}
                       >
                         <span className="numeral pt-2 text-small font-semibold lg:pt-0">{service.index}</span>

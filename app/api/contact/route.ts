@@ -1,3 +1,4 @@
+import "server-only";
 import type { NextRequest } from "next/server";
 import { contactPage, site } from "@/content/site";
 import { contactSchema, fieldErrors } from "@/lib/contact-schema";

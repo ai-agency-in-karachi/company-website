@@ -8,7 +8,7 @@ import { useState } from "react";
 import { home } from "@/content/site";
 import { services } from "@/content/services";
 import { cn } from "@/lib/cn";
-import { serviceColors, serviceIcons } from "@/lib/service-style";
+import { serviceIcons, serviceStyle } from "@/lib/service-style";
 import { MaskedText } from "@/components/motion/MaskedText";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
@@ -18,14 +18,13 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 /**
  * Services overview as an interactive index rather than a grid of cards.
  * Hovering or focusing a service lights it up (a bar glides between rows
- * with Framer Motion layoutId) and the colour panel beside the list swaps
+ * with Framer Motion layoutId) and the ink panel beside the list swaps
  * to that service. On small screens each row simply shows its summary.
  */
 export function ServicesOverview() {
   const content = home.services;
   const [active, setActive] = useState(0);
   const service = services[active]!;
-  const colors = serviceColors[service.color];
   const Icon = serviceIcons[service.icon];
 
   return (
@@ -45,7 +44,6 @@ export function ServicesOverview() {
           <Stagger as="ol" stagger={50} className="border-t border-line lg:col-span-7">
             {services.map((item, index) => {
               const lit = index === active;
-              const itemColors = serviceColors[item.color];
               return (
                 <StaggerItem as="li" key={item.slug} index={index} className="relative border-b border-line">
                   {lit ? (
@@ -84,7 +82,7 @@ export function ServicesOverview() {
                       aria-hidden="true"
                       className={cn(
                         "mt-1 flex size-10 items-center justify-center rounded-full border border-line-strong transition-[background-color,border-color,color,rotate] duration-[var(--dur-slow)] ease-brand lg:mt-0",
-                        lit && `lg:rotate-45 lg:border-transparent ${itemColors.bg} ${itemColors.fg}`,
+                        lit && `lg:rotate-45 lg:border-transparent ${serviceStyle.accent} ${serviceStyle.onAccent}`,
                       )}
                     >
                       <ArrowUpRight strokeWidth={2} className="size-[1.125rem]" />
@@ -101,8 +99,8 @@ export function ServicesOverview() {
               <div
                 className={cn(
                   "relative aspect-[4/5] overflow-hidden rounded-panel transition-colors duration-[var(--dur-slow)] ease-brand",
-                  colors.bg,
-                  colors.fg,
+                  serviceStyle.surface,
+                  serviceStyle.onSurface,
                 )}
               >
                 <AnimatePresence mode="popLayout" initial={false}>
@@ -118,11 +116,11 @@ export function ServicesOverview() {
                       <span className="numeral text-small font-semibold">
                         {service.index} / {String(services.length).padStart(2, "0")}
                       </span>
-                      <span className="flex size-14 items-center justify-center rounded-2xl bg-ink text-white">
+                      <span className="flex size-14 items-center justify-center rounded-2xl bg-cobalt text-white">
                         <Icon strokeWidth={1.75} className="size-7" />
                       </span>
                     </div>
-                    <Icon strokeWidth={0.6} className="absolute -right-10 -bottom-10 size-[22rem] opacity-[0.16]" />
+                    <Icon strokeWidth={0.6} className="absolute -right-10 -bottom-10 size-[22rem] opacity-[0.08]" />
                     <div className="relative mt-auto">
                       <p className="font-display text-[2.5rem] leading-[1] font-bold tracking-[-0.04em] xl:text-[2.875rem]">
                         {service.title}

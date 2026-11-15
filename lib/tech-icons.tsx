@@ -40,8 +40,6 @@ import {
   type SimpleIcon,
 } from "simple-icons";
 
-const INK = "#16123F";
-
 const icons: Record<string, SimpleIcon> = {
   React: siReact,
   "React Native": siReact,
@@ -84,53 +82,38 @@ const icons: Record<string, SimpleIcon> = {
 };
 
 /** Typographic marks for tools whose logos are not in simple-icons. */
-const monograms: Record<string, { text: string; color: string }> = {
-  OpenAI: { text: "AI", color: "#10A37F" },
-  AWS: { text: "aws", color: "#FF9900" },
-  Azure: { text: "Az", color: "#0078D4" },
-  "Adobe Creative Cloud": { text: "Cc", color: "#DA1F26" },
-  Twilio: { text: "Tw", color: "#F22F46" },
-  Maze: { text: "Mz", color: "#16123F" },
+const monograms: Record<string, string> = {
+  OpenAI: "AI",
+  AWS: "aws",
+  Azure: "Az",
+  "Adobe Creative Cloud": "Cc",
+  Twilio: "Tw",
+  Maze: "Mz",
 };
 
-const glyphs: Record<string, { node: ReactNode; color: string }> = {
-  "REST APIs": { node: <Braces strokeWidth={2.25} className="size-[55%]" />, color: "#5B3DF5" },
-  Webhooks: { node: <Webhook strokeWidth={2.25} className="size-[55%]" />, color: "#FF6B4A" },
+const glyphs: Record<string, ReactNode> = {
+  "REST APIs": <Braces strokeWidth={2.25} className="size-[55%]" />,
+  Webhooks: <Webhook strokeWidth={2.25} className="size-[55%]" />,
 };
 
-/** The brand colour of a tool, darkened to ink when it is black. */
-export function techColor(name: string) {
-  const icon = icons[name];
-  if (icon) return icon.hex === "000000" || icon.hex === "0A0A0A" ? INK : `#${icon.hex}`;
-  return monograms[name]?.color ?? glyphs[name]?.color ?? INK;
-}
-
-/** Logo for a technology: the simple-icons path, a lucide glyph, or a monogram. */
+/**
+ * Logo for a technology, drawn monochrome in currentColor so the logos read
+ * as one calm system: the simple-icons path, a lucide glyph, or a monogram.
+ */
 export function TechIcon({ name }: { name: string }) {
   const icon = icons[name];
-  const color = techColor(name);
   if (icon) {
     return (
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" className="size-[52%]" fill={color}>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" className="size-[52%]" fill="currentColor">
         <path d={icon.path} />
       </svg>
     );
   }
   const glyph = glyphs[name];
-  if (glyph)
-    return (
-      <span style={{ color }} className="flex size-full items-center justify-center">
-        {glyph.node}
-      </span>
-    );
-  const monogram = monograms[name];
+  if (glyph) return <span className="flex size-full items-center justify-center">{glyph}</span>;
   return (
-    <span
-      aria-hidden="true"
-      className="font-display text-[0.8125em] leading-none font-extrabold tracking-[-0.04em]"
-      style={{ color }}
-    >
-      {monogram?.text ?? name.slice(0, 2)}
+    <span aria-hidden="true" className="font-display text-[0.8125em] leading-none font-extrabold tracking-[-0.04em]">
+      {monograms[name] ?? name.slice(0, 2)}
     </span>
   );
 }

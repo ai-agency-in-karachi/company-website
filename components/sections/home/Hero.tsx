@@ -16,11 +16,11 @@ function Line({ line, highlight }: { line: string; highlight: string }) {
         <Fragment key={index}>
           {part}
           {index < parts.length - 1 ? (
-            <span className="relative inline-block text-violet">
+            <span className="relative inline-block text-cobalt">
               {highlight}
               <span
                 aria-hidden="true"
-                className="absolute inset-x-[0.04em] bottom-[0.04em] -z-10 h-[0.22em] rounded-[2px] bg-lime"
+                className="absolute inset-x-[0.04em] bottom-[0.04em] -z-10 h-[0.2em] rounded-[2px] bg-cobalt-tint"
               />
             </span>
           ) : null}

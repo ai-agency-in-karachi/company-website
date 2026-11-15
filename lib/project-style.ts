@@ -1,11 +1,10 @@
 import type { ProjectStage } from "@/content/projects";
 
-/** Panel colour for each project and the text colours that read on it. */
+/**
+ * The stage behind each project's mockup. Two calm surfaces alternate,
+ * deep ink and light stone, so the product visuals carry the colour.
+ */
 export const stages: Record<ProjectStage, { panel: string; text: string; soft: string; chip: string }> = {
-  emerald: { panel: "bg-emerald", text: "text-white", soft: "text-white/80", chip: "border-white/35" },
-  coral: { panel: "bg-coral", text: "text-ink", soft: "text-ink/75", chip: "border-ink/25" },
-  violet: { panel: "bg-violet", text: "text-white", soft: "text-white/80", chip: "border-white/35" },
-  rose: { panel: "bg-rose", text: "text-ink", soft: "text-ink/75", chip: "border-ink/25" },
-  sun: { panel: "bg-sun", text: "text-ink", soft: "text-ink/75", chip: "border-ink/25" },
-  lime: { panel: "bg-lime", text: "text-ink", soft: "text-ink/75", chip: "border-ink/25" },
+  night: { panel: "bg-ink", text: "text-paper", soft: "text-paper/70", chip: "border-paper/25" },
+  stone: { panel: "bg-stone", text: "text-ink", soft: "text-ink/70", chip: "border-ink/20" },
 };

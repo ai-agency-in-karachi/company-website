@@ -1,3 +1,5 @@
+import "server-only";
+
 /**
  * Basic in-memory sliding-window rate limit per IP. It protects a single
  * server instance; on serverless platforms each instance keeps its own

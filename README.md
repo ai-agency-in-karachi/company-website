@@ -88,13 +88,22 @@ lib/                     tokens, class helper, lazy GSAP hook, service/project s
 
 ### Colour
 
-The page canvas is always warm paper (`#F4EFE6`). Text and line colours come from CSS variables exposed as Tailwind colours (`bg-canvas`, `text-fg`, `text-fg-soft`, `border-line`, `bg-accent`, `text-on-accent`, `bg-raise`). Elements with their own surface (the mobile menu, the contact details card and the footer) set `data-tone-fixed="indigo" | "deep"`, which redefines those variables inside them. Project panels and mockups carry their own colours.
+A restrained, premium palette: warm stone neutrals, near-black navy ink and a single cobalt accent. Colour is used to guide, not decorate.
+
+- **Canvas:** stone paper `#F3F1EC` on every page. Cards and raised surfaces are white `#FDFCFA` or stone `#E9E6DF`.
+- **Ink:** `#111322` for text and the dark surfaces (footer, mobile menu, contact card, alternate project panels).
+- **Accent:** cobalt `#3245D1` (with `cobalt-soft` `#93A0F5` on dark and `cobalt-tint` `#E2E5FA` for quiet fills) for primary buttons, highlights, active states and chart emphasis.
+- **Functional only:** success `#2F8F6B`, warning `#B07D1F` and error `#C0392B` for form feedback and status pills inside the mockups; star ratings use a muted gold.
+- Services and projects are distinguished by name, number and icon, not by colour. Technology logos are monochrome.
+- Flat colour throughout: no gradients, glass or blur.
+
+Text and line colours are CSS variables exposed as Tailwind colours (`bg-canvas`, `text-fg`, `text-fg-soft`, `border-line`, `bg-accent`, `text-on-accent`, `bg-raise`). Dark surfaces set `data-tone-fixed="night"`, which redefines them inside.
 
 ### Design tokens
 
 Defined once in `app/globals.css` (`@theme`) and mirrored in `lib/tokens.ts` for generated images and emails.
 
-- **Palette:** paper `#F4EFE6` (the canvas), ink `#16123F`, indigo `#1B1650`, violet `#5B3DF5`, coral `#FF6B4A`, lime `#D4F36A`, plus sun, sky, rose, emerald and periwinkle as service and project accents. Flat colour only: no gradients, glass, blur or gloss.
+- **Palette:** see "Colour" above; tokens live in `@theme` and in `lib/tokens.ts`.
 - **Type:** Bricolage Grotesque for display, Geist for text, Geist Mono for numbers. Fluid sizes: `text-display`, `text-h1`–`text-h3`, `text-title`, `text-lead`, `text-body`, `text-small`, `text-label`.
 - **Class names:** build conditional classes with `cn()` from `lib/cn.ts`; register new text, radius or shadow tokens there too.
 
@@ -104,7 +113,7 @@ Smooth and controlled, one easing everywhere (`cubic-bezier(0.22, 1, 0.36, 1)`).
 
 - **Reveals** (`Reveal`, `Stagger`, `MaskedText`) render on the server with data attributes; a single `IntersectionObserver` in `RevealManager` reveals each once with CSS transitions. Content already on screen is never hidden.
 - **Hero:** pure CSS entrance; the isometric blocks (`IsoBlocks.tsx`, flat-shaded SVG with a true isometric projection) drop into place and two modules drift gently.
-- **Client showcase:** an accordion of solid-colour brand cards (`h-80`, about `w-36` each), each holding only its logo (`BrandLogo` in `components/ui/BrandMark.tsx`). On hover a card widens to about `w-72` while the others narrow, and its logo scales up slightly. Pure CSS, hover only; on small screens the cards sit in a swipeable row.
+- **Client showcase:** an accordion of stone brand cards (`h-80`, about `w-36` each), each holding only its logo (`BrandLogo` in `components/ui/BrandMark.tsx`). On hover a card widens to about `w-72` while the others narrow, and turns ink, and its logo scales up slightly. Pure CSS, hover only; on small screens the cards sit in a swipeable row.
 - **Framer Motion:** the navbar pill and the services index indicator (`layoutId`), and the services colour panel crossfade (`AnimatePresence`). Loaded lazily by `MotionProvider`.
 - **GSAP ScrollTrigger** (loaded on demand via `lib/use-lazy-gsap.ts`): the About lines drifting sideways, the process track filling and its step counter, and the project panels easing back as the next one stacks over them.
 - **Technology orbit:** three CSS rings at different speeds and directions, tiles counter-rotating to stay upright; the category list filters the orbit.
@@ -116,6 +125,13 @@ Smooth and controlled, one easing everywhere (`cubic-bezier(0.22, 1, 0.36, 1)`).
 `components/sections/contact/ContactForm.tsx` and `app/api/contact/route.ts` share one zod schema (`lib/contact-schema.ts`). Spam protection: honeypot, minimum time-to-submit, same-origin check, body size limit and a per-IP rate limit (5 requests per 10 minutes, in memory). Input is escaped before it goes into an email. Without JavaScript the form still posts and the API replies with a simple HTML page.
 
 ---
+
+## Security
+
+- **Secrets stay on the server.** `RESEND_API_KEY` and the contact addresses are read only in `lib/email.ts`, which imports `server-only`, so the build fails if it is ever pulled into browser code. The browser talks only to `/api/contact`; it never calls Resend or sees a key. The only `NEXT_PUBLIC_` variable is the public site URL.
+- **Nothing sensitive is committed.** `.gitignore` excludes every `.env*` file except `.env.example` (which holds no values), plus keys, certificates, credential files and `.npmrc`.
+- **Contact API:** zod validation, honeypot, minimum fill time, same-origin check, body size limit and per-IP rate limit; all input is HTML-escaped in emails and header values are stripped of line breaks.
+- **Headers** (`next.config.ts`): HSTS, `X-Frame-Options: DENY`, `nosniff`, a strict referrer policy, a restrictive permissions policy, `Cross-Origin-Opener-Policy: same-origin`, and a CSP that forbids framing, plugins, `<base>` changes and off-site form posts.
 
 ## Deploying to Vercel
 

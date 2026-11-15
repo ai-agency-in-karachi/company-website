@@ -20,8 +20,8 @@ export function VoiceAgentMockup() {
         <div className="grid grid-cols-1 @xl:grid-cols-[1fr_1.15fr]">
           <div className="flex flex-col border-b border-white/10 p-4 @xl:border-r @xl:border-b-0">
             <div className="flex items-center justify-between">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-coral/20 px-2.5 py-1 text-[10.5px] font-bold text-coral">
-                <span className="live-dot size-1.5 rounded-full bg-coral" /> Live call
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[10.5px] font-bold text-white">
+                <span className="live-dot size-1.5 rounded-full bg-error" /> Live call
               </span>
               <span className="numeral text-white/60">02:14</span>
             </div>
@@ -40,13 +40,16 @@ export function VoiceAgentMockup() {
               {bars.map((height, index) => (
                 <span
                   key={index}
-                  className={cn("wave-bar w-full rounded-full", index > 12 && index < 26 ? "bg-coral" : "bg-white/25")}
+                  className={cn(
+                    "wave-bar w-full rounded-full",
+                    index > 12 && index < 26 ? "bg-cobalt-soft" : "bg-white/25",
+                  )}
                   style={cssVars({ "--d": `${(index % 9) * 0.12}s` }, { height: `${Math.round(height * 100)}%` })}
                 />
               ))}
             </div>
             <p className="mt-3 flex items-center gap-2 text-[11px] text-white/70">
-              <Bot aria-hidden="true" className="size-3.5 text-lime" /> AI agent speaking · English / Urdu
+              <Bot aria-hidden="true" className="size-3.5 text-cobalt-soft" /> AI agent speaking · English / Urdu
             </p>
 
             <div className="mt-auto flex items-center justify-center gap-2.5 pt-6">
@@ -55,7 +58,7 @@ export function VoiceAgentMockup() {
                   <Icon aria-hidden="true" className="size-4" />
                 </span>
               ))}
-              <span className="flex size-10 items-center justify-center rounded-full bg-coral text-ink">
+              <span className="flex size-10 items-center justify-center rounded-full bg-error text-white">
                 <PhoneOff aria-hidden="true" className="size-4" />
               </span>
             </div>
@@ -70,7 +73,7 @@ export function VoiceAgentMockup() {
                     aria-hidden="true"
                     className={cn(
                       "mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full",
-                      line.who === "agent" ? "bg-lime text-ink" : "bg-white/12 text-white",
+                      line.who === "agent" ? "bg-cobalt-soft text-ink" : "bg-white/12 text-white",
                     )}
                   >
                     {line.who === "agent" ? <Bot className="size-3.5" /> : <User className="size-3.5" />}
@@ -78,7 +81,7 @@ export function VoiceAgentMockup() {
                   <p
                     className={cn(
                       "max-w-[85%] rounded-xl px-3 py-2 leading-snug",
-                      line.who === "agent" ? "rounded-tr-sm bg-violet" : "rounded-tl-sm bg-white/8",
+                      line.who === "agent" ? "rounded-tr-sm bg-cobalt" : "rounded-tl-sm bg-white/8",
                     )}
                   >
                     {line.text}
@@ -95,7 +98,7 @@ export function VoiceAgentMockup() {
       </Window>
 
       <div className="absolute right-4 -bottom-6 flex items-center gap-3 rounded-xl bg-white px-3.5 py-3 text-ink shadow-mock @lg:-right-5">
-        <span className="flex size-9 items-center justify-center rounded-lg bg-emerald text-white">
+        <span className="flex size-9 items-center justify-center rounded-lg bg-success text-white">
           <CalendarCheck aria-hidden="true" className="size-4.5" />
         </span>
         <div>

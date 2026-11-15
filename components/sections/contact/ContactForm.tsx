@@ -17,7 +17,7 @@ const copy = contactPage.form;
 const emptyValues = (service = ""): Values => ({ name: "", email: "", phone: "", service, message: "" });
 
 const inputClasses =
-  "block w-full rounded-ui border-[1.5px] border-line-strong bg-raise px-4 text-fg transition-[border-color,background-color] duration-[var(--dur-fast)] ease-brand placeholder:text-fg-soft hover:border-fg focus:border-violet focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet aria-invalid:border-error";
+  "block w-full rounded-ui border-[1.5px] border-line-strong bg-raise px-4 text-fg transition-[border-color,background-color] duration-[var(--dur-fast)] ease-brand placeholder:text-fg-soft hover:border-fg focus:border-cobalt focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt aria-invalid:border-error";
 
 type FieldProps = {
   id: string;
@@ -169,7 +169,7 @@ export function ContactForm({ initialService = "" }: { initialService?: string }
   if (status === "success") {
     return (
       <div ref={successRef} tabIndex={-1} className="form-success rounded-panel bg-raise p-7 outline-none sm:p-10">
-        <span className="flex size-14 items-center justify-center rounded-full bg-lime text-ink">
+        <span className="flex size-14 items-center justify-center rounded-full bg-cobalt text-white">
           <Check aria-hidden="true" strokeWidth={1.5} className="size-6" />
         </span>
         <h2 className="mt-6 text-h3 text-fg">{copy.successTitle}</h2>

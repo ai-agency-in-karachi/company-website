@@ -9,7 +9,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
-const markers = ["bg-coral", "bg-lime", "bg-sky"];
+const markers = ["bg-cobalt", "bg-cobalt", "bg-cobalt"];
 const offsets = ["lg:pl-0", "lg:pl-[16%]", "lg:pl-[32%]"];
 
 /**
@@ -37,13 +37,7 @@ export function About() {
   });
 
   return (
-    <section
-      ref={sectionRef}
-      id="about"
-     
-      aria-labelledby="about-title"
-      className="section-y relative overflow-hidden"
-    >
+    <section ref={sectionRef} id="about" aria-labelledby="about-title" className="section-y relative overflow-hidden">
       <div className="container-wide">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-6">

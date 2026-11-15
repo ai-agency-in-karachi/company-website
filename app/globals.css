@@ -3,31 +3,34 @@
 /* ==========================================================================
    NOVARY® design system
    Colour values mirror lib/tokens.ts (used by generated images and emails,
-   which cannot read CSS variables). Flat, rich colour only: no gradients,
-   glass, blur or gloss anywhere on the site.
+   which cannot read CSS variables).
+
+   A restrained palette: warm stone neutrals, a near-black navy ink and a
+   single cobalt accent. Success, warning and error colours are functional
+   only (form feedback and status pills inside the product mockups).
+   Flat colour throughout: no gradients, glass or blur.
    ========================================================================== */
 
 @theme {
   --color-*: initial;
-  --color-paper: #f4efe6;
-  --color-paper-deep: #eae2d3;
-  --color-lilac: #e7e1ff;
-  --color-ink: #16123f;
-  --color-indigo: #1b1650;
-  --color-indigo-deep: #120e3d;
-  --color-violet: #5b3df5;
-  --color-coral: #ff6b4a;
-  --color-lime: #d4f36a;
-  --color-sun: #ffc23d;
-  --color-sky: #3daeff;
-  --color-rose: #ff7eb3;
-  --color-emerald: #11a37f;
-  --color-periwinkle: #8b7bff;
-  --color-white: #fffdf8;
+  /* Neutrals */
+  --color-paper: #f3f1ec;
+  --color-white: #fdfcfa;
+  --color-stone: #e9e6df;
+  --color-stone-deep: #d8d4ca;
+  --color-mist: #8d8a99;
+  --color-ink: #111322;
+  --color-night: #181b2e;
+  /* The one accent */
+  --color-cobalt: #3245d1;
+  --color-cobalt-soft: #93a0f5;
+  --color-cobalt-tint: #e2e5fa;
+  /* Functional only */
+  --color-success: #2f8f6b;
+  --color-warning: #b07d1f;
+  --color-error: #c0392b;
   --color-transparent: transparent;
   --color-current: currentColor;
-  /* Form feedback only. */
-  --color-error: #c2341b;
 
   --text-label: 0.8125rem;
   --text-label--line-height: 1.3;
@@ -59,10 +62,10 @@
   --radius-card: 1.25rem;
   --radius-panel: 2rem;
 
-  --shadow-lift: 0 2px 0 0 color-mix(in srgb, #16123f 10%, transparent);
+  --shadow-lift: 0 2px 0 0 color-mix(in srgb, #111322 10%, transparent);
   --shadow-mock:
-    0 1px 2px color-mix(in srgb, #120e3d 14%, transparent),
-    0 30px 60px -30px color-mix(in srgb, #120e3d 50%, transparent);
+    0 1px 2px color-mix(in srgb, #111322 14%, transparent),
+    0 30px 60px -30px color-mix(in srgb, #111322 50%, transparent);
 
   --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -85,7 +88,7 @@
 
 /* ==========================================================================
    Colour scopes
-   The page canvas is always warm paper. Elements that need their own
+   The page canvas is always warm stone paper. Elements that need their own
    surface (mobile menu, contact card, footer) set data-tone-fixed, which
    redefines these colour variables inside them; Tailwind exposes them as
    bg-canvas, text-fg, text-fg-soft, border-line, bg-accent and so on.
@@ -93,36 +96,26 @@
 
 :root,
 [data-tone-fixed="paper"] {
-  --c-bg: #f4efe6;
-  --c-fg: #16123f;
-  --c-soft: color-mix(in srgb, #16123f 72%, transparent);
-  --c-line: color-mix(in srgb, #16123f 14%, transparent);
-  --c-line-strong: color-mix(in srgb, #16123f 30%, transparent);
-  --c-accent: #5b3df5;
-  --c-on-accent: #fffdf8;
-  --c-raise: #fffdf8;
+  --c-bg: #f3f1ec;
+  --c-fg: #111322;
+  --c-soft: color-mix(in srgb, #111322 68%, transparent);
+  --c-line: color-mix(in srgb, #111322 12%, transparent);
+  --c-line-strong: color-mix(in srgb, #111322 26%, transparent);
+  --c-accent: #3245d1;
+  --c-on-accent: #fdfcfa;
+  --c-raise: #fdfcfa;
 }
 
-[data-tone-fixed="indigo"] {
-  --c-bg: #1b1650;
-  --c-fg: #f4efe6;
-  --c-soft: color-mix(in srgb, #f4efe6 74%, transparent);
-  --c-line: color-mix(in srgb, #f4efe6 15%, transparent);
-  --c-line-strong: color-mix(in srgb, #f4efe6 34%, transparent);
-  --c-accent: #d4f36a;
-  --c-on-accent: #16123f;
-  --c-raise: #241e66;
-}
-
-[data-tone-fixed="deep"] {
-  --c-bg: #120e3d;
-  --c-fg: #f4efe6;
-  --c-soft: color-mix(in srgb, #f4efe6 70%, transparent);
-  --c-line: color-mix(in srgb, #f4efe6 14%, transparent);
-  --c-line-strong: color-mix(in srgb, #f4efe6 32%, transparent);
-  --c-accent: #d4f36a;
-  --c-on-accent: #16123f;
-  --c-raise: #1b1650;
+/* Dark surfaces: the mobile menu, the contact card and the footer. */
+[data-tone-fixed="night"] {
+  --c-bg: #111322;
+  --c-fg: #f3f1ec;
+  --c-soft: color-mix(in srgb, #f3f1ec 66%, transparent);
+  --c-line: color-mix(in srgb, #f3f1ec 12%, transparent);
+  --c-line-strong: color-mix(in srgb, #f3f1ec 28%, transparent);
+  --c-accent: #93a0f5;
+  --c-on-accent: #111322;
+  --c-raise: #181b2e;
 }
 
 [data-tone-fixed] {
@@ -197,8 +190,8 @@
   }
 
   ::selection {
-    background-color: #d4f36a;
-    color: #16123f;
+    background-color: #e2e5fa;
+    color: #111322;
   }
 
   :focus-visible {
@@ -493,7 +486,10 @@
    ========================================================================== */
 
 .client-card {
-  transition: flex-grow 560ms var(--ease-brand);
+  transition:
+    flex-grow 560ms var(--ease-brand),
+    background-color 360ms var(--ease-brand),
+    color 360ms var(--ease-brand);
 }
 
 .client-card__logo {

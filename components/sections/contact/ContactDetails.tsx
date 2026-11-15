@@ -24,7 +24,7 @@ function Detail({ icon, label, children }: { icon: ReactNode; label: string; chi
 export function ContactDetails() {
   return (
     <div className="space-y-6 lg:sticky lg:top-[calc(var(--nav-h)+1.5rem)]">
-      <div data-tone-fixed="indigo" className="rounded-panel p-7 sm:p-8">
+      <div data-tone-fixed="night" className="rounded-panel p-7 sm:p-8">
         <h2 className="font-display text-title font-bold">{contactPage.detailsTitle}</h2>
         <dl className="mt-6">
           <Detail icon={<Mail strokeWidth={1.75} className="size-[1.125rem]" />} label={contactPage.emailLabel}>

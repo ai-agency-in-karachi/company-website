@@ -26,7 +26,7 @@ export function SiteFooter() {
   const services = footer.services.map((slug) => getService(slug)).filter((service) => service !== undefined);
 
   return (
-    <footer data-tone-fixed="deep" className="relative overflow-hidden">
+    <footer data-tone-fixed="night" className="relative overflow-hidden">
       <div className="container-wide pt-16 lg:pt-24">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="sm:col-span-2 lg:col-span-4">
@@ -105,7 +105,7 @@ export function SiteFooter() {
       </div>
 
       <div aria-hidden="true" className="container-wide select-none">
-        <p className="footer-wordmark font-display font-extrabold text-lime">
+        <p className="footer-wordmark font-display font-extrabold text-night">
           {site.name}
           <span className="align-top text-[0.22em]">{site.mark}</span>
         </p>

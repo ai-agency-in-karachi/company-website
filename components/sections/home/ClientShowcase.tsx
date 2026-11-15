@@ -4,23 +4,11 @@ import { Reveal } from "@/components/motion/Reveal";
 import { BrandLogo } from "@/components/ui/BrandMark";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
-/** Solid NOVARY colours for the cards, with a logo colour that reads on each. */
-const cardColors: Record<string, string> = {
-  Nexora: "bg-violet text-white",
-  "Vertex Labs": "bg-coral text-ink",
-  "Orbit Solutions": "bg-sky text-ink",
-  "Elevate Digital": "bg-emerald text-white",
-  Cloudnest: "bg-periwinkle text-ink",
-  PixelCraft: "bg-rose text-ink",
-  "Flux Technologies": "bg-sun text-ink",
-  "Beyond Commerce": "bg-lime text-ink",
-};
-
 /**
  * Client showcase as an accordion of brand cards. Each card is a fixed,
- * rectangular colour block holding only the brand's logo, centred. On
- * hover a card widens smoothly (to about w-72) while the others narrow, and
- * its logo scales up slightly. Pure CSS (globals.css, "Client showcase"):
+ * quiet stone rectangle holding only the brand's logo, centred. On hover a
+ * card widens smoothly (to about w-72) and turns ink while the others
+ * narrow, and its logo scales up slightly. Pure CSS (globals.css, "Client showcase"):
  * no scroll animation and no JavaScript. On small screens the cards sit in
  * a swipeable row at a fixed size.
  */
@@ -45,7 +33,7 @@ export function ClientShowcase() {
             {content.brands.map((brand) => (
               <li
                 key={brand}
-                className={`client-card flex h-72 w-36 shrink-0 snap-start items-center justify-center overflow-hidden rounded-card p-4 lg:h-full lg:w-auto lg:min-w-0 lg:shrink lg:p-5 ${cardColors[brand] ?? "bg-violet text-white"}`}
+                className="client-card flex h-72 w-36 shrink-0 snap-start items-center justify-center overflow-hidden rounded-card p-4 lg:h-full lg:w-auto lg:min-w-0 lg:shrink lg:p-5 bg-stone text-ink lg:hover:bg-ink lg:hover:text-paper"
               >
                 <BrandLogo name={brand} className="client-card__logo h-auto w-full max-w-[7.5rem]" />
               </li>
