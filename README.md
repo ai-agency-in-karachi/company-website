@@ -42,6 +42,8 @@ Without the email variables the form still validates; on submit it explains that
 
 ## Before you launch
 
+**The full checklist of every piece of demo content (copy, clients, reviews, projects, mockup data, logos), grouped by section, is in [`CONTENT_TO_REPLACE.md`](CONTENT_TO_REPLACE.md).** The short version:
+
 NOVARY® is a demo brand. Replace these placeholders, all in `content/` unless noted:
 
 1. **Domain:** `NEXT_PUBLIC_SITE_URL` (and `site.url` in `content/site.ts`).
@@ -54,6 +56,10 @@ NOVARY® is a demo brand. Replace these placeholders, all in `content/` unless n
 8. **Logo:** the N mark is in `components/ui/Logo.tsx`, `app/icon.svg`, `app/apple-icon.tsx`, `app/favicon.ico` and `public/logo.png`.
 
 ---
+
+## Home page order
+
+Hero → Our Expertise (services) → How We Work (process) → Selected Work (projects) → Powered by the Right Tools (technology) → Trusted Collaboration (client dial) → About Us → Why Choose Us → Reviews → Final call to action. The order is set in `app/page.tsx`.
 
 ## Editing content
 
@@ -113,7 +119,7 @@ Smooth and controlled, one easing everywhere (`cubic-bezier(0.22, 1, 0.36, 1)`).
 
 - **Reveals** (`Reveal`, `Stagger`, `MaskedText`) render on the server with data attributes; a single `IntersectionObserver` in `RevealManager` reveals each once with CSS transitions. Content already on screen is never hidden.
 - **Hero:** pure CSS entrance; the isometric blocks (`IsoBlocks.tsx`, flat-shaded SVG with a true isometric projection) drop into place and two modules drift gently.
-- **Client showcase:** an accordion of stone brand cards (`h-80`, about `w-36` each), each holding only its logo (`BrandLogo` in `components/ui/BrandMark.tsx`). On hover a card widens to about `w-72` while the others narrow, and turns ink, and its logo scales up slightly. Pure CSS, hover only; on small screens the cards sit in a swipeable row.
+- **Client showcase:** a dial of brand logos on the track of a very large wheel that turns continuously (CSS, 140s per turn); only its top arc is visible. Each logo is centred exactly on the drawn track. Hovering a logo highlights it in cobalt and scales it up slightly; the dial never pauses.
 - **Framer Motion:** the navbar pill and the services index indicator (`layoutId`), and the services colour panel crossfade (`AnimatePresence`). Loaded lazily by `MotionProvider`.
 - **GSAP ScrollTrigger** (loaded on demand via `lib/use-lazy-gsap.ts`): the About lines drifting sideways, the process track filling and its step counter, and the project panels easing back as the next one stacks over them.
 - **Technology orbit:** three CSS rings at different speeds and directions, tiles counter-rotating to stay upright; the category list filters the orbit.

@@ -16,22 +16,22 @@ import { WhyChooseUs } from "@/components/sections/home/WhyChooseUs";
 export const metadata: Metadata = pageMetadata({ description: site.description, path: "/" });
 
 /**
- * The home page is one continuous journey: each section declares a tone,
- * and the canvas colour shifts between them as you scroll
- * (paper → indigo → lilac → paper → indigo → paper → lilac → violet).
+ * Home page order: lead with what we do and how, prove it with the work and
+ * the tools, then the clients who trust us; close with who we are, why us,
+ * what clients say and the invitation to start.
  */
 export default function HomePage() {
   return (
     <PageTransition>
       <div>
         <Hero />
-        <ClientShowcase />
-        <About />
         <ServicesOverview />
-        <WhyChooseUs />
         <Process />
         <FeaturedProjects />
         <TechEcosystem />
+        <ClientShowcase />
+        <About />
+        <WhyChooseUs />
         <Reviews />
         <FinalCta />
       </div>

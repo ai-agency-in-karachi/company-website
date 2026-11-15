@@ -479,49 +479,106 @@
 }
 
 /* ==========================================================================
-   Client showcase: an accordion of brand cards (hover only, pure CSS).
-   Every card shares the row equally (about 9rem wide); the hovered card
-   grows to about 18rem and the others narrow, so the row never changes
-   width. Below 64rem the cards sit in a swipeable row at a fixed size.
+   Client showcase: a dial of brand logos turning continuously.
+   Only the top of a very large wheel is visible, like a horizon.
+
+   Geometry (all derived from two variables, so nothing drifts):
+   --dial   the wheel's diameter
+   --track  the radius of the track the logos sit on
+   Every logo hangs from a zero-size anchor at the exact centre of the
+   wheel: it is rotated to its angle, pushed out by exactly --track, then
+   centred on that point. The visible track ring is drawn at the same
+   radius, so each logo's centre sits precisely on the line.
+   The wheel never pauses; hovering a logo only highlights it.
    ========================================================================== */
 
-.client-card {
+.dial {
+  --dial: 1000px;
+  --track: calc(var(--dial) / 2 - 4rem);
+  position: relative;
+  height: 15rem;
+  overflow: hidden;
+}
+
+@media (width >= 48rem) {
+  .dial {
+    --dial: 1500px;
+    height: 18rem;
+  }
+}
+
+@media (width >= 80rem) {
+  .dial {
+    --dial: max(1800px, 120vw);
+    --track: calc(var(--dial) / 2 - 4.75rem);
+    height: 20rem;
+  }
+}
+
+.dial__wheel {
+  position: absolute;
+  left: 50%;
+  top: 1.5rem;
+  width: var(--dial);
+  height: var(--dial);
+  margin-left: calc(var(--dial) / -2);
+  border-radius: 9999px;
+  animation: nv-spin 140s linear infinite;
+}
+
+/* The track: a circle through the centre of every logo. */
+.dial__track {
+  position: absolute;
+  inset: calc(50% - var(--track));
+  border-radius: 9999px;
+  border: 1px solid var(--c-line-strong);
+}
+
+/* Fine tick marks just inside the track, like a precision dial. */
+.dial__ticks {
+  position: absolute;
+  inset: calc(50% - var(--track) + 4.5rem);
+  border-radius: 9999px;
+  background: repeating-conic-gradient(var(--c-line-strong) 0 0.12deg, transparent 0.12deg 1.5deg);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 9px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 9px));
+}
+
+/* Outer rim, the wheel's edge. */
+.dial__rim {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1px solid var(--c-line);
+}
+
+.dial__item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  transform: rotate(calc(var(--i) * 360deg / var(--n))) translateY(calc(var(--track) * -1));
+}
+
+.dial__tile {
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% -50%;
   transition:
-    flex-grow 560ms var(--ease-brand),
-    background-color 360ms var(--ease-brand),
-    color 360ms var(--ease-brand);
+    scale var(--dur-slow) var(--ease-brand),
+    background-color var(--dur-base) var(--ease-brand),
+    border-color var(--dur-base) var(--ease-brand),
+    color var(--dur-base) var(--ease-brand);
 }
 
-.client-card__logo {
-  transition: transform 560ms var(--ease-brand);
-}
-
-.client-cards-scroller {
-  scrollbar-width: none;
-  scroll-snap-type: x mandatory;
-  /* Snapped cards keep the page gutter instead of touching the screen edge. */
-  scroll-padding-inline: var(--gutter);
-}
-
-.client-cards-scroller::-webkit-scrollbar {
-  display: none;
-}
-
-@media (width >= 64rem) {
-  .client-card {
-    flex: 1 1 0;
-  }
-}
-
-@media (width >= 64rem) and (hover: hover) {
-  .client-card:hover {
-    /* With the padding fixed, 2.63 shares make the hovered card about w-72 (288px) at full width, the others about w-34. */
-    flex-grow: 2.63;
-  }
-
-  .client-card:hover .client-card__logo {
-    transform: scale(1.18);
-  }
+/* Highlight the hovered logo; the wheel keeps turning. */
+.dial__tile:hover {
+  scale: 1.12;
+  background-color: var(--color-cobalt);
+  border-color: var(--color-cobalt);
+  color: #fff;
 }
 
 /* ==========================================================================
@@ -997,6 +1054,7 @@
     animation-delay: 0ms !important;
   }
 
+  .dial__wheel,
   .orbit__ring,
   .orbit__spin,
   .iso-float,
