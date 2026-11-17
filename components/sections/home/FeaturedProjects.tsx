@@ -1,7 +1,7 @@
 "use client";
 
 import { Check } from "lucide-react";
-import { useEffect, useRef, type FocusEvent } from "react";
+import { useEffect, useRef, type FocusEvent, type ReactNode } from "react";
 import { home } from "@/content/site";
 import { projects, type Project } from "@/content/projects";
 import { cn } from "@/lib/cn";
@@ -15,13 +15,49 @@ import { ArrowLink } from "@/components/ui/ArrowLink";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 /**
- * Where the pinned horizontal scroll is used: wide and tall enough screens
- * for a full panel to fit, and only when the visitor hasn't asked for
- * reduced motion. Everywhere else the projects are a vertical list.
+ * Where the pinned horizontal scroll is used: every desktop-width screen
+ * (1024px and up, whatever its height, Chromebooks included), unless the
+ * visitor has asked for reduced motion. Phones and tablets in portrait get
+ * the vertical list.
  */
-const HORIZONTAL = "(min-width: 64rem) and (min-height: 760px) and (prefers-reduced-motion: no-preference)";
+const HORIZONTAL = "(min-width: 64rem) and (prefers-reduced-motion: no-preference)";
 
 const pad = (value: number) => String(value).padStart(2, "0");
+
+/**
+ * Scales its content down (never up) so it fits the height it is given.
+ * Used for the mockups in the horizontal panels, so on shorter screens
+ * (such as Chromebooks) a mockup shrinks to fit instead of being clipped.
+ */
+function FitToHeight({ children }: { children: ReactNode }) {
+  const outerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const outer = outerRef.current;
+    const inner = innerRef.current;
+    if (!outer || !inner) return;
+    // Room for the floating chips that sit just outside each mockup.
+    const OVERHANG = 56;
+    const fit = () => {
+      const scale = Math.min(1, outer.clientHeight / (inner.offsetHeight + OVERHANG));
+      inner.style.transform = scale < 1 ? `scale(${scale})` : "";
+    };
+    const observer = new ResizeObserver(fit);
+    observer.observe(outer);
+    observer.observe(inner);
+    fit();
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={outerRef} className="flex h-full min-h-0 items-center justify-center">
+      <div ref={innerRef} className="w-full origin-center">
+        {children}
+      </div>
+    </div>
+  );
+}
 
 function ProjectPanel({ project, index, horizontal }: { project: Project; index: number; horizontal: boolean }) {
   const content = home.projects;
@@ -32,7 +68,10 @@ function ProjectPanel({ project, index, horizontal }: { project: Project; index:
       aria-labelledby={`project-${project.slug}`}
       className={cn(
         "grid grid-cols-1 gap-10 overflow-hidden rounded-panel p-6 sm:p-8 lg:grid-cols-12 lg:items-center lg:gap-8 lg:p-10 xl:p-12",
-        horizontal ? "h-full" : "lg:min-h-[min(80vh,46rem)]",
+        // One row that fills the panel, so the mockup column can fit itself to it.
+        horizontal
+          ? "h-full lg:grid-rows-[minmax(0,1fr)] [@media(max-height:40rem)]:lg:p-7"
+          : "lg:min-h-[min(80vh,46rem)]",
         stage.panel,
         stage.text,
       )}
@@ -48,17 +87,30 @@ function ProjectPanel({ project, index, horizontal }: { project: Project; index:
         <h3 id={`project-${project.slug}`} className="mt-5 text-h3">
           {project.title}
         </h3>
-        <p className={cn("mt-4 max-w-[30rem] text-lead", stage.soft)}>{project.summary}</p>
+        <p
+          className={cn(
+            "mt-4 max-w-[30rem] text-lead",
+            stage.soft,
+            // Very short screens: the summary is on the project page instead.
+            horizontal && "[@media(max-height:40rem)]:hidden",
+          )}
+        >
+          {project.summary}
+        </p>
 
-        <p className="eyebrow mt-7">{content.featuresLabel}</p>
-        <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-          {project.features.map((feature) => (
-            <li key={feature} className="flex gap-2.5 text-small font-medium">
-              <Check aria-hidden="true" strokeWidth={2.5} className="mt-0.5 size-4 shrink-0" />
-              {feature}
-            </li>
-          ))}
-        </ul>
+        {/* On short screens the horizontal panel leaves out the feature list
+            (it is on every project page) so the panel never overflows. */}
+        <div className={cn(horizontal && "[@media(max-height:50rem)]:hidden")}>
+          <p className="eyebrow mt-7">{content.featuresLabel}</p>
+          <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+            {project.features.map((feature) => (
+              <li key={feature} className="flex gap-2.5 text-small font-medium">
+                <Check aria-hidden="true" strokeWidth={2.5} className="mt-0.5 size-4 shrink-0" />
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <p className="sr-only">{content.stackLabel}</p>
         <ul className="mt-5 flex flex-wrap gap-1.5">
@@ -75,10 +127,24 @@ function ProjectPanel({ project, index, horizontal }: { project: Project; index:
         </ArrowLink>
       </div>
 
-      <div className={cn("relative lg:col-span-7", flip && "lg:order-1 lg:col-start-1")}>
-        <div className="mx-auto max-w-[44rem] py-4 lg:py-2">
-          <ProjectMockup visual={project.visual} />
-        </div>
+      <div
+        className={cn(
+          "relative lg:col-span-7",
+          horizontal && "lg:h-full lg:min-h-0",
+          flip && "lg:order-1 lg:col-start-1",
+        )}
+      >
+        {horizontal ? (
+          <FitToHeight>
+            <div className="mx-auto max-w-[44rem]">
+              <ProjectMockup visual={project.visual} />
+            </div>
+          </FitToHeight>
+        ) : (
+          <div className="mx-auto max-w-[44rem] py-4 lg:py-2">
+            <ProjectMockup visual={project.visual} />
+          </div>
+        )}
       </div>
     </article>
   );
