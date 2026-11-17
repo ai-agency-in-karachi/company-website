@@ -1,6 +1,6 @@
 import { Bell, Check, ClipboardCheck, Package, Plus, Users, X } from "lucide-react";
 import type { ReactNode } from "react";
-import { cn } from "@/lib/cn";
+import { cn, cssVars } from "@/lib/cn";
 
 function Phone({ children, className }: { children: ReactNode; className?: string }) {
   return (
@@ -45,7 +45,10 @@ export function MobileAppMockup() {
             <p className="text-[10px] text-white/60">Today&apos;s sales</p>
             <p className="mt-1 font-display text-[22px] leading-none font-extrabold">PKR 186,400</p>
             <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/15">
-              <span className="block h-full w-[72%] rounded-full bg-cobalt-soft" />
+              <span
+                className="mk-grow-x block h-full w-[72%] rounded-full bg-cobalt-soft"
+                style={cssVars({ "--d": "300ms" })}
+              />
             </div>
             <p className="mt-1.5 flex justify-between text-[9.5px] text-white/60">
               <span>72% of daily target</span>
@@ -54,8 +57,12 @@ export function MobileAppMockup() {
           </div>
 
           <div className="mt-4 grid grid-cols-4 gap-2">
-            {actions.map((action) => (
-              <div key={action.label} className="text-center">
+            {actions.map((action, index) => (
+              <div
+                key={action.label}
+                className="mk-pop text-center"
+                style={cssVars({ "--d": `${500 + index * 90}ms` })}
+              >
                 <span className={cn("relative mx-auto grid size-11 place-items-center rounded-2xl", action.tone)}>
                   <action.icon aria-hidden="true" className="size-4.5" />
                   {action.badge ? (
@@ -75,8 +82,12 @@ export function MobileAppMockup() {
               ["Nexora Retail", "11:00 · Clifton", true],
               ["Orbit Mart", "13:30 · Gulshan", false],
               ["Beyond Stores", "16:00 · DHA", false],
-            ].map(([name, time, done]) => (
-              <li key={name as string} className="flex items-center gap-2.5 rounded-xl bg-white px-3 py-2">
+            ].map(([name, time, done], index) => (
+              <li
+                key={name as string}
+                className="mk-rise flex items-center gap-2.5 rounded-xl bg-white px-3 py-2"
+                style={cssVars({ "--d": `${900 + index * 120}ms` })}
+              >
                 <span
                   className={cn(
                     "grid size-5 place-items-center rounded-full border-[1.5px]",
@@ -102,7 +113,10 @@ export function MobileAppMockup() {
       </Phone>
 
       <Phone className="-ml-16 hidden translate-y-10 text-[11px] @lg:block">
-        <div className="mx-3 mt-3 flex items-center gap-2 rounded-2xl bg-ink px-3 py-2.5 text-white">
+        <div
+          className="mk-pop mx-3 mt-3 flex items-center gap-2 rounded-2xl bg-ink px-3 py-2.5 text-white"
+          style={cssVars({ "--d": "1400ms" })}
+        >
           <span className="grid size-6 place-items-center rounded-full bg-cobalt-soft text-ink">
             <Check aria-hidden="true" className="size-3.5" />
           </span>
@@ -119,8 +133,12 @@ export function MobileAppMockup() {
               ["Discount request", "Vertex Labs · 8% off", "bg-cobalt"],
               ["Stock transfer", "Lahore → Karachi · 40 units", "bg-ink"],
               ["Expense claim", "Fuel · PKR 6,500", "bg-stone-deep"],
-            ].map(([title, detail, tone]) => (
-              <li key={title} className="rounded-2xl bg-white p-3">
+            ].map(([title, detail, tone], index) => (
+              <li
+                key={title}
+                className="mk-rise rounded-2xl bg-white p-3"
+                style={cssVars({ "--d": `${700 + index * 140}ms` })}
+              >
                 <div className="flex items-center gap-2">
                   <span className={cn("size-2 rounded-full", tone)} />
                   <span className="font-semibold">{title}</span>

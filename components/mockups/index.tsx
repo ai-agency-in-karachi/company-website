@@ -2,6 +2,7 @@ import type { JSX } from "react";
 import type { ProjectVisual } from "@/content/projects";
 import { DashboardMockup } from "./DashboardMockup";
 import { EcommerceMockup } from "./EcommerceMockup";
+import { MockupStage } from "./MockupStage";
 import { MobileAppMockup } from "./MobileAppMockup";
 import { VoiceAgentMockup } from "./VoiceAgentMockup";
 import { WhatsAppMockup } from "./WhatsAppMockup";
@@ -20,8 +21,8 @@ const mockups: Record<ProjectVisual, () => JSX.Element> = {
 export function ProjectMockup({ visual }: { visual: ProjectVisual }) {
   const Mockup = mockups[visual];
   return (
-    <div aria-hidden="true" className="pointer-events-none select-none">
+    <MockupStage>
       <Mockup />
-    </div>
+    </MockupStage>
   );
 }

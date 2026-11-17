@@ -21,7 +21,8 @@ export function VoiceAgentMockup() {
           <div className="flex flex-col border-b border-white/10 p-4 @xl:border-r @xl:border-b-0">
             <div className="flex items-center justify-between">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[10.5px] font-bold text-white">
-                <span className="live-dot size-1.5 rounded-full bg-error" /> Live call
+                <span className="mk-pulse size-1.5 rounded-full bg-error" style={cssVars({ "--pulse": "#C0392B" })} />{" "}
+                Live call
               </span>
               <span className="numeral text-white/60">02:14</span>
             </div>
@@ -36,7 +37,7 @@ export function VoiceAgentMockup() {
               </div>
             </div>
 
-            <div aria-hidden="true" className="mt-6 flex h-20 items-center justify-between gap-[3px]">
+            <div aria-hidden="true" className="mk-breathe mt-6 flex h-20 items-center justify-between gap-[3px]">
               {bars.map((height, index) => (
                 <span
                   key={index}
@@ -68,12 +69,16 @@ export function VoiceAgentMockup() {
             <p className="text-[10.5px] font-bold tracking-[0.12em] text-white/50 uppercase">Live transcript</p>
             <ul className="mt-3 space-y-2.5">
               {transcript.map((line, index) => (
-                <li key={index} className={cn("flex gap-2", line.who === "agent" && "flex-row-reverse")}>
+                <li
+                  key={index}
+                  className={cn("mk-rise flex gap-2", line.who === "agent" && "flex-row-reverse")}
+                  style={cssVars({ "--d": `${200 + index * 380}ms` })}
+                >
                   <span
                     aria-hidden="true"
                     className={cn(
                       "mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full",
-                      line.who === "agent" ? "bg-cobalt-soft text-ink" : "bg-white/12 text-white",
+                      line.who === "agent" ? "mk-pulse bg-cobalt-soft text-ink" : "bg-white/12 text-white",
                     )}
                   >
                     {line.who === "agent" ? <Bot className="size-3.5" /> : <User className="size-3.5" />}
@@ -97,7 +102,10 @@ export function VoiceAgentMockup() {
         </div>
       </Window>
 
-      <div className="absolute right-4 -bottom-6 flex items-center gap-3 rounded-xl bg-white px-3.5 py-3 text-ink shadow-mock @lg:-right-5">
+      <div
+        className="mk-pop absolute right-4 -bottom-6 flex items-center gap-3 rounded-xl bg-white px-3.5 py-3 text-ink shadow-mock @lg:-right-5"
+        style={cssVars({ "--d": "1900ms" })}
+      >
         <span className="flex size-9 items-center justify-center rounded-lg bg-success text-white">
           <CalendarCheck aria-hidden="true" className="size-4.5" />
         </span>

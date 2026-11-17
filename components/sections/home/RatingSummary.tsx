@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef, type ReactNode } from "react";
 import { cssVars } from "@/lib/cn";
 import { easeBrand } from "@/lib/easing";
 import { REDUCED_MOTION } from "@/lib/use-media-query";
+import { useMounted } from "@/lib/use-mounted";
 
 const SCORE = 5;
 const COUNT_MS = 1200;
@@ -21,19 +22,22 @@ type RatingSummaryProps = {
  * to 5.0 and the rating bars fill from the left, together.
  *
  * Content first: the server renders the final state (5.0, full bar), and
- * screen readers always get the final score. The animation is only set up
- * if the card starts off screen, so nothing visible ever jumps; with
+ * screen readers always get the final score. Nothing is touched until the
+ * component is mounted in the browser (useMounted), so hydration always sees
+ * exactly the server HTML. The animation is only set up if the card starts
+ * off screen, so nothing visible ever jumps; with
  * reduced motion, or without JavaScript, the final state simply shows.
  */
 export function RatingSummary({ label, basedOn, disclaimer, stars, starColor }: RatingSummaryProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const scoreRef = useRef<HTMLSpanElement>(null);
+  const mounted = useMounted();
 
   // Layout effect: the reset to 0.0 happens before paint, so it is never seen.
   useLayoutEffect(() => {
     const root = rootRef.current;
     const score = scoreRef.current;
-    if (!root || !score || window.matchMedia(REDUCED_MOTION).matches) return;
+    if (!mounted || !root || !score || window.matchMedia(REDUCED_MOTION).matches) return;
     const rect = root.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) return;
 
@@ -67,7 +71,7 @@ export function RatingSummary({ label, basedOn, disclaimer, stars, starColor }: 
       delete root.dataset.rating;
       write(SCORE);
     };
-  }, []);
+  }, [mounted]);
 
   return (
     <div ref={rootRef} className="rating mt-10 rounded-card bg-raise p-6">

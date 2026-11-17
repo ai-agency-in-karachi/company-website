@@ -55,6 +55,8 @@ function Donut() {
           strokeWidth="6"
           strokeDasharray={`${branch.share - 1.2} ${100 - branch.share + 1.2}`}
           strokeDashoffset={segmentOffsets[index]}
+          className="mk-draw"
+          style={cssVars({ "--d": `${500 + index * 200}ms` })}
         />
       ))}
       <text x="21" y="22.5" textAnchor="middle" className="fill-ink text-[6px] font-bold">
@@ -106,8 +108,12 @@ export function DashboardMockup() {
             </div>
 
             <div className="mt-3.5 grid grid-cols-3 gap-2.5">
-              {kpis.map((kpi) => (
-                <div key={kpi.label} className={cn("rounded-xl p-3", kpi.tone)}>
+              {kpis.map((kpi, index) => (
+                <div
+                  key={kpi.label}
+                  className={cn("mk-rise rounded-xl p-3", kpi.tone)}
+                  style={cssVars({ "--d": `${index * 110}ms` })}
+                >
                   <p className="text-[10.5px] opacity-75">{kpi.label}</p>
                   <p className="mt-1 font-display text-[13px] leading-tight font-bold @md:text-[17px]">{kpi.value}</p>
                   <p className="mt-1 inline-flex items-center gap-1 text-[10px] font-semibold opacity-85">
@@ -128,10 +134,10 @@ export function DashboardMockup() {
                     <div key={index} className="flex h-full flex-1 flex-col items-center justify-end gap-1">
                       <span
                         className={cn(
-                          "chart-bar w-full rounded-t-[4px]",
+                          "mk-grow-y w-full rounded-t-[4px]",
                           index === months.length - 1 ? "bg-cobalt" : "bg-cobalt-tint",
                         )}
-                        style={cssVars({ "--i": index }, { height: `${value}%` })}
+                        style={cssVars({ "--d": `${250 + index * 60}ms` }, { height: `${value}%` })}
                       />
                       <span className="text-[8.5px] text-ink/40">{monthLabels[index]}</span>
                     </div>
@@ -156,8 +162,12 @@ export function DashboardMockup() {
               <p className="font-semibold">Recent orders</p>
               <table className="mt-2 w-full text-left text-[10.5px]">
                 <tbody>
-                  {orders.map((order) => (
-                    <tr key={order.id} className="border-t border-ink/6">
+                  {orders.map((order, index) => (
+                    <tr
+                      key={order.id}
+                      className="mk-rise border-t border-ink/6"
+                      style={cssVars({ "--d": `${900 + index * 120}ms` })}
+                    >
                       <td className="numeral py-1.5 text-ink/55">{order.id}</td>
                       <td className="py-1.5 font-medium">{order.client}</td>
                       <td className="hidden py-1.5 @md:table-cell">{order.amount}</td>

@@ -1,6 +1,6 @@
 import { Bot, CircleCheck, Database, GitBranch, Mail, MessageCircle, Webhook } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { cn } from "@/lib/cn";
+import { cn, cssVars } from "@/lib/cn";
 import { Window } from "./Window";
 
 type Node = { id: string; x: number; y: number; title: string; detail: string; icon: LucideIcon; tone: string };
@@ -128,17 +128,25 @@ export function WorkflowMockup() {
           {nodes.map((node) => (
             <div
               key={node.id}
-              className={cn(
-                "absolute flex items-center gap-2 rounded-xl border border-ink/10 bg-white p-2 shadow-[0_2px_0_rgba(17,19,34,0.06)]",
+              className="mk-pop absolute flex items-center gap-2 rounded-xl border border-ink/10 bg-white p-2 shadow-[0_2px_0_rgba(17,19,34,0.06)]"
+              style={cssVars(
+                // Nodes appear column by column, in the direction data flows.
+                { "--d": `${Math.round((node.x / W) * 900)}ms` },
+                {
+                  left: `${(node.x / W) * 100}%`,
+                  top: `${(node.y / H) * 100}%`,
+                  width: `${((node.id === "branch" ? 100 : NODE_W) / W) * 100}%`,
+                  height: `${(NODE_H / H) * 100}%`,
+                },
               )}
-              style={{
-                left: `${(node.x / W) * 100}%`,
-                top: `${(node.y / H) * 100}%`,
-                width: `${((node.id === "branch" ? 100 : NODE_W) / W) * 100}%`,
-                height: `${(NODE_H / H) * 100}%`,
-              }}
             >
-              <span className={cn("grid size-7 shrink-0 place-items-center rounded-lg @lg:size-8", node.tone)}>
+              <span
+                className={cn(
+                  "grid size-7 shrink-0 place-items-center rounded-lg @lg:size-8",
+                  node.tone,
+                  node.id === "ai" && "mk-pulse",
+                )}
+              >
                 <node.icon aria-hidden="true" className="size-3.5 @lg:size-4" />
               </span>
               <span className="min-w-0">
@@ -155,7 +163,11 @@ export function WorkflowMockup() {
             ["Run #1041", "Nurture sequence started", "0.9s"],
             ["Run #1040", "CRM deal created", "1.4s"],
           ].map(([run, detail, time], index) => (
-            <div key={run} className={cn("flex items-start gap-2", index > 0 && "hidden @md:flex")}>
+            <div
+              key={run}
+              className={cn("mk-rise flex items-start gap-2", index > 0 && "hidden @md:flex")}
+              style={cssVars({ "--d": `${1000 + index * 140}ms` })}
+            >
               <CircleCheck aria-hidden="true" className="mt-px size-3.5 shrink-0 text-success" />
               <span className="min-w-0">
                 <span className="block font-semibold">
@@ -168,7 +180,10 @@ export function WorkflowMockup() {
         </div>
       </Window>
 
-      <div className="absolute -top-4 right-4 rounded-xl bg-ink px-3.5 py-2.5 text-white shadow-mock @lg:-right-4">
+      <div
+        className="mk-pop absolute -top-4 right-4 rounded-xl bg-ink px-3.5 py-2.5 text-white shadow-mock @lg:-right-4"
+        style={cssVars({ "--d": "1400ms" })}
+      >
         <p className="text-[10px] text-white/60">Hours saved this week</p>
         <p className="font-display text-[1.25rem] leading-tight font-bold text-cobalt-soft">31 h</p>
       </div>

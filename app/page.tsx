@@ -3,7 +3,6 @@ import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import { PageTransition } from "@/components/motion/PageTransition";
 import { About } from "@/components/sections/home/About";
-import { ClientShowcase } from "@/components/sections/home/ClientShowcase";
 import { FeaturedProjects } from "@/components/sections/home/FeaturedProjects";
 import { FinalCta } from "@/components/sections/home/FinalCta";
 import { Hero } from "@/components/sections/home/Hero";
@@ -17,8 +16,8 @@ export const metadata: Metadata = pageMetadata({ description: site.description, 
 
 /**
  * Home page order: lead with what we do and how, prove it with the work and
- * the tools, then the clients who trust us; close with who we are, why us,
- * what clients say and the invitation to start.
+ * the tools, then close with who we are, why us, what clients say and the
+ * invitation to start.
  */
 export default function HomePage() {
   return (
@@ -29,7 +28,6 @@ export default function HomePage() {
         <Process />
         <FeaturedProjects />
         <TechEcosystem />
-        <ClientShowcase />
         <About />
         <WhyChooseUs />
         <Reviews />

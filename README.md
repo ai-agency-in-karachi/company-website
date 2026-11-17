@@ -42,24 +42,23 @@ Without the email variables the form still validates; on submit it explains that
 
 ## Before you launch
 
-**The full checklist of every piece of demo content (copy, clients, reviews, projects, mockup data, logos), grouped by section, is in [`CONTENT_TO_REPLACE.md`](CONTENT_TO_REPLACE.md).** The short version:
+**The full checklist of every piece of demo content (copy, reviews, projects, mockup data, logos), grouped by section, is in [`CONTENT_TO_REPLACE.md`](CONTENT_TO_REPLACE.md).** The short version:
 
 NOVARY® is a demo brand. Replace these placeholders, all in `content/` unless noted:
 
 1. **Domain:** `NEXT_PUBLIC_SITE_URL` (and `site.url` in `content/site.ts`).
 2. **Email and location:** `site.contact`.
 3. **Social profiles:** `site.socials` currently point to the platforms' home pages.
-4. **Client brands:** `home.clients.brands` are invented names; their logos are drawn in `components/ui/BrandMark.tsx`.
-5. **Reviews:** `home.reviews.items` are demo reviews, labelled as such on the page. Replace them with real ones (and only ever show genuine reviews).
-6. **Projects:** `content/projects.ts` holds six demo concepts. Their pages are `noindex` and stay out of the sitemap.
-7. **Mockup figures:** numbers inside the coded mockups (`components/mockups/`) are illustrative.
-8. **Logo:** the N mark is in `components/ui/Logo.tsx`, `app/icon.svg`, `app/apple-icon.tsx`, `app/favicon.ico` and `public/logo.png`.
+4. **Reviews:** `home.reviews.items` are demo reviews, labelled as such on the page. Replace them with real ones (and only ever show genuine reviews).
+5. **Projects:** `content/projects.ts` holds six demo concepts. Their pages are `noindex` and stay out of the sitemap.
+6. **Mockup figures:** numbers inside the coded mockups (`components/mockups/`) are illustrative.
+7. **Logo:** the N mark is in `components/ui/Logo.tsx`, `app/icon.svg`, `app/apple-icon.tsx`, `app/favicon.ico` and `public/logo.png`.
 
 ---
 
 ## Home page order
 
-Hero → Our Expertise (services) → How We Work (process) → Selected Work (projects) → Powered by the Right Tools (technology) → Trusted Collaboration (client dial) → About Us → Why Choose Us → Reviews → Final call to action. The order is set in `app/page.tsx`.
+Hero → Our Expertise (services) → How We Work (process) → Selected Work (projects) → Powered by the Right Tools (technology) → About Us → Why Choose Us → Reviews → Final call to action. The order is set in `app/page.tsx`.
 
 ## Editing content
 
@@ -86,7 +85,7 @@ components/
   motion/                RevealManager, Reveal, Stagger, MaskedText,
                          PageTransition, MotionProvider
   sections/              page sections (home, contact)
-  ui/                    Button, ArrowLink, Eyebrow, Logo, BrandMark
+  ui/                    Button, ArrowLink, Eyebrow, Logo
 content/                 all editable text and data
 lib/                     tokens, class helper, lazy GSAP hook, service/project styles,
                          tech icons, SEO, email, validation, rate limit
@@ -119,12 +118,14 @@ Smooth and controlled, one easing everywhere (`cubic-bezier(0.22, 1, 0.36, 1)`).
 
 - **Reveals** (`Reveal`, `Stagger`, `MaskedText`) render on the server with data attributes; a single `IntersectionObserver` in `RevealManager` reveals each once with CSS transitions. Content already on screen is never hidden.
 - **Hero:** pure CSS entrance; the isometric blocks (`IsoBlocks.tsx`, flat-shaded SVG with a true isometric projection) drop into place and two modules drift gently.
-- **Client showcase:** a dial of brand logos on the track of a very large wheel that turns continuously (CSS, 140s per turn); only its top arc is visible. Each logo is centred exactly on the drawn track. Hovering a logo highlights it in cobalt and scales it up slightly; the dial never pauses.
 - **Framer Motion:** the navbar pill and the services index indicator (`layoutId`), and the services colour panel crossfade (`AnimatePresence`). Loaded lazily by `MotionProvider`.
-- **GSAP ScrollTrigger** (loaded on demand via `lib/use-lazy-gsap.ts`): the About lines drifting sideways, the process track filling and its step counter, and the project panels easing back as the next one stacks over them.
+- **Selected Work:** on screens at least 1024px wide and 760px tall (and without reduced motion) the section pins and scrolling pans the project panels horizontally (GSAP ScrollTrigger, scrubbed 1:1 with light smoothing), with a progress line and counter; it unpins after the last project. Elsewhere, and always on the server, it is a vertical list.
+- **Mockup micro-animations:** each mockup plays a short entrance when it comes into view (`components/mockups/MockupStage.tsx`: messages and cards rise in, chart bars grow, the donut draws, progress bars fill), plus continuous details in CSS: a reply typing itself in the WhatsApp composer, a breathing AI waveform, pulsing live and active states.
+- **GSAP ScrollTrigger** (loaded on demand): the horizontal projects, the About lines drifting sideways, and the process track filling with its step counter.
 - **Technology orbit:** three CSS rings at different speeds and directions, tiles counter-rotating to stay upright; the category list filters the orbit.
 - **Page transitions:** React `<ViewTransition>`; service titles morph from the index into the detail page.
 - `prefers-reduced-motion` turns off every continuous animation and scroll effect, leaving short fades.
+- **Hydration safety:** components that animate or change layout on the client (horizontal projects, rating count-up, mockup entrances) render the server's static version first and only enhance after mounting (`lib/use-mounted.ts`), so the HTML React hydrates always matches the server. `<html>` and `<body>` carry `suppressHydrationWarning` for attributes added by browser extensions, and `app/error.tsx` / `app/global-error.tsx` show a "Try again" screen instead of a blank page if anything still fails.
 
 ### Contact form
 

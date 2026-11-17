@@ -1,6 +1,6 @@
 import { CreditCard, Heart, Search, ShoppingBag, Truck } from "lucide-react";
 import type { ReactNode } from "react";
-import { cn } from "@/lib/cn";
+import { cn, cssVars } from "@/lib/cn";
 import { Window } from "./Window";
 
 /* Flat product illustrations, drawn in SVG instead of photos. */
@@ -53,7 +53,10 @@ export function EcommerceMockup() {
             </span>
             <span className="relative grid size-8 place-items-center rounded-full bg-ink text-white">
               <ShoppingBag aria-hidden="true" className="size-3.5" />
-              <span className="absolute -top-1 -right-1 grid size-4 place-items-center rounded-full bg-cobalt text-[9px] font-bold text-white">
+              <span
+                className="mk-pop absolute -top-1 -right-1 grid size-4 place-items-center rounded-full bg-cobalt text-[9px] font-bold text-white"
+                style={cssVars({ "--d": "1300ms" })}
+              >
                 2
               </span>
             </span>
@@ -84,8 +87,8 @@ export function EcommerceMockup() {
             </div>
 
             <ul className="mt-3 grid grid-cols-3 gap-2.5">
-              {products.map((product) => (
-                <li key={product.name}>
+              {products.map((product, index) => (
+                <li key={product.name} className="mk-rise" style={cssVars({ "--d": `${index * 140}ms` })}>
                   <div className={cn("relative aspect-square rounded-xl p-3", product.bg)}>
                     {product.art}
                     {product.tag ? (
@@ -108,8 +111,12 @@ export function EcommerceMockup() {
           <aside className="border-t border-ink/8 bg-[#F8F7F4] p-4 @xl:absolute @xl:top-[57px] @xl:bottom-0 @xl:right-0 @xl:w-[12.75rem] @xl:border-t-0 @xl:border-l">
             <p className="font-display text-[14px] font-bold">Your cart (2)</p>
             <ul className="mt-3 space-y-2.5">
-              {products.slice(0, 2).map((product) => (
-                <li key={product.name} className="flex items-center gap-2.5">
+              {products.slice(0, 2).map((product, index) => (
+                <li
+                  key={product.name}
+                  className="mk-rise flex items-center gap-2.5"
+                  style={cssVars({ "--d": `${600 + index * 160}ms` })}
+                >
                   <span className={cn("size-10 shrink-0 rounded-lg p-1", product.bg)}>{product.art}</span>
                   <span className="min-w-0">
                     <span className="block truncate font-semibold">{product.name}</span>
@@ -133,14 +140,17 @@ export function EcommerceMockup() {
               <span className="rounded-md bg-white py-1.5">Wallet</span>
               <span className="rounded-md border border-ink bg-white py-1.5">COD</span>
             </div>
-            <span className="mt-3 flex h-9 items-center justify-center gap-1.5 rounded-full bg-ink text-[11px] font-semibold text-white">
+            <span className="mk-pulse mt-3 flex h-9 items-center justify-center gap-1.5 rounded-full bg-ink text-[11px] font-semibold text-white">
               <CreditCard aria-hidden="true" className="size-3.5" /> Checkout
             </span>
           </aside>
         </div>
       </Window>
 
-      <div className="absolute -top-4 left-4 flex items-center gap-2.5 rounded-xl bg-ink px-3.5 py-2.5 text-white shadow-mock @lg:-left-5">
+      <div
+        className="mk-pop absolute -top-4 left-4 flex items-center gap-2.5 rounded-xl bg-ink px-3.5 py-2.5 text-white shadow-mock @lg:-left-5"
+        style={cssVars({ "--d": "1000ms" })}
+      >
         <Truck aria-hidden="true" className="size-4 text-cobalt-soft" />
         <div>
           <p className="text-[11px] font-bold">Checkout in under a minute</p>

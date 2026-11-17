@@ -10,7 +10,7 @@ NOVARY® is a demo brand. Everything below is placeholder content: names, copy, 
 - Tick items off as you go (`[ ]` → `[x]`).
 - After editing, run `npm run check`, then push.
 
-**Priority order:** 1. Brand and contact details → 2. Reviews and client logos (never publish invented testimonials or clients as real) → 3. Projects → 4. Everything else.
+**Priority order:** 1. Brand and contact details → 2. Reviews (never publish invented testimonials as real) → 3. Projects → 4. Everything else.
 
 ---
 
@@ -171,27 +171,7 @@ File: `content/site.ts` → `home.tech`. Logos: `lib/tech-icons.tsx`.
 - [ ] Cloud & Deployment: AWS, Google Cloud, Azure, Docker, Vercel. Confirm these are tools you actually use
 - [ ] **(code)** Orbit centre label: "36+ Technology ecosystem" is calculated from the list above
 
-## 7. Home: Trusted Collaboration (client dial)
-
-File: `content/site.ts` → `home.clients`. Logos: `components/ui/BrandMark.tsx`.
-
-⚠️ **All eight client brands are invented.** Only show real clients you have permission to name.
-
-- [ ] Eyebrow: “Trusted collaboration”
-- [ ] Title: “Built for Businesses” / “With Big Ideas.”
-- [ ] Description: “A growing network of businesses choosing smarter digital solutions.”
-- [ ] Screen-reader list label: “Businesses we work with (demo brands)”
-- [ ] Client: “Nexora”. Invented name **and** invented logo (mark + wordmark in `BrandMark.tsx`)
-- [ ] Client: “Vertex Labs”. Invented name **and** invented logo (mark + wordmark in `BrandMark.tsx`)
-- [ ] Client: “Orbit Solutions”. Invented name **and** invented logo (mark + wordmark in `BrandMark.tsx`)
-- [ ] Client: “Elevate Digital”. Invented name **and** invented logo (mark + wordmark in `BrandMark.tsx`)
-- [ ] Client: “Cloudnest”. Invented name **and** invented logo (mark + wordmark in `BrandMark.tsx`)
-- [ ] Client: “PixelCraft”. Invented name **and** invented logo (mark + wordmark in `BrandMark.tsx`)
-- [ ] Client: “Flux Technologies”. Invented name **and** invented logo (mark + wordmark in `BrandMark.tsx`)
-- [ ] Client: “Beyond Commerce”. Invented name **and** invented logo (mark + wordmark in `BrandMark.tsx`)
-- [ ] **(code)** To use real logos: replace `BrandLogo` in `components/sections/home/ClientShowcase.tsx` with real logo files (SVG preferred) and keep them monochrome to match the design
-
-## 8. Home: A Little About Us
+## 7. Home: A Little About Us
 
 File: `content/site.ts` → `home.about`
 
@@ -201,7 +181,7 @@ File: `content/site.ts` → `home.about`
 - [ ] Supporting lines: “Different challenges.” / “One dedicated team.” / “Endless possibilities.”
 - [ ] Link: “Get to Know Us” → `/contact`
 
-## 9. Home: Why Choose Us
+## 8. Home: Why Choose Us
 
 File: `content/site.ts` → `home.why`
 
@@ -214,7 +194,7 @@ File: `content/site.ts` → `home.why`
 - [ ] “Clear Communication”: “You stay informed, involved and confident throughout the process.”
 - [ ] “Designed to Grow”: “We build with flexibility and your future business needs in mind.”
 
-## 10. Home: Client Reviews
+## 9. Home: Client Reviews
 
 File: `content/site.ts` → `home.reviews`
 
@@ -232,7 +212,7 @@ File: `content/site.ts` → `home.reviews`
 - [ ] **Ayesha Khan**, Karachi, Pakistan · UI/UX & Product Design: “Honestly, mujhe process kaafi easy laga. Team ne har stage par guide kiya aur result bohat acha tha.”
 - [ ] **Bilal Ahmed**, Faisalabad, Pakistan · AI Voice Agent: “AI calling solution ka concept samajhne se lekar implementation tak team ne achi support provide ki.”
 
-## 11. Home: Final Call to Action
+## 10. Home: Final Call to Action
 
 File: `content/site.ts` → `home.finalCta`
 
@@ -243,7 +223,7 @@ File: `content/site.ts` → `home.finalCta`
 - [ ] Supporting line: “Tell us what you're planning. We'll help you figure out the right way forward.”
 - [ ] **(code)** Scrolling service names under the call to action come from `services[].shortTitle`
 
-## 12. Product mockups (demo data inside the visuals)
+## 11. Product mockups (demo data inside the visuals)
 
 Files: `components/mockups/`. These are coded illustrations, not screenshots. Every name, number and order inside them is invented. Replace with your real product screenshots or adjust the data to match a real project.
 
@@ -288,7 +268,7 @@ Files: `components/mockups/`. These are coded illustrations, not screenshots. Ev
 - [ ] Run log #1040 to #1042 with timings, “Last run 2 min ago”
 - [ ] Figure: “Hours saved this week 31 h”
 
-## 13. Services page and the eight service detail pages
+## 12. Services page and the eight service detail pages
 
 Index copy: `content/site.ts` → `servicesPage`. Detail-page labels: `serviceDetail`. Services: `content/services.ts`.
 
@@ -395,7 +375,7 @@ The one-line summaries came from the brand brief; **all detail-page copy (intro,
 - [ ] A good fit if: Staff enter the same data in more than one system; Your tools show different numbers for the same thing; Partners need secure access to your data; You are adding a payment, courier or messaging provider
 - [ ] Typical timeline: “2 to 8 weeks”
 
-## 14. Contact page
+## 13. Contact page
 
 File: `content/site.ts` → `contactPage`
 
@@ -406,7 +386,7 @@ File: `content/site.ts` → `contactPage`
 - [ ] Form labels, success and error messages: `contactPage.form` (review wording)
 - [ ] **(code)** Email templates: `lib/email.ts` (subject lines, “We'll reply within one business day” confirmation)
 
-## 15. Footer
+## 14. Footer
 
 File: `content/site.ts` → `footer` (email, location and socials come from `site`, section 1)
 
@@ -417,12 +397,12 @@ File: `content/site.ts` → `footer` (email, location and socials come from `sit
 - [ ] Sign-off: “Built with purpose. Designed for what's next.”
 - [ ] **(code)** Large wordmark at the bottom shows `site.name` + `site.mark`
 
-## 16. Other pages and messages
+## 15. Other pages and messages
 
 - [ ] 404 page: “This page took a different path.”, “The page you're looking for doesn't exist or has moved.”
 - [ ] Service detail call to action: “Tell us what you're planning. We'll help you figure out the right way forward.” / button “Discuss Your Project”
 
-## 17. Logo, icons and social images
+## 16. Logo, icons and social images
 
 The NOVARY® mark (an N on an ink square) is a demo logo drawn in code.
 
@@ -433,10 +413,10 @@ The NOVARY® mark (an N on an ink square) is a demo logo drawn in code.
 - [ ] Social share image (Open Graph / Twitter): `lib/og.tsx` (uses the hero headline and the isometric blocks)
 - [ ] Organisation data for search engines: `lib/seo.ts` (`organizationJsonLd`: address Karachi, PK; languages English, Urdu)
 
-## 18. Before launch: legal and accuracy
+## 17. Before launch: legal and accuracy
 
 - [ ] Confirm you have rights to the brand name and logo you use
-- [ ] Only show real clients and real reviews, with permission
+- [ ] Only show real reviews (and any client names inside mockups) with permission
 - [ ] Add a privacy policy (the contact form collects names, emails and phone numbers) and link it from the footer and the form
 - [ ] Check every figure on the site (mockup numbers, timelines, response times) is either clearly illustrative or true
 - [ ] Verify your sending domain in Resend so the contact form emails arrive

@@ -110,7 +110,10 @@ export function WhatsAppMockup() {
                 Assalam o Alaikum! Is my order #4821 shipped?
                 <span className="mt-0.5 block text-right text-[9.5px] text-ink/40">10:41</span>
               </div>
-              <div className="ml-auto max-w-[84%] rounded-xl rounded-tr-sm bg-cobalt-tint px-3 py-2 shadow-[0_1px_0_rgba(17,19,34,0.06)]">
+              <div
+                className="mk-rise ml-auto max-w-[84%] rounded-xl rounded-tr-sm bg-cobalt-tint px-3 py-2 shadow-[0_1px_0_rgba(17,19,34,0.06)]"
+                style={cssVars({ "--d": "250ms" })}
+              >
                 <span className="mb-1 inline-flex items-center gap-1 rounded bg-cobalt/12 px-1.5 py-0.5 text-[9.5px] font-bold text-cobalt">
                   <Zap aria-hidden="true" className="size-2.5" /> Auto-reply
                 </span>
@@ -129,7 +132,10 @@ export function WhatsAppMockup() {
                   10:41 <CheckCheck aria-hidden="true" className="size-3 text-cobalt" />
                 </span>
               </div>
-              <div className="max-w-[60%] rounded-xl rounded-tl-sm bg-white px-3 py-2">
+              <div
+                className="mk-rise max-w-[60%] rounded-xl rounded-tl-sm bg-white px-3 py-2"
+                style={cssVars({ "--d": "650ms" })}
+              >
                 Great, JazakAllah! 🙌
                 <span className="mt-0.5 block text-right text-[9.5px] text-ink/40">10:42</span>
               </div>
@@ -151,11 +157,17 @@ export function WhatsAppMockup() {
                 </span>
               ))}
             </div>
-            <div className="flex items-center gap-2 bg-[#F7F4EE] px-3 py-2.5 text-ink/45">
+            <div className="flex items-center gap-2 bg-[#F6F5F2] px-3 py-2.5 text-ink/45">
               <Smile aria-hidden="true" className="size-4" />
               <Paperclip aria-hidden="true" className="size-4" />
-              <span className="flex h-8 flex-1 items-center rounded-full bg-white px-3">Type a message</span>
-              <span className="flex size-8 items-center justify-center rounded-full bg-cobalt text-white">
+              {/* The agent's reply types itself out in the composer, then clears and repeats. */}
+              <span className="flex h-8 min-w-0 flex-1 items-center overflow-hidden rounded-full bg-white px-3 text-ink">
+                <span className="mk-type" style={cssVars({ "--n": 34 })}>
+                  Sure! Sharing your tracking link now
+                </span>
+                <span className="mk-caret text-cobalt" />
+              </span>
+              <span className="mk-pulse flex size-8 items-center justify-center rounded-full bg-cobalt text-white">
                 <Send aria-hidden="true" className="size-3.5" />
               </span>
             </div>
@@ -164,16 +176,25 @@ export function WhatsAppMockup() {
       </Window>
 
       {/* Floating insight chips */}
-      <div className="absolute -top-4 right-4 rounded-xl bg-white px-3.5 py-2.5 text-ink shadow-mock @lg:-right-4">
+      <div
+        className="mk-pop absolute -top-4 right-4 rounded-xl bg-white px-3.5 py-2.5 text-ink shadow-mock @lg:-right-4"
+        style={cssVars({ "--d": "900ms" })}
+      >
         <p className="text-[10px] text-ink/55">Avg. first reply</p>
         <p className="font-display text-[1.25rem] leading-tight font-bold">12 sec</p>
       </div>
-      <div className="absolute -bottom-5 left-4 hidden rounded-xl bg-white px-3.5 py-2.5 shadow-mock @md:block @lg:-left-5">
+      <div
+        className="mk-pop absolute -bottom-5 left-4 hidden rounded-xl bg-white px-3.5 py-2.5 shadow-mock @md:block @lg:-left-5"
+        style={cssVars({ "--d": "1100ms" })}
+      >
         <p className="text-[10px] text-ink/55">Resolved automatically</p>
         <div className="mt-1 flex items-center gap-2">
           <span className="font-display text-[1.25rem] leading-tight font-bold text-ink">68%</span>
           <span className="h-1.5 w-20 overflow-hidden rounded-full bg-ink/10">
-            <span className="block h-full w-[68%] rounded-full bg-cobalt" />
+            <span
+              className="mk-grow-x block h-full w-[68%] rounded-full bg-cobalt"
+              style={cssVars({ "--d": "1300ms" })}
+            />
           </span>
         </div>
       </div>

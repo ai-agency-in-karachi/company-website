@@ -60,7 +60,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${sans.variable} ${display.variable} ${mono.variable}`} suppressHydrationWarning>
-      <body>
+      {/* Browser extensions and auto-translate can alter <html>/<body> before
+          React hydrates; these props stop that from failing hydration. */}
+      <body suppressHydrationWarning>
         <MotionProvider>
           <SkipLink />
           <SiteHeader />

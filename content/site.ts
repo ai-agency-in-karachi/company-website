@@ -59,22 +59,6 @@ export const home = {
     support: "One partner. Every digital possibility.",
     visualLabel: "Building blocks of a digital product: software, AI, automation, web and mobile.",
   },
-  clients: {
-    eyebrow: "Trusted collaboration",
-    title: ["Built for Businesses", "With Big Ideas."],
-    description: "A growing network of businesses choosing smarter digital solutions.",
-    listLabel: "Businesses we work with (demo brands)",
-    brands: [
-      "Nexora",
-      "Vertex Labs",
-      "Orbit Solutions",
-      "Elevate Digital",
-      "Cloudnest",
-      "PixelCraft",
-      "Flux Technologies",
-      "Beyond Commerce",
-    ],
-  },
   about: {
     eyebrow: "A little about us",
     title: ["Not Just Another", "Tech Agency."],
