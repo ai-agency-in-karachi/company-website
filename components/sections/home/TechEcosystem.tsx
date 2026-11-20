@@ -7,7 +7,7 @@ import { TechIcon } from "@/lib/tech-icons";
 import { MaskedText } from "@/components/motion/MaskedText";
 import { Reveal } from "@/components/motion/Reveal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { NMark } from "@/components/ui/Logo";
+import { BMark } from "@/components/ui/Logo";
 
 type Category = (typeof home.tech.categories)[number];
 
@@ -63,12 +63,9 @@ export function TechEcosystem() {
       <div className="container-wide">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
           <div className="lg:col-span-7">
-            <Eyebrow>{content.eyebrow}</Eyebrow>
+            <Eyebrow index={content.index}>{content.eyebrow}</Eyebrow>
             <MaskedText id="tech-title" lines={content.title} className="mt-6 text-h2 text-fg" />
           </div>
-          <Reveal className="lg:col-span-4 lg:col-start-9" delay={120}>
-            <p className="text-lead text-fg-soft">{content.description}</p>
-          </Reveal>
         </div>
 
         <div className="mt-14 grid grid-cols-1 items-center gap-12 lg:mt-20 lg:grid-cols-12 lg:gap-10">
@@ -95,12 +92,12 @@ export function TechEcosystem() {
                         aria-hidden="true"
                         className={cn(
                           "size-2.5 shrink-0 rounded-[3px] transition-[transform,background-color] duration-[var(--dur-base)] ease-brand",
-                          on ? "scale-150 bg-cobalt" : "bg-ink/25",
+                          on ? "scale-150 bg-sage" : "bg-pine/25",
                         )}
                       />
                       <span
                         className={cn(
-                          "font-display text-[1.125rem] font-bold tracking-[-0.02em] transition-colors duration-[var(--dur-base)]",
+                          "font-display text-[1.125rem] font-medium tracking-[-0.01em] transition-colors duration-[var(--dur-base)]",
                           on ? "text-accent" : "text-fg",
                         )}
                       >
@@ -146,7 +143,7 @@ export function TechEcosystem() {
                         >
                           <span className="orbit__tile flex size-[clamp(2rem,8.6cqw,3.375rem)] items-center justify-center rounded-[28%] border border-line bg-white text-ink">
                             <TechIcon name={tool.name} />
-                            <span className="orbit__label pointer-events-none absolute top-[calc(100%+0.375rem)] left-1/2 rounded-md bg-ink px-2 py-1 text-[0.6875rem] font-semibold whitespace-nowrap text-white">
+                            <span className="orbit__label pointer-events-none absolute top-[calc(100%+0.375rem)] left-1/2 rounded-md bg-pine px-2 py-1 text-[0.6875rem] font-semibold whitespace-nowrap text-white">
                               {tool.name}
                             </span>
                           </span>
@@ -157,9 +154,9 @@ export function TechEcosystem() {
                 );
               })}
 
-              <div className="absolute top-1/2 left-1/2 flex size-[28cqw] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-ink text-center text-paper">
-                <NMark className="size-[8cqw]" />
-                <span className="mt-[1.5cqw] font-display text-[4.6cqw] leading-none font-extrabold">{total}+</span>
+              <div className="absolute top-1/2 left-1/2 flex size-[28cqw] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-pine text-center text-paper">
+                <BMark className="size-[8cqw]" />
+                <span className="mt-[1.5cqw] font-display text-[4.6cqw] leading-none font-medium">{total}+</span>
                 <span className="mt-[0.8cqw] text-[2.1cqw] font-semibold tracking-[0.12em] uppercase opacity-70">
                   {content.orbitLabel}
                 </span>

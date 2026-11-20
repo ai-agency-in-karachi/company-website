@@ -247,7 +247,7 @@ export function FeaturedProjects() {
       <div className="container-wide">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
           <div className="lg:col-span-8">
-            <Eyebrow>{content.eyebrow}</Eyebrow>
+            <Eyebrow index={content.index}>{content.eyebrow}</Eyebrow>
             <MaskedText id="work-title" lines={content.title} className="mt-6 text-h2 text-fg" />
           </div>
           <Reveal className="lg:col-span-3 lg:col-start-10" delay={120}>
@@ -279,7 +279,7 @@ export function FeaturedProjects() {
               <span className="text-fg-soft"> / {pad(projects.length)}</span>
             </span>
             <span className="relative h-px flex-1 overflow-hidden bg-line">
-              <span ref={fillRef} className="absolute inset-0 origin-left scale-x-0 bg-cobalt" />
+              <span ref={fillRef} className="absolute inset-0 origin-left scale-x-0 bg-sage" />
             </span>
           </div>
         </div>

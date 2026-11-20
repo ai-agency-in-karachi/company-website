@@ -77,7 +77,7 @@ export function RatingSummary({ label, basedOn, disclaimer, stars, starColor }: 
     <div ref={rootRef} className="rating mt-10 rounded-card bg-raise p-6">
       <p className="eyebrow text-fg-soft">{label}</p>
       <div className="mt-2 flex items-center gap-4">
-        <span className="font-display text-[3.5rem] leading-none font-extrabold tracking-[-0.04em] text-fg tabular-nums">
+        <span className="font-display text-[3.5rem] leading-none font-medium tracking-[-0.01em] text-fg tabular-nums">
           <span className="sr-only">{SCORE.toFixed(1)}</span>
           <span ref={scoreRef} aria-hidden="true">
             {SCORE.toFixed(1)}

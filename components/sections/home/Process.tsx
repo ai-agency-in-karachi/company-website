@@ -61,28 +61,19 @@ export function Process() {
   });
 
   return (
-    <section
-      id="process"
-      ref={sectionRef}
-     
-      aria-labelledby="process-title"
-      className="process section-y"
-    >
+    <section id="process" ref={sectionRef} aria-labelledby="process-title" className="process section-y">
       <div className="container-wide grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-[calc(var(--nav-h)+3rem)]">
-            <Eyebrow>{content.eyebrow}</Eyebrow>
+            <Eyebrow index={content.index}>{content.eyebrow}</Eyebrow>
             <MaskedText id="process-title" lines={content.title} className="mt-6 text-h2 text-fg" />
             <div aria-hidden="true" className="mt-12 hidden items-end gap-5 lg:flex">
-              <span
-                ref={counterRef}
-                className="font-display text-[8rem] leading-[0.8] font-extrabold tracking-[-0.06em] text-accent"
-              >
+              <span ref={counterRef} className="font-display text-[8rem] leading-[0.8] font-normal text-em">
                 {content.steps[0]!.number}
               </span>
               <span className="pb-2">
                 <span className="eyebrow block text-fg-soft">{content.stepLabel}</span>
-                <span ref={titleRef} className="mt-1 block font-display text-title font-bold text-fg">
+                <span ref={titleRef} className="mt-1 block font-display text-title font-medium text-fg">
                   {content.steps[0]!.title}
                 </span>
               </span>

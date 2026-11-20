@@ -1,30 +1,28 @@
 /**
- * Every piece of editable text on the NOVARY® website lives in content/.
+ * Every piece of editable text on the Betterflow website lives in content/.
  * This file holds the brand, navigation, home page sections, contact page
  * and footer. Services are in services.ts and projects in projects.ts.
  *
- * NOVARY® is a demo brand: the email, social links, reviews and client
+ * Betterflow is a demo brand: the email, social links, reviews and client
  * names are placeholders. See README.md, "Before you launch".
  */
 
 export const site = {
-  name: "NOVARY",
-  /** Shown after the name in the logo and footer. */
-  mark: "®",
-  url: "https://novary.demo",
+  name: "Betterflow",
+  url: "https://betterflow.demo",
   tagline: "Software, AI, automation, web and mobile",
-  title: "NOVARY® | Digital solutions that move businesses forward",
+  title: "Betterflow | Digital solutions that move businesses forward",
   description:
-    "NOVARY® builds custom software, AI agents, business automation, websites and mobile apps that turn complex ideas into meaningful digital experiences.",
+    "Betterflow builds custom software, AI agents, business automation, websites and mobile apps that turn complex ideas into meaningful digital experiences.",
   locale: "en_PK",
   nav: [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Contact", href: "/contact" },
   ],
-  cta: { label: "Let's Talk", href: "/contact" },
+  cta: { label: "Let’s Talk", href: "/contact" },
   contact: {
-    email: "hello@novary.demo",
+    email: "hello@betterflow.demo",
     location: "Karachi, Pakistan",
     responseTime: "We reply within one business day.",
   },
@@ -36,7 +34,7 @@ export const site = {
   ],
   ui: {
     skipLink: "Skip to content",
-    homeLabel: "NOVARY, home",
+    homeLabel: "Betterflow, home",
     mainNavLabel: "Main",
     mobileNavLabel: "Mobile",
     menuOpen: "Open menu",
@@ -49,9 +47,7 @@ export const home = {
   hero: {
     eyebrow: "Your ideas. Our expertise.",
     /** Each entry is one line of the headline. */
-    title: ["We Build Digital", "Solutions That Move", "Businesses Forward."],
-    /** The words drawn in the accent colour. */
-    highlight: "Move",
+    title: ["We Build Digital", "Solutions That *Move*", "*Businesses Forward.*"],
     description:
       "From intelligent automation to powerful software, websites and applications — we turn complex ideas into meaningful digital experiences.",
     primary: { label: "Start a Project", href: "/contact" },
@@ -59,28 +55,42 @@ export const home = {
     support: "One partner. Every digital possibility.",
     visualLabel: "Building blocks of a digital product: software, AI, automation, web and mobile.",
   },
-  about: {
-    eyebrow: "A little about us",
-    title: ["Not Just Another", "Tech Agency."],
-    description:
-      "We bring technology, creativity and problem-solving together to build solutions that actually make a difference. Whether it's a custom software platform, an intelligent AI agent, a business automation system or a complete digital product, we're here to make it happen.",
-    support: ["Different challenges.", "One dedicated team.", "Endless possibilities."],
-    cta: { label: "Get to Know Us", href: "/contact" },
-  },
   services: {
-    eyebrow: "Our expertise",
-    title: ["Everything Digital.", "All Under One Roof."],
-    description:
-      "We don't believe in one-size-fits-all solutions. Every business has different needs, and we build around them.",
-    cta: { label: "Explore All Services", href: "/services" },
-    linkLabel: "See how we deliver",
-    includesLabel: "Includes",
+    index: "02",
+    eyebrow: "Services",
+    title: ["Three disciplines.", "*One accountable team.*"],
+    intro:
+      "Most businesses need more than a website. We build the systems behind it, automate the busywork and connect everything into one flow.",
+    allLink: { label: "All services", href: "/services" },
+    exploreLabel: "Explore",
+    cards: [
+      {
+        index: "01",
+        title: "Software Development",
+        text: "Custom systems that fit the way your business actually works.",
+        items: ["Custom business software", "Web applications", "Desktop and mobile apps", "SaaS products"],
+        href: "/services/software-development",
+      },
+      {
+        index: "02",
+        title: "AI & Automation",
+        text: "AI agents and workflows that take repetitive work off your team.",
+        items: ["AI agents and chatbots", "AI voice agents", "WhatsApp and email automation", "n8n workflows"],
+        href: "/services/ai-solutions",
+      },
+      {
+        index: "03",
+        title: "Web & Digital Solutions",
+        text: "Fast, clear websites that turn visitors into customers.",
+        items: ["Business websites", "E-commerce websites", "Landing pages", "Booking websites"],
+        href: "/services/website-development",
+      },
+    ],
   },
   why: {
+    index: "06",
     eyebrow: "The difference",
-    title: ["Good Ideas Deserve", "Better Execution."],
-    description:
-      "We focus on what matters: understanding your needs, building the right solution and making technology work for your business.",
+    title: ["Good Ideas Deserve", "*Better Execution.*"],
     points: [
       { title: "Built Around You", text: "Every solution starts with your requirements, not a predefined template." },
       {
@@ -96,8 +106,9 @@ export const home = {
     ],
   },
   process: {
+    index: "03",
     eyebrow: "How we work",
-    title: ["From First Conversation", "to Final Launch."],
+    title: ["From First Conversation", "*to Final Launch.*"],
     stepLabel: "Step",
     steps: [
       {
@@ -117,8 +128,9 @@ export const home = {
     ],
   },
   projects: {
+    index: "04",
     eyebrow: "Selected work",
-    title: ["Ideas We've Turned Into", "Digital Experiences."],
+    title: ["Ideas We’ve Turned Into", "*Digital Experiences.*"],
     description: "A glimpse into the kind of solutions we create.",
     projectLabel: "Project",
     featuresLabel: "Key features",
@@ -126,9 +138,9 @@ export const home = {
     viewLabel: "View Project",
   },
   tech: {
+    index: "05",
     eyebrow: "Powered by the right tools",
-    title: ["The Technology Behind", "Better Solutions."],
-    description: "We bring together modern technologies and powerful platforms to build reliable digital products.",
+    title: ["The Technology Behind", "*Better Solutions.*"],
     allLabel: "All technologies",
     orbitLabel: "Technology ecosystem",
     /** ring: 1 is the inner orbit, 3 the outer one. */
@@ -164,9 +176,9 @@ export const home = {
     ],
   },
   reviews: {
+    index: "07",
     eyebrow: "Words that matter",
-    title: ["Don't Just Take", "Our Word For It."],
-    description: "A few words about the experience of working with us.",
+    title: ["Don’t Just Take", "*Our Word For It.*"],
     ratingLabel: "Client rating",
     basedOn: (count: number) => `Based on ${count} client reviews`,
     disclaimer: "Demo reviews for illustration. Not verified reviews from any platform.",
@@ -210,24 +222,23 @@ export const home = {
     ],
   },
   finalCta: {
+    index: "08",
     eyebrow: "Your next big idea starts here",
-    title: ["Have Something in Mind?", "Let's Build It."],
-    description:
-      "Whether you need a simple website, a powerful software platform or an intelligent automation system, we're ready to hear about it.",
-    primary: { label: "Let's Discuss Your Project", href: "/contact" },
+    title: ["Have Something in Mind?", "*Let’s Build It.*"],
+    primary: { label: "Let’s Discuss Your Project", href: "/contact" },
     secondary: { label: "Explore Our Services", href: "/services" },
-    support: "Tell us what you're planning. We'll help you figure out the right way forward.",
+    support: "Tell us what you’re planning. We’ll help you figure out the right way forward.",
   },
 } as const;
 
 export const servicesPage = {
   metaTitle: "Services",
   metaDescription:
-    "Software development, AI agents, business automation, websites, mobile apps, e-commerce, UI/UX design and API integrations from NOVARY®.",
+    "Software development, AI agents, business automation, websites, mobile apps, e-commerce, UI/UX design and API integrations from Betterflow.",
   eyebrow: "Our expertise",
-  title: ["Everything Digital.", "All Under One Roof."],
+  title: ["Everything Digital.", "*All Under One Roof.*"],
   intro:
-    "We don't believe in one-size-fits-all solutions. Every business has different needs, and we build around them. Choose a service to see exactly what we provide and how we deliver it.",
+    "We don’t believe in one-size-fits-all solutions. Every business has different needs, and we build around them. Choose a service to see exactly what we provide and how we deliver it.",
   indexLabel: "Services",
   countLabel: "8 services, one team",
   includesLabel: "Includes",
@@ -247,7 +258,7 @@ export const serviceDetail = {
   timelineLabel: "Typical timeline",
   onThisPage: "On this page",
   ctaTitle: (service: string) => `Ready to talk about ${service.toLowerCase()}?`,
-  ctaText: "Tell us what you're planning. We'll help you figure out the right way forward.",
+  ctaText: "Tell us what you’re planning. We’ll help you figure out the right way forward.",
   ctaLabel: "Discuss Your Project",
   previousLabel: "Previous",
   nextLabel: "Next",
@@ -268,10 +279,10 @@ export const projectPage = {
 
 export const contactPage = {
   metaTitle: "Contact",
-  metaDescription: "Tell NOVARY® about your project. We reply within one business day.",
-  eyebrow: "Let's talk",
-  title: ["Tell Us What", "You're Planning."],
-  intro: "Share a few details about your idea. We'll help you figure out the right way forward.",
+  metaDescription: "Tell Betterflow about your project. We reply within one business day.",
+  eyebrow: "Let’s talk",
+  title: ["Tell Us What", "*You’re Planning.*"],
+  intro: "Share a few details about your idea. We’ll help you figure out the right way forward.",
   detailsTitle: "Get in touch",
   emailLabel: "Email",
   locationLabel: "Studio",
@@ -296,12 +307,12 @@ export const contactPage = {
     submit: "Send Message",
     sending: "Sending",
     successTitle: "Thank you. Your message is on its way.",
-    successText: "We'll read it carefully and reply within one business day.",
+    successText: "We’ll read it carefully and reply within one business day.",
     successAgain: "Send another message",
     failureTitle: "Your message could not be sent.",
     failureText: "Please try again in a moment, or email us directly.",
     notConfigured: 'Email sending is not configured on this server yet. See "Environment variables" in README.md.',
-    rateLimited: "You've sent a few messages already. Please wait a few minutes and try again.",
+    rateLimited: "You’ve sent a few messages already. Please wait a few minutes and try again.",
     retry: "Try again",
     errorSummary: (count: number) =>
       count === 1 ? "There is 1 problem with the form." : `There are ${count} problems with the form.`,
@@ -323,7 +334,7 @@ export const footer = {
   contactTitle: "Get In Touch",
   followTitle: "Follow Us",
   rights: "All rights reserved.",
-  signoff: "Built with purpose. Designed for what's next.",
+  signoff: "Built with purpose. Designed for what’s next.",
   backToTop: "Back to top",
 } as const;
 
@@ -331,7 +342,7 @@ export const notFoundPage = {
   metaTitle: "Page not found",
   eyebrow: "Error 404",
   title: "This page took a different path.",
-  text: "The page you're looking for doesn't exist or has moved.",
+  text: "The page you’re looking for doesn’t exist or has moved.",
   home: { label: "Back to Home", href: "/" },
   contact: { label: "Contact Us", href: "/contact" },
 } as const;

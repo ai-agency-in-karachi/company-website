@@ -40,7 +40,7 @@ export function Reviews() {
           <figcaption className="flex items-center gap-3">
             <span
               aria-hidden="true"
-              className="flex size-10 shrink-0 items-center justify-center rounded-full bg-stone font-display text-[1rem] font-bold text-ink"
+              className="flex size-10 shrink-0 items-center justify-center rounded-full bg-stone font-display text-[1rem] font-medium text-ink"
             >
               {review.name[0]}
             </span>
@@ -67,10 +67,9 @@ export function Reviews() {
       <div className="container-wide grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-[calc(var(--nav-h)+3rem)]">
-            <Eyebrow>{content.eyebrow}</Eyebrow>
+            <Eyebrow index={content.index}>{content.eyebrow}</Eyebrow>
             <MaskedText id="reviews-title" lines={content.title} className="mt-6 text-h2 text-fg" />
             <Reveal delay={100}>
-              <p className="mt-6 text-lead text-fg-soft">{content.description}</p>
               <RatingSummary
                 label={content.ratingLabel}
                 basedOn={content.basedOn(content.items.length)}

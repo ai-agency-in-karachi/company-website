@@ -26,7 +26,7 @@ export function SiteFooter() {
   const services = footer.services.map((slug) => getService(slug)).filter((service) => service !== undefined);
 
   return (
-    <footer data-tone-fixed="night" className="relative overflow-hidden">
+    <footer data-tone-fixed="pine" className="relative overflow-hidden">
       <div className="container-wide pt-16 lg:pt-24">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="sm:col-span-2 lg:col-span-4">
@@ -66,7 +66,7 @@ export function SiteFooter() {
 
           <div className="space-y-10 sm:col-span-2 sm:grid sm:grid-cols-2 sm:gap-8 sm:space-y-0 lg:col-span-3 lg:block lg:space-y-10">
             <Column title={footer.contactTitle}>
-              <a href={mailtoUrl()} className="inline-flex min-h-10 items-center text-title font-semibold text-accent">
+              <a href={mailtoUrl()} className="inline-flex min-h-10 items-center text-title font-medium text-accent">
                 <span className="link-slide">{site.contact.email}</span>
               </a>
               <p className="mt-1 text-fg-soft">{site.contact.location}</p>
@@ -105,10 +105,7 @@ export function SiteFooter() {
       </div>
 
       <div aria-hidden="true" className="container-wide select-none">
-        <p className="footer-wordmark font-display font-extrabold text-night">
-          {site.name}
-          <span className="align-top text-[0.22em]">{site.mark}</span>
-        </p>
+        <p className="footer-wordmark font-display font-normal italic text-pine-2">{site.name}</p>
       </div>
     </footer>
   );

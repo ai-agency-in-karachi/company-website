@@ -3,7 +3,7 @@ import { cn, cssVars } from "@/lib/cn";
 import { Initial, Window } from "./Window";
 
 const kpis = [
-  { label: "Revenue", value: "PKR 4.82M", change: "+12.4%", tone: "bg-cobalt text-white" },
+  { label: "Revenue", value: "PKR 4.82M", change: "+12.4%", tone: "bg-sage text-white" },
   { label: "Orders", value: "1,284", change: "+8.1%", tone: "bg-white text-ink" },
   { label: "Customers", value: "836", change: "+5.6%", tone: "bg-white text-ink" },
 ];
@@ -12,9 +12,9 @@ const months = [42, 55, 48, 62, 58, 71, 66, 78, 74, 86, 80, 94];
 const monthLabels = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
 
 const branches = [
-  { name: "Karachi", share: 42, color: "#3245D1" },
-  { name: "Lahore", share: 33, color: "#111322" },
-  { name: "Islamabad", share: 25, color: "#C9C5BB" },
+  { name: "Karachi", share: 42, color: "#637545" },
+  { name: "Lahore", share: 33, color: "#1C1C1C" },
+  { name: "Islamabad", share: 25, color: "#CFC7B6" },
 ];
 
 /** Where each donut segment starts (the circle's circumference is 100). */
@@ -43,7 +43,7 @@ function Donut() {
   const radius = 15.9155; // circumference of 100
   return (
     <svg viewBox="0 0 42 42" className="size-24 shrink-0" aria-hidden="true">
-      <circle cx="21" cy="21" r={radius} fill="none" stroke="#ECEAE5" strokeWidth="6" />
+      <circle cx="21" cy="21" r={radius} fill="none" stroke="#ECE8DE" strokeWidth="6" />
       {branches.map((branch, index) => (
         <circle
           key={branch.name}
@@ -75,8 +75,8 @@ export function DashboardMockup() {
     <div className="relative @container">
       <Window title="Operations Hub · Dashboard" className="text-[12px]">
         <div className="flex">
-          <nav aria-hidden="true" className="hidden w-14 shrink-0 flex-col items-center gap-2 bg-ink py-4 @lg:flex">
-            <span className="mb-2 grid size-8 place-items-center rounded-lg bg-cobalt font-display text-[13px] font-extrabold text-white">
+          <nav aria-hidden="true" className="hidden w-14 shrink-0 flex-col items-center gap-2 bg-pine py-4 @lg:flex">
+            <span className="mb-2 grid size-8 place-items-center rounded-lg bg-sage font-sans text-[13px] font-extrabold text-white">
               O
             </span>
             {[LayoutDashboard, ChartColumn, Package, Users, Wallet, Settings].map((Icon, index) => (
@@ -92,11 +92,11 @@ export function DashboardMockup() {
             ))}
           </nav>
 
-          <div className="min-w-0 flex-1 bg-[#F6F5F2] p-3.5 @lg:p-4">
+          <div className="min-w-0 flex-1 bg-[#F7F4EE] p-3.5 @lg:p-4">
             <div className="flex items-center gap-2.5">
               <div className="min-w-0 flex-1">
                 <p className="text-[10.5px] text-ink/50">Good morning, Ahmed</p>
-                <p className="font-display text-[15px] font-bold">This month at a glance</p>
+                <p className="font-sans text-[15px] font-bold">This month at a glance</p>
               </div>
               <span className="hidden h-8 items-center gap-2 rounded-lg bg-white px-2.5 text-ink/45 @md:flex">
                 <Search aria-hidden="true" className="size-3.5" /> Search
@@ -104,7 +104,7 @@ export function DashboardMockup() {
               <span className="grid size-8 place-items-center rounded-lg bg-white">
                 <Bell aria-hidden="true" className="size-3.5" />
               </span>
-              <Initial name="Ahmed Raza" className="bg-cobalt-tint text-cobalt" />
+              <Initial name="Ahmed Raza" className="bg-sage-tint text-sage" />
             </div>
 
             <div className="mt-3.5 grid grid-cols-3 gap-2.5">
@@ -115,7 +115,7 @@ export function DashboardMockup() {
                   style={cssVars({ "--d": `${index * 110}ms` })}
                 >
                   <p className="text-[10.5px] opacity-75">{kpi.label}</p>
-                  <p className="mt-1 font-display text-[13px] leading-tight font-bold @md:text-[17px]">{kpi.value}</p>
+                  <p className="mt-1 font-sans text-[13px] leading-tight font-bold @md:text-[17px]">{kpi.value}</p>
                   <p className="mt-1 inline-flex items-center gap-1 text-[10px] font-semibold opacity-85">
                     <TrendingUp aria-hidden="true" className="size-3" /> {kpi.change}
                   </p>
@@ -135,7 +135,7 @@ export function DashboardMockup() {
                       <span
                         className={cn(
                           "mk-grow-y w-full rounded-t-[4px]",
-                          index === months.length - 1 ? "bg-cobalt" : "bg-cobalt-tint",
+                          index === months.length - 1 ? "bg-sage" : "bg-sage-tint",
                         )}
                         style={cssVars({ "--d": `${250 + index * 60}ms` }, { height: `${value}%` })}
                       />

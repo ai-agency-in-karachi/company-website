@@ -43,14 +43,14 @@ export function VoiceAgentMockup() {
                   key={index}
                   className={cn(
                     "wave-bar w-full rounded-full",
-                    index > 12 && index < 26 ? "bg-cobalt-soft" : "bg-white/25",
+                    index > 12 && index < 26 ? "bg-sage-soft" : "bg-white/25",
                   )}
                   style={cssVars({ "--d": `${(index % 9) * 0.12}s` }, { height: `${Math.round(height * 100)}%` })}
                 />
               ))}
             </div>
             <p className="mt-3 flex items-center gap-2 text-[11px] text-white/70">
-              <Bot aria-hidden="true" className="size-3.5 text-cobalt-soft" /> AI agent speaking · English / Urdu
+              <Bot aria-hidden="true" className="size-3.5 text-sage-soft" /> AI agent speaking · English / Urdu
             </p>
 
             <div className="mt-auto flex items-center justify-center gap-2.5 pt-6">
@@ -78,7 +78,7 @@ export function VoiceAgentMockup() {
                     aria-hidden="true"
                     className={cn(
                       "mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full",
-                      line.who === "agent" ? "mk-pulse bg-cobalt-soft text-ink" : "bg-white/12 text-white",
+                      line.who === "agent" ? "mk-pulse bg-sage-soft text-ink" : "bg-white/12 text-white",
                     )}
                   >
                     {line.who === "agent" ? <Bot className="size-3.5" /> : <User className="size-3.5" />}
@@ -86,7 +86,7 @@ export function VoiceAgentMockup() {
                   <p
                     className={cn(
                       "max-w-[85%] rounded-xl px-3 py-2 leading-snug",
-                      line.who === "agent" ? "rounded-tr-sm bg-cobalt" : "rounded-tl-sm bg-white/8",
+                      line.who === "agent" ? "rounded-tr-sm bg-sage" : "rounded-tl-sm bg-white/8",
                     )}
                   >
                     {line.text}

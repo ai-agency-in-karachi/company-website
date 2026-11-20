@@ -93,11 +93,15 @@ export function SiteHeader() {
                     onBlur={() => setHovered(null)}
                     className={cn(
                       "relative inline-flex h-10 items-center rounded-full px-5 text-[0.9375rem] font-semibold transition-colors duration-[var(--dur-fast)] ease-brand",
-                      lit ? "text-canvas" : "text-fg",
+                      lit ? "text-paper" : "text-fg",
                     )}
                   >
                     {lit ? (
-                      <m.span layoutId="nav-pill" aria-hidden="true" className="absolute inset-0 rounded-full bg-fg" />
+                      <m.span
+                        layoutId="nav-pill"
+                        aria-hidden="true"
+                        className="absolute inset-0 rounded-full bg-pine"
+                      />
                     ) : null}
                     <span className="relative">{item.label}</span>
                   </Link>

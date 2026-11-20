@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Garamond, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import { site } from "@/content/site";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -11,15 +11,19 @@ import { siteUrl } from "@/lib/site-url";
 import { palette } from "@/lib/tokens";
 import "./globals.css";
 
-const sans = Geist({
+/** Text: a clean, modern sans with generous x-height. */
+const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
+  variable: "--font-jakarta",
   display: "swap",
 });
 
-const display = Bricolage_Grotesque({
+/** Headings: an editorial serif at light weights, with italics for accents. */
+const display = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-bricolage",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 

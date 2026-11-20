@@ -1,6 +1,6 @@
-# NOVARY® website
+# Betterflow website
 
-Marketing website for **NOVARY®**, a demo tech agency brand that builds software, AI agents, business automation, websites and mobile apps.
+Marketing website for **Betterflow**, a demo tech agency brand that builds software, AI agents, business automation, websites and mobile apps.
 
 Three main pages in the navigation: **Home** (`/`), **Services** (`/services`, with a detail page per service at `/services/[slug]`) and **Contact** (`/contact`). Featured projects open their own pages at `/projects/[slug]`, and there is a custom 404.
 
@@ -44,7 +44,7 @@ Without the email variables the form still validates; on submit it explains that
 
 **The full checklist of every piece of demo content (copy, reviews, projects, mockup data, logos), grouped by section, is in [`CONTENT_TO_REPLACE.md`](CONTENT_TO_REPLACE.md).** The short version:
 
-NOVARY® is a demo brand. Replace these placeholders, all in `content/` unless noted:
+Betterflow is a demo brand. Replace these placeholders, all in `content/` unless noted:
 
 1. **Domain:** `NEXT_PUBLIC_SITE_URL` (and `site.url` in `content/site.ts`).
 2. **Email and location:** `site.contact`.
@@ -58,7 +58,7 @@ NOVARY® is a demo brand. Replace these placeholders, all in `content/` unless n
 
 ## Home page order
 
-Hero → Our Expertise (services) → How We Work (process) → Selected Work (projects) → Powered by the Right Tools (technology) → About Us → Why Choose Us → Reviews → Final call to action. The order is set in `app/page.tsx`.
+Hero → Services (three cards) → How We Work (process) → Selected Work (projects) → Powered by the Right Tools (technology) → Why Choose Us → Reviews → Final call to action. The order is set in `app/page.tsx`; each section after the hero is numbered (“02 — Services” to “08”).
 
 ## Editing content
 
@@ -93,23 +93,33 @@ lib/                     tokens, class helper, lazy GSAP hook, service/project s
 
 ### Colour
 
-A restrained, premium palette: warm stone neutrals, near-black navy ink and a single cobalt accent. Colour is used to guide, not decorate.
+An editorial palette: one warm canvas, charcoal text, deep pine for weight and a single olive-sage accent.
 
-- **Canvas:** stone paper `#F3F1EC` on every page. Cards and raised surfaces are white `#FDFCFA` or stone `#E9E6DF`.
-- **Ink:** `#111322` for text and the dark surfaces (footer, mobile menu, contact card, alternate project panels).
-- **Accent:** cobalt `#3245D1` (with `cobalt-soft` `#93A0F5` on dark and `cobalt-tint` `#E2E5FA` for quiet fills) for primary buttons, highlights, active states and chart emphasis.
-- **Functional only:** success `#2F8F6B`, warning `#B07D1F` and error `#C0392B` for form feedback and status pills inside the mockups; star ratings use a muted gold.
-- Services and projects are distinguished by name, number and icon, not by colour. Technology logos are monochrome.
+- **Canvas:** warm alabaster `#F4F1EA` on every page; cards and raised surfaces `#FBF9F4` or stone `#EAE5DA`.
+- **Text:** charcoal `#1C1C1C`.
+- **Deep pine:** `#0A1F14` (with `#153126`) for primary buttons and dark surfaces: footer, mobile menu, contact card, alternate project panels, the tech orbit's core.
+- **Accent:** olive-sage `#637545` (with `sage-soft` `#A9B78D` on dark and `sage-tint` `#E4E8D8` for quiet fills) for italic accent phrases, section numbers, markers and chart highlights.
+- **Functional only:** success, warning and error for form feedback and status pills inside the mockups; star ratings use a muted gold.
 - Flat colour throughout: no gradients, glass or blur.
 
-Text and line colours are CSS variables exposed as Tailwind colours (`bg-canvas`, `text-fg`, `text-fg-soft`, `border-line`, `bg-accent`, `text-on-accent`, `bg-raise`). Dark surfaces set `data-tone-fixed="night"`, which redefines them inside.
+Text and line colours are CSS variables exposed as Tailwind colours (`bg-canvas`, `text-fg`, `text-fg-soft`, `border-line`, `bg-accent`, `text-on-accent`, `bg-raise`, `text-em`). Dark surfaces set `data-tone-fixed="pine"`, which redefines them inside.
+
+### Typography
+
+Based on [Practical Typography](https://practicaltypography.com/summary-of-key-rules.html) and a modular scale from [typescale.com](https://typescale.com/).
+
+- **Faces:** Cormorant Garamond for headings at weight 500 (never bold), with italics for accent phrases; Plus Jakarta Sans for text; Geist Mono for small numbers.
+- **Scale:** a Perfect Fourth (1.333) on large screens, easing to about a Minor Third (1.2) on phones through fluid `clamp()` sizes. Desktop heading steps: 28, 38, 50, 67 and 90px (`text-title`, `text-h3`, `text-h2`, `text-h1`, `text-display`).
+- **Text:** 17px body with 1.45 line height (Practical Typography: 120–145%) and paragraphs capped around 66 characters (45–90).
+- **Details:** uppercase labels get 10% letterspacing (5–12%); curly quotes and apostrophes; bold and italic never combined.
+- **Accents in headlines:** wrap a phrase in asterisks in `content/` (for example `"*One accountable team.*"`) to set it in italic sage.
 
 ### Design tokens
 
 Defined once in `app/globals.css` (`@theme`) and mirrored in `lib/tokens.ts` for generated images and emails.
 
 - **Palette:** see "Colour" above; tokens live in `@theme` and in `lib/tokens.ts`.
-- **Type:** Bricolage Grotesque for display, Geist for text, Geist Mono for numbers. Fluid sizes: `text-display`, `text-h1`–`text-h3`, `text-title`, `text-lead`, `text-body`, `text-small`, `text-label`.
+- **Type:** see "Typography" above; sizes are tokens in `@theme`.
 - **Class names:** build conditional classes with `cn()` from `lib/cn.ts`; register new text, radius or shadow tokens there too.
 
 ### Motion
@@ -118,7 +128,7 @@ Smooth and controlled, one easing everywhere (`cubic-bezier(0.22, 1, 0.36, 1)`).
 
 - **Reveals** (`Reveal`, `Stagger`, `MaskedText`) render on the server with data attributes; a single `IntersectionObserver` in `RevealManager` reveals each once with CSS transitions. Content already on screen is never hidden.
 - **Hero:** pure CSS entrance; the isometric blocks (`IsoBlocks.tsx`, flat-shaded SVG with a true isometric projection) drop into place and two modules drift gently.
-- **Framer Motion:** the navbar pill and the services index indicator (`layoutId`), and the services colour panel crossfade (`AnimatePresence`). Loaded lazily by `MotionProvider`.
+- **Framer Motion:** the navbar pill (`layoutId`). Loaded lazily by `MotionProvider`.
 - **Selected Work:** on every desktop-width screen (1024px and up, any height, without reduced motion) the section pins and scrolling pans the project panels horizontally (GSAP ScrollTrigger, scrubbed 1:1 with light smoothing), with a progress line and counter; it unpins after the last project. On shorter screens each mockup scales down to fit its panel and the feature list is left out. On phones, and always on the server, it is a vertical list.
 - **Mockup micro-animations:** each mockup plays a short entrance when it comes into view (`components/mockups/MockupStage.tsx`: messages and cards rise in, chart bars grow, the donut draws, progress bars fill), plus continuous details in CSS: a reply typing itself in the WhatsApp composer, a breathing AI waveform, pulsing live and active states.
 - **GSAP ScrollTrigger** (loaded on demand): the horizontal projects and the process track filling with its step counter.

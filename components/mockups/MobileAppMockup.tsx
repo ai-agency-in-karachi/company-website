@@ -4,11 +4,11 @@ import { cn, cssVars } from "@/lib/cn";
 
 function Phone({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <div className={cn("w-[15.5rem] shrink-0 rounded-[2.25rem] bg-ink p-2 shadow-mock", className)}>
-      <div className="relative h-[31rem] overflow-hidden rounded-[1.75rem] bg-[#F8F7F4] text-ink">
+    <div className={cn("w-[15.5rem] shrink-0 rounded-[2.25rem] bg-pine p-2 shadow-mock", className)}>
+      <div className="relative h-[31rem] overflow-hidden rounded-[1.75rem] bg-[#F8F6F0] text-ink">
         <div className="flex items-center justify-between px-5 pt-3 text-[10px] font-semibold">
           <span>9:41</span>
-          <span aria-hidden="true" className="h-4 w-16 rounded-full bg-ink" />
+          <span aria-hidden="true" className="h-4 w-16 rounded-full bg-pine" />
           <span>5G</span>
         </div>
         {children}
@@ -18,7 +18,7 @@ function Phone({ children, className }: { children: ReactNode; className?: strin
 }
 
 const actions = [
-  { label: "New order", icon: Plus, tone: "bg-cobalt text-white" },
+  { label: "New order", icon: Plus, tone: "bg-sage text-white" },
   { label: "Approvals", icon: ClipboardCheck, tone: "bg-white text-ink", badge: 3 },
   { label: "Stock", icon: Package, tone: "bg-white text-ink" },
   { label: "Customers", icon: Users, tone: "bg-white text-ink" },
@@ -33,20 +33,20 @@ export function MobileAppMockup() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-[10px] text-ink/55">Good morning</p>
-              <p className="font-display text-[16px] font-bold">Hamza Sheikh</p>
+              <p className="font-sans text-[16px] font-bold">Hamza Sheikh</p>
             </div>
             <span className="relative grid size-8 place-items-center rounded-full bg-white">
               <Bell aria-hidden="true" className="size-3.5" />
-              <span className="absolute top-1.5 right-2 size-1.5 rounded-full bg-cobalt" />
+              <span className="absolute top-1.5 right-2 size-1.5 rounded-full bg-sage" />
             </span>
           </div>
 
-          <div className="mt-4 rounded-2xl bg-ink p-4 text-white">
+          <div className="mt-4 rounded-2xl bg-pine p-4 text-white">
             <p className="text-[10px] text-white/60">Today&apos;s sales</p>
-            <p className="mt-1 font-display text-[22px] leading-none font-extrabold">PKR 186,400</p>
+            <p className="mt-1 font-sans text-[22px] leading-none font-extrabold">PKR 186,400</p>
             <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/15">
               <span
-                className="mk-grow-x block h-full w-[72%] rounded-full bg-cobalt-soft"
+                className="mk-grow-x block h-full w-[72%] rounded-full bg-sage-soft"
                 style={cssVars({ "--d": "300ms" })}
               />
             </div>
@@ -66,7 +66,7 @@ export function MobileAppMockup() {
                 <span className={cn("relative mx-auto grid size-11 place-items-center rounded-2xl", action.tone)}>
                   <action.icon aria-hidden="true" className="size-4.5" />
                   {action.badge ? (
-                    <span className="absolute -top-1 -right-1 grid size-4 place-items-center rounded-full bg-ink text-[8.5px] font-bold text-white">
+                    <span className="absolute -top-1 -right-1 grid size-4 place-items-center rounded-full bg-pine text-[8.5px] font-bold text-white">
                       {action.badge}
                     </span>
                   ) : null}
@@ -105,7 +105,7 @@ export function MobileAppMockup() {
           </ul>
         </div>
         <div className="absolute inset-x-0 bottom-0 flex justify-around border-t border-ink/8 bg-white py-3 text-[9px] font-semibold text-ink/45">
-          <span className="text-cobalt">Home</span>
+          <span className="text-sage">Home</span>
           <span>Orders</span>
           <span>Stock</span>
           <span>Profile</span>
@@ -114,10 +114,10 @@ export function MobileAppMockup() {
 
       <Phone className="-ml-16 hidden translate-y-10 text-[11px] @lg:block">
         <div
-          className="mk-pop mx-3 mt-3 flex items-center gap-2 rounded-2xl bg-ink px-3 py-2.5 text-white"
+          className="mk-pop mx-3 mt-3 flex items-center gap-2 rounded-2xl bg-pine px-3 py-2.5 text-white"
           style={cssVars({ "--d": "1400ms" })}
         >
-          <span className="grid size-6 place-items-center rounded-full bg-cobalt-soft text-ink">
+          <span className="grid size-6 place-items-center rounded-full bg-sage-soft text-ink">
             <Check aria-hidden="true" className="size-3.5" />
           </span>
           <span className="text-[10px] leading-tight">
@@ -126,12 +126,12 @@ export function MobileAppMockup() {
           </span>
         </div>
         <div className="px-4 pt-4">
-          <p className="font-display text-[16px] font-bold">Approvals</p>
+          <p className="font-sans text-[16px] font-bold">Approvals</p>
           <p className="text-[10px] text-ink/55">3 waiting for you</p>
           <ul className="mt-3 space-y-2.5">
             {[
-              ["Discount request", "Vertex Labs · 8% off", "bg-cobalt"],
-              ["Stock transfer", "Lahore → Karachi · 40 units", "bg-ink"],
+              ["Discount request", "Vertex Labs · 8% off", "bg-sage"],
+              ["Stock transfer", "Lahore → Karachi · 40 units", "bg-pine"],
               ["Expense claim", "Fuel · PKR 6,500", "bg-stone-deep"],
             ].map(([title, detail, tone], index) => (
               <li
@@ -148,7 +148,7 @@ export function MobileAppMockup() {
                   <span className="flex h-7 items-center justify-center gap-1 rounded-full border border-ink/15">
                     <X aria-hidden="true" className="size-3" /> Decline
                   </span>
-                  <span className="flex h-7 items-center justify-center gap-1 rounded-full bg-cobalt text-white">
+                  <span className="flex h-7 items-center justify-center gap-1 rounded-full bg-sage text-white">
                     <Check aria-hidden="true" className="size-3" /> Approve
                   </span>
                 </div>

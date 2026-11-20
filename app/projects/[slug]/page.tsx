@@ -108,7 +108,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
                   delay={index * 60}
                   className="grid grid-cols-1 gap-3 border-t border-line pt-6 md:grid-cols-[12rem_1fr] md:gap-8"
                 >
-                  <h3 className="font-display text-title font-bold text-fg">{part.title}</h3>
+                  <h3 className="font-display text-title font-medium text-fg">{part.title}</h3>
                   <p className="text-lead text-fg-soft">{part.text}</p>
                 </Reveal>
               ))}

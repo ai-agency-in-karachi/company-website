@@ -55,7 +55,7 @@ export function MobileMenu({ open, onClose, isActive }: MobileMenuProps) {
       id="mobile-menu"
       aria-label={site.ui.menuTitle}
       className="menu-dialog"
-      data-tone-fixed="night"
+      data-tone-fixed="pine"
       onClose={() => {
         unlockScroll();
         onClose();
@@ -97,7 +97,7 @@ export function MobileMenu({ open, onClose, isActive }: MobileMenuProps) {
                     <span className="numeral w-6 shrink-0 text-small text-fg-soft">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-display text-[clamp(2.5rem,12vw,3.5rem)] leading-none font-bold tracking-[-0.045em]">
+                    <span className="font-display text-[clamp(2.5rem,12vw,3.5rem)] leading-none font-medium tracking-[-0.01em]">
                       {item.label}
                     </span>
                   </span>

@@ -17,14 +17,14 @@ export function Window({
     <div
       className={cn(
         "overflow-hidden rounded-[14px] shadow-mock",
-        dark ? "bg-ink text-white" : "bg-white text-ink",
+        dark ? "bg-pine text-white" : "bg-white text-ink",
         className,
       )}
     >
       <div
         className={cn(
           "flex h-9 items-center gap-3 border-b px-3.5",
-          dark ? "border-white/10 bg-night" : "border-ink/8 bg-[#F6F5F2]",
+          dark ? "border-white/10 bg-pine-2" : "border-ink/8 bg-[#F7F4EE]",
         )}
       >
         <span className="flex gap-1.5" aria-hidden="true">

@@ -1,5 +1,5 @@
 /**
- * The eight NOVARY® services. The one-line summaries come from the brand
+ * The eight Betterflow services. The one-line summaries come from the brand
  * content document; the detail-view copy (offerings, delivery, stack,
  * deliverables) is demo content written to match it.
  *
@@ -310,7 +310,7 @@ export const services: Service[] = [
     icon: "smartphone",
     summary: "Intuitive Android and iOS applications designed to deliver meaningful user experiences.",
     intro:
-      "A good app earns a place on someone's home screen. We build Android and iOS apps that are simple to use, reliable on real networks and connected to the systems behind your business.",
+      "A good app earns a place on someone’s home screen. We build Android and iOS apps that are simple to use, reliable on real networks and connected to the systems behind your business.",
     offerings: [
       {
         title: "Cross-platform apps",

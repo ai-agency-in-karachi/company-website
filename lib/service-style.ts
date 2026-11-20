@@ -14,13 +14,13 @@ export const serviceIcons: Record<ServiceIconName, LucideIcon> = {
 
 /**
  * One calm treatment for every service: services are told apart by name,
- * number and icon, not by colour. Ink surfaces with cobalt as the accent.
+ * number and icon, not by colour. Ink surfaces with sage as the accent.
  */
 export const serviceStyle = {
   /** Feature surface (the panel on the home page, hover band on the index). */
-  surface: "bg-ink",
+  surface: "bg-pine",
   onSurface: "text-paper",
   /** Small accents: icon tiles, check marks, rule marks. */
-  accent: "bg-cobalt",
+  accent: "bg-sage",
   onAccent: "text-white",
 } as const;

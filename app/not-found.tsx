@@ -16,10 +16,10 @@ export default function NotFound() {
       <div className="container-wide grid min-h-[calc(100svh-var(--nav-h))] grid-cols-1 content-center gap-y-10 py-16 lg:grid-cols-12 lg:gap-x-10">
         <p
           aria-hidden="true"
-          className="hero-anim hero-rise font-display text-[clamp(7rem,3rem+20vw,18rem)] leading-[0.8] font-extrabold tracking-[-0.06em] text-ink lg:col-span-7"
+          className="hero-anim hero-rise font-display text-[clamp(7rem,3rem+20vw,18rem)] leading-[0.8] font-medium tracking-[-0.01em] text-ink lg:col-span-7"
           style={cssVars({ "--d": "0ms" })}
         >
-          4<span className="text-cobalt">0</span>4
+          4<span className="text-sage">0</span>4
         </p>
         <div className="lg:col-span-5 lg:self-end">
           <div className="hero-anim hero-rise" style={cssVars({ "--d": "60ms" })}>

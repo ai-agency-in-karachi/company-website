@@ -1,34 +1,11 @@
 import { Fragment } from "react";
 import { home } from "@/content/site";
+import { renderAccent } from "@/lib/accent";
 import { cssVars } from "@/lib/cn";
 import Magnet from "@/components/reactbits/Magnet";
 import { ButtonLink } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { IsoBlocks } from "./IsoBlocks";
-
-/** Splits a line so the highlight word can be drawn in the accent colour. */
-function Line({ line, highlight }: { line: string; highlight: string }) {
-  const parts = line.split(highlight);
-  if (parts.length === 1) return <>{line}</>;
-  return (
-    <>
-      {parts.map((part, index) => (
-        <Fragment key={index}>
-          {part}
-          {index < parts.length - 1 ? (
-            <span className="relative inline-block text-cobalt">
-              {highlight}
-              <span
-                aria-hidden="true"
-                className="absolute inset-x-[0.04em] bottom-[0.04em] -z-10 h-[0.2em] rounded-[2px] bg-cobalt-tint"
-              />
-            </span>
-          ) : null}
-        </Fragment>
-      ))}
-    </>
-  );
-}
 
 /**
  * Hero: one strong headline, a short promise, two actions, and the
@@ -45,15 +22,12 @@ export function Hero() {
             <Eyebrow>{content.eyebrow}</Eyebrow>
           </div>
 
-          <h1
-            id="hero-title"
-            className="mt-7 font-display text-[clamp(2.75rem,1rem+5vw,6.25rem)] leading-[0.94] font-extrabold tracking-[-0.05em] text-fg"
-          >
+          <h1 id="hero-title" className="mt-7 text-display text-fg">
             {content.title.map((line, index) => (
               <Fragment key={line}>
                 <span className="mask-line hero-line">
                   <span className="hero-anim" style={cssVars({ "--i": index })}>
-                    <Line line={line} highlight={content.highlight} />
+                    {renderAccent(line)}
                   </span>
                 </span>
                 {index < content.title.length - 1 ? " " : null}

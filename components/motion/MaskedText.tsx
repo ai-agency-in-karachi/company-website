@@ -1,4 +1,5 @@
 import { Fragment, type ElementType } from "react";
+import { renderAccent } from "@/lib/accent";
 import { cn, cssVars } from "@/lib/cn";
 
 type MaskedTextProps = {
@@ -18,14 +19,7 @@ type MaskedTextProps = {
  * break points are designed, not left to the browser. Screen readers read
  * the sentence normally.
  */
-export function MaskedText({
-  as: Tag = "h2",
-  lines,
-  className,
-  id,
-  trigger = "view",
-  delay = 0,
-}: MaskedTextProps) {
+export function MaskedText({ as: Tag = "h2", lines, className, id, trigger = "view", delay = 0 }: MaskedTextProps) {
   const onLoad = trigger === "load";
   return (
     <Tag
@@ -39,7 +33,7 @@ export function MaskedText({
         <Fragment key={`${index}-${line}`}>
           <span className={cn("mask-line", onLoad && "hero-line")}>
             <span className={onLoad ? "hero-anim" : undefined} style={cssVars({ "--i": index })}>
-              {line}
+              {renderAccent(line)}
             </span>
           </span>
           {index < lines.length - 1 ? " " : null}

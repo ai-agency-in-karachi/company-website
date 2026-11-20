@@ -9,8 +9,8 @@
 
 export type ProjectVisual = "whatsapp" | "voice" | "dashboard" | "ecommerce" | "mobile" | "workflow";
 
-/** The surface behind the mockup: deep ink or light stone. */
-export type ProjectStage = "night" | "stone";
+/** The surface behind the mockup: deep pine or light stone. */
+export type ProjectStage = "pine" | "stone";
 
 export type Project = {
   slug: string;
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     challenge:
       "Hundreds of daily messages arrived on one phone. Questions about prices, delivery and order status went unanswered for hours, and nobody knew who had replied to whom.",
     solution:
-      "We built a team inbox on the WhatsApp Business API with automatic replies, quick-reply templates, smart labels and order lookups connected to the store's system.",
+      "We built a team inbox on the WhatsApp Business API with automatic replies, quick-reply templates, smart labels and order lookups connected to the store’s system.",
     features: [
       "Shared team inbox with assignments",
       "Automated replies and quick templates",
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     ],
     stack: ["WhatsApp API", "Node.js", "React", "PostgreSQL", "Redis"],
     visual: "whatsapp",
-    stage: "night",
+    stage: "pine",
     service: "business-automation",
   },
   {
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     challenge:
       "A busy clinic missed calls at peak times and after hours, and front-desk staff spent most of the day answering the same questions.",
     solution:
-      "We designed a voice agent with speech recognition, a knowledge base built from the clinic's information, calendar booking and a smooth handover to staff, with every call summarised.",
+      "We designed a voice agent with speech recognition, a knowledge base built from the clinic’s information, calendar booking and a smooth handover to staff, with every call summarised.",
     features: [
       "Natural voice conversations, around the clock",
       "Appointment booking into the calendar",
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     ],
     stack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
     visual: "dashboard",
-    stage: "night",
+    stage: "pine",
     service: "software-development",
   },
   {
@@ -136,7 +136,7 @@ export const projects: Project[] = [
     challenge:
       "Field staff had to call the office for stock levels, approvals and customer details, slowing down every visit.",
     solution:
-      "We built a cross-platform app with offline support, instant approvals, live sales figures and push notifications, connected to the company's existing system.",
+      "We built a cross-platform app with offline support, instant approvals, live sales figures and push notifications, connected to the company’s existing system.",
     features: [
       "Live sales and targets on the go",
       "One-tap approvals and tasks",
@@ -145,7 +145,7 @@ export const projects: Project[] = [
     ],
     stack: ["Flutter", "Firebase", "Node.js", "PostgreSQL"],
     visual: "mobile",
-    stage: "night",
+    stage: "pine",
     service: "mobile-app-development",
   },
   {

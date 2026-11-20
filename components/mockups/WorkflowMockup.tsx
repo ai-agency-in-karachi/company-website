@@ -14,7 +14,7 @@ const nodes: Node[] = [
     title: "New lead",
     detail: "Form · WhatsApp · Email",
     icon: Webhook,
-    tone: "bg-cobalt text-white",
+    tone: "bg-sage text-white",
   },
   {
     id: "ai",
@@ -23,7 +23,7 @@ const nodes: Node[] = [
     title: "AI classify",
     detail: "Score and tag the lead",
     icon: Bot,
-    tone: "bg-ink text-white",
+    tone: "bg-pine text-white",
   },
   {
     id: "branch",
@@ -102,21 +102,21 @@ export function WorkflowMockup() {
         </div>
 
         <div
-          className="relative bg-[#F8F7F4]"
+          className="relative bg-[#F8F6F0]"
           style={{
             aspectRatio: `${W} / ${H}`,
-            backgroundImage: "radial-gradient(rgba(17,19,34,0.14) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(rgba(28,28,28,0.14) 1px, transparent 1px)",
             backgroundSize: "18px 18px",
           }}
         >
           <svg viewBox={`0 0 ${W} ${H}`} className="absolute inset-0 h-full w-full" aria-hidden="true">
             {edges.map(([from, to]) => (
               <g key={`${from}-${to}`}>
-                <path d={edgePath(from, to)} fill="none" stroke="#111322" strokeOpacity="0.12" strokeWidth="2.5" />
+                <path d={edgePath(from, to)} fill="none" stroke="#1C1C1C" strokeOpacity="0.12" strokeWidth="2.5" />
                 <path
                   d={edgePath(from, to)}
                   fill="none"
-                  stroke={to === "nurture" ? "#8D8A99" : "#3245D1"}
+                  stroke={to === "nurture" ? "#8A8F84" : "#637545"}
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   className="flow-edge"
@@ -128,7 +128,7 @@ export function WorkflowMockup() {
           {nodes.map((node) => (
             <div
               key={node.id}
-              className="mk-pop absolute flex items-center gap-2 rounded-xl border border-ink/10 bg-white p-2 shadow-[0_2px_0_rgba(17,19,34,0.06)]"
+              className="mk-pop absolute flex items-center gap-2 rounded-xl border border-ink/10 bg-white p-2 shadow-[0_2px_0_rgba(28,28,28,0.06)]"
               style={cssVars(
                 // Nodes appear column by column, in the direction data flows.
                 { "--d": `${Math.round((node.x / W) * 900)}ms` },
@@ -181,11 +181,11 @@ export function WorkflowMockup() {
       </Window>
 
       <div
-        className="mk-pop absolute -top-4 right-4 rounded-xl bg-ink px-3.5 py-2.5 text-white shadow-mock @lg:-right-4"
+        className="mk-pop absolute -top-4 right-4 rounded-xl bg-pine px-3.5 py-2.5 text-white shadow-mock @lg:-right-4"
         style={cssVars({ "--d": "1400ms" })}
       >
         <p className="text-[10px] text-white/60">Hours saved this week</p>
-        <p className="font-display text-[1.25rem] leading-tight font-bold text-cobalt-soft">31 h</p>
+        <p className="font-sans text-[1.25rem] leading-tight font-bold text-sage-soft">31 h</p>
       </div>
     </div>
   );

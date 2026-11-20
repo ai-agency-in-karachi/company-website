@@ -24,13 +24,13 @@ function Detail({ icon, label, children }: { icon: ReactNode; label: string; chi
 export function ContactDetails() {
   return (
     <div className="space-y-6 lg:sticky lg:top-[calc(var(--nav-h)+1.5rem)]">
-      <div data-tone-fixed="night" className="rounded-panel p-7 sm:p-8">
-        <h2 className="font-display text-title font-bold">{contactPage.detailsTitle}</h2>
+      <div data-tone-fixed="pine" className="rounded-panel p-7 sm:p-8">
+        <h2 className="font-display text-title font-medium">{contactPage.detailsTitle}</h2>
         <dl className="mt-6">
           <Detail icon={<Mail strokeWidth={1.75} className="size-[1.125rem]" />} label={contactPage.emailLabel}>
             <a
               href={mailtoUrl()}
-              className="link-slide inline-flex min-h-10 items-center text-title font-semibold [overflow-wrap:anywhere]"
+              className="link-slide inline-flex min-h-10 items-center text-title font-medium [overflow-wrap:anywhere]"
             >
               {site.contact.email}
             </a>
@@ -67,7 +67,7 @@ export function ContactDetails() {
       </div>
 
       <div className="rounded-panel bg-raise p-7 sm:p-8">
-        <h2 className="font-display text-title font-bold text-fg">{contactPage.nextTitle}</h2>
+        <h2 className="font-display text-title font-medium text-fg">{contactPage.nextTitle}</h2>
         <ol className="mt-5 space-y-4">
           {contactPage.nextSteps.map((step, index) => (
             <li key={step} className="flex gap-4">

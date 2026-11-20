@@ -106,11 +106,11 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
                     <Clock aria-hidden="true" className="size-3.5" />
                     {serviceDetail.timelineLabel}
                   </dt>
-                  <dd className="mt-2 font-display text-title font-bold text-fg">{service.timeline}</dd>
+                  <dd className="mt-2 font-display text-title font-medium text-fg">{service.timeline}</dd>
                 </div>
                 <div className="bg-raise p-5">
                   <dt className="eyebrow text-fg-soft">{serviceDetail.provideTitle}</dt>
-                  <dd className="mt-2 font-display text-title font-bold text-fg">
+                  <dd className="mt-2 font-display text-title font-medium text-fg">
                     {service.offerings.length} capabilities · {service.delivery.length} steps
                   </dd>
                 </div>
@@ -133,7 +133,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
                     className="border-t border-line py-6 first:border-t-0 sm:[&:nth-child(2)]:border-t-0"
                   >
                     <span aria-hidden="true" className={cn("block h-1 w-8 rounded-full", serviceStyle.accent)} />
-                    <h3 className="mt-4 font-display text-title font-bold text-fg">{offering.title}</h3>
+                    <h3 className="mt-4 font-display text-title font-medium text-fg">{offering.title}</h3>
                     <p className="mt-2 text-fg-soft">{offering.text}</p>
                   </StaggerItem>
                 ))}
@@ -154,7 +154,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
                   delay={index * 60}
                   className="grid grid-cols-[3.5rem_1fr] gap-x-5 border-t border-line py-8 first:border-t-0 first:pt-0 md:grid-cols-[6rem_1fr]"
                 >
-                  <span className="font-display text-[clamp(2.5rem,1.8rem+2.4vw,4rem)] leading-[0.85] font-extrabold tracking-[-0.05em] text-accent">
+                  <span className="font-display text-[clamp(2.5rem,1.8rem+2.4vw,4rem)] leading-[0.85] font-medium tracking-[-0.01em] text-accent">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
@@ -190,7 +190,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
 
               <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-10">
                 <Reveal>
-                  <h2 className="font-display text-title font-bold text-fg">{serviceDetail.getTitle}</h2>
+                  <h2 className="font-display text-title font-medium text-fg">{serviceDetail.getTitle}</h2>
                   <ul className="mt-5 space-y-3">
                     {service.deliverables.map((item) => (
                       <li key={item} className="flex gap-3 text-fg">
@@ -209,7 +209,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
                   </ul>
                 </Reveal>
                 <Reveal delay={80}>
-                  <h2 className="font-display text-title font-bold text-fg">{serviceDetail.fitTitle}</h2>
+                  <h2 className="font-display text-title font-medium text-fg">{serviceDetail.fitTitle}</h2>
                   <ul className="mt-5 space-y-3">
                     {service.idealFor.map((item) => (
                       <li key={item} className="flex gap-3 text-fg-soft">
@@ -257,7 +257,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
                   )}
                 >
                   <span className="eyebrow block opacity-75">{label}</span>
-                  <span className="mt-2 block font-display text-[clamp(1.125rem,0.9rem+1vw,1.75rem)] leading-tight font-bold">
+                  <span className="mt-2 block font-display text-[clamp(1.125rem,0.9rem+1vw,1.75rem)] leading-tight font-medium">
                     {item.title}
                   </span>
                 </Link>

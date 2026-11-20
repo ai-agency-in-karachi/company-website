@@ -1,6 +1,6 @@
 # Content to replace
 
-NOVARY® is a demo brand. Everything below is placeholder content: names, copy, contact details, clients, reviews, projects, figures and logos. Work through this checklist to turn the site into a real business site.
+Betterflow is a demo brand. Everything below is placeholder content: names, copy, contact details, clients, reviews, projects, figures and logos. Work through this checklist to turn the site into a real business site.
 
 **How to use it**
 
@@ -18,14 +18,14 @@ NOVARY® is a demo brand. Everything below is placeholder content: names, copy, 
 
 File: `content/site.ts` → `site`
 
-- [ ] Brand name: “NOVARY” with mark “®” (`site.name`, `site.mark`)
-- [ ] Production domain: “https://novary.demo” (`site.url`) and the `NEXT_PUBLIC_SITE_URL` environment variable
+- [ ] Brand name: “Betterflow” (`site.name`)
+- [ ] Production domain: “https://betterflow.demo” (`site.url`) and the `NEXT_PUBLIC_SITE_URL` environment variable
 - [ ] Tagline: “Software, AI, automation, web and mobile” (`site.tagline`)
-- [ ] Browser/SEO title: “NOVARY® | Digital solutions that move businesses forward” (`site.title`)
-- [ ] SEO description: “NOVARY® builds custom software, AI agents, business automation, websites and mobile apps that turn complex ideas into meaningful digital experiences.” (`site.description`)
+- [ ] Browser/SEO title: “Betterflow | Digital solutions that move businesses forward” (`site.title`)
+- [ ] SEO description: “Betterflow builds custom software, AI agents, business automation, websites and mobile apps that turn complex ideas into meaningful digital experiences.” (`site.description`)
 - [ ] Locale: “en_PK” (`site.locale`)
-- [ ] Header call to action: “Let's Talk” → `/contact` (`site.cta`)
-- [ ] Email address: “hello@novary.demo” (`site.contact.email`). Also used as the reply address in emails
+- [ ] Header call to action: “Let’s Talk” → `/contact` (`site.cta`)
+- [ ] Email address: “hello@betterflow.demo” (`site.contact.email`). Also used as the reply address in emails
 - [ ] Location: “Karachi, Pakistan” (`site.contact.location`)
 - [ ] Response time promise: “We reply within one business day.” (`site.contact.responseTime`)
 - [ ] Social link: Instagram → `https://www.instagram.com/` (placeholder: points to the platform's home page) (`site.socials`)
@@ -38,8 +38,8 @@ File: `content/site.ts` → `site`
 File: `content/site.ts` → `home.hero`
 
 - [ ] Eyebrow: “Your ideas. Our expertise.”
-- [ ] Headline (3 lines): “We Build Digital” / “Solutions That Move” / “Businesses Forward.”
-- [ ] Highlighted word: “Move” (must appear in one headline line)
+- [ ] Headline (3 lines): “We Build Digital” / “Solutions That *Move*” / “*Businesses Forward.*”
+- [ ] Accent phrases: text between *asterisks* in any headline line is set in italic sage
 - [ ] Description: “From intelligent automation to powerful software, websites and applications — we turn complex ideas into meaningful digital experiences.”
 - [ ] Primary button: “Start a Project” → `/contact`
 - [ ] Secondary button: “Explore Our Services” → `#services`
@@ -47,21 +47,24 @@ File: `content/site.ts` → `home.hero`
 - [ ] Illustration description for screen readers: “Building blocks of a digital product: software, AI, automation, web and mobile.”
 - [ ] **(code)** Isometric illustration: `components/sections/home/IsoBlocks.tsx` (abstract; keep or replace)
 
-## 3. Home: Our Expertise (services overview)
+## 3. Home: Services (three cards)
 
-File: `content/site.ts` → `home.services` (the eight services themselves are in section 13)
+File: `content/site.ts` → `home.services` (the full eight services are in the Services pages section below)
 
-- [ ] Eyebrow: “Our expertise”
-- [ ] Title: “Everything Digital.” / “All Under One Roof.”
-- [ ] Description: “We don't believe in one-size-fits-all solutions. Every business has different needs, and we build around them.”
-- [ ] Button: “Explore All Services”; small labels “See how we deliver”, “Includes”
+- [ ] Eyebrow: 02 — “Services”
+- [ ] Title: “Three disciplines.” / “*One accountable team.*”
+- [ ] Intro: “Most businesses need more than a website. We build the systems behind it, automate the busywork and connect everything into one flow.”
+- [ ] Links: “All services” → `/services`; card links “Explore”
+- [ ] Card 01 “Software Development”: “Custom systems that fit the way your business actually works.”; items Custom business software, Web applications, Desktop and mobile apps, SaaS products; link `/services/software-development`
+- [ ] Card 02 “AI & Automation”: “AI agents and workflows that take repetitive work off your team.”; items AI agents and chatbots, AI voice agents, WhatsApp and email automation, n8n workflows; link `/services/ai-solutions`
+- [ ] Card 03 “Web & Digital Solutions”: “Fast, clear websites that turn visitors into customers.”; items Business websites, E-commerce websites, Landing pages, Booking websites; link `/services/website-development`
 
 ## 4. Home: How We Work (process)
 
 File: `content/site.ts` → `home.process` (also shown on the Services page)
 
 - [ ] Eyebrow: “How we work”
-- [ ] Title: “From First Conversation” / “to Final Launch.”
+- [ ] Title: “From First Conversation” / “*to Final Launch.*”
 - [ ] Step 01, “Discover”: “We listen, understand your business and identify what needs to be solved.”
 - [ ] Step 02, “Plan”: “We define the right approach, features, technology and project roadmap.”
 - [ ] Step 03, “Design”: “We shape the experience, structure and interface around your users.”
@@ -74,7 +77,7 @@ File: `content/site.ts` → `home.process` (also shown on the Services page)
 Section copy: `content/site.ts` → `home.projects`. Projects: `content/projects.ts`. Each project also has its own page at `/projects/[slug]` (currently `noindex` because they are demo concepts).
 
 - [ ] Eyebrow: “Selected work”
-- [ ] Title: “Ideas We've Turned Into” / “Digital Experiences.”
+- [ ] Title: “Ideas We’ve Turned Into” / “*Digital Experiences.*”
 - [ ] Description: “A glimpse into the kind of solutions we create.”
 
 All six projects are **invented demo concepts**. Replace each with a real case study (or remove it), then set real copy for every field:
@@ -86,7 +89,7 @@ All six projects are **invented demo concepts**. Replace each with a real case s
 - [ ] Summary: “A smart messaging platform designed to organize conversations, automate replies and simplify customer communication.”
 - [ ] Overview: “A shared WhatsApp inbox for a growing retail team. Every conversation is labelled, routed and answered quickly, with order updates and common questions handled automatically.”
 - [ ] Challenge: “Hundreds of daily messages arrived on one phone. Questions about prices, delivery and order status went unanswered for hours, and nobody knew who had replied to whom.”
-- [ ] What we built: “We built a team inbox on the WhatsApp Business API with automatic replies, quick-reply templates, smart labels and order lookups connected to the store's system.”
+- [ ] What we built: “We built a team inbox on the WhatsApp Business API with automatic replies, quick-reply templates, smart labels and order lookups connected to the store’s system.”
 - [ ] Key features: “Shared team inbox with assignments”, “Automated replies and quick templates”, “Order status lookups from the store”, “Labels, broadcasts and reply-time analytics”
 - [ ] Technology: WhatsApp API, Node.js, React, PostgreSQL, Redis
 - [ ] Visual: coded `whatsapp` mockup (see section 12); demo data inside it
@@ -98,7 +101,7 @@ All six projects are **invented demo concepts**. Replace each with a real case s
 - [ ] Summary: “An intelligent voice-based system built to handle incoming calls, answer questions and support customer interactions.”
 - [ ] Overview: “A voice agent that answers calls in natural language, understands what the caller needs, answers common questions, books appointments and passes complex calls to a person.”
 - [ ] Challenge: “A busy clinic missed calls at peak times and after hours, and front-desk staff spent most of the day answering the same questions.”
-- [ ] What we built: “We designed a voice agent with speech recognition, a knowledge base built from the clinic's information, calendar booking and a smooth handover to staff, with every call summarised.”
+- [ ] What we built: “We designed a voice agent with speech recognition, a knowledge base built from the clinic’s information, calendar booking and a smooth handover to staff, with every call summarised.”
 - [ ] Key features: “Natural voice conversations, around the clock”, “Appointment booking into the calendar”, “Live transcript and call summary”, “Smart handover to a human agent”
 - [ ] Technology: OpenAI, Python, LangChain, Twilio, PostgreSQL
 - [ ] Visual: coded `voice` mockup (see section 12); demo data inside it
@@ -134,7 +137,7 @@ All six projects are **invented demo concepts**. Replace each with a real case s
 - [ ] Summary: “A mobile-first application designed to make essential business features accessible on the go.”
 - [ ] Overview: “An Android and iOS app that puts sales, tasks, approvals and team updates in the pocket of every manager and field employee.”
 - [ ] Challenge: “Field staff had to call the office for stock levels, approvals and customer details, slowing down every visit.”
-- [ ] What we built: “We built a cross-platform app with offline support, instant approvals, live sales figures and push notifications, connected to the company's existing system.”
+- [ ] What we built: “We built a cross-platform app with offline support, instant approvals, live sales figures and push notifications, connected to the company’s existing system.”
 - [ ] Key features: “Live sales and targets on the go”, “One-tap approvals and tasks”, “Works offline, syncs when back online”, “Push notifications for what matters”
 - [ ] Technology: Flutter, Firebase, Node.js, PostgreSQL
 - [ ] Visual: coded `mobile` mockup (see section 12); demo data inside it
@@ -159,8 +162,7 @@ All six projects are **invented demo concepts**. Replace each with a real case s
 File: `content/site.ts` → `home.tech`. Logos: `lib/tech-icons.tsx`.
 
 - [ ] Eyebrow: “Powered by the right tools”
-- [ ] Title: “The Technology Behind” / “Better Solutions.”
-- [ ] Description: “We bring together modern technologies and powerful platforms to build reliable digital products.”
+- [ ] Title: “The Technology Behind” / “*Better Solutions.*”
 - [ ] AI & Machine Learning: OpenAI, Python, TensorFlow, LangChain. Confirm these are tools you actually use
 - [ ] Mobile: Flutter, React Native, Kotlin, Swift. Confirm these are tools you actually use
 - [ ] Backend: Node.js, Python, PHP, Laravel, Express.js. Confirm these are tools you actually use
@@ -171,38 +173,26 @@ File: `content/site.ts` → `home.tech`. Logos: `lib/tech-icons.tsx`.
 - [ ] Cloud & Deployment: AWS, Google Cloud, Azure, Docker, Vercel. Confirm these are tools you actually use
 - [ ] **(code)** Orbit centre label: "36+ Technology ecosystem" is calculated from the list above
 
-## 7. Home: A Little About Us
-
-File: `content/site.ts` → `home.about`
-
-- [ ] Eyebrow: “A little about us”
-- [ ] Title: “Not Just Another” / “Tech Agency.”
-- [ ] Description: “We bring technology, creativity and problem-solving together to build solutions that actually make a difference. Whether it's a custom software platform, an intelligent AI agent, a business automation system or a complete digital product, we're here to make it happen.”
-- [ ] Supporting lines: “Different challenges.” / “One dedicated team.” / “Endless possibilities.”
-- [ ] Link: “Get to Know Us” → `/contact`
-
-## 8. Home: Why Choose Us
+## 7. Home: Why Choose Us
 
 File: `content/site.ts` → `home.why`
 
 - [ ] Eyebrow: “The difference”
-- [ ] Title: “Good Ideas Deserve” / “Better Execution.”
-- [ ] Description: “We focus on what matters: understanding your needs, building the right solution and making technology work for your business.”
+- [ ] Title: “Good Ideas Deserve” / “*Better Execution.*”
 - [ ] “Built Around You”: “Every solution starts with your requirements, not a predefined template.”
 - [ ] “One Team, Multiple Capabilities”: “Software, AI, automation, web and mobile — different expertise working together.”
 - [ ] “Quality Over Shortcuts”: “We care about clean execution, reliable functionality and thoughtful details.”
 - [ ] “Clear Communication”: “You stay informed, involved and confident throughout the process.”
 - [ ] “Designed to Grow”: “We build with flexibility and your future business needs in mind.”
 
-## 9. Home: Client Reviews
+## 8. Home: Client Reviews
 
 File: `content/site.ts` → `home.reviews`
 
 ⚠️ **All six reviews, names and the 5.0 rating are fictional.** Publishing invented testimonials as real is misleading (and in many places unlawful). Replace them with genuine reviews you have permission to use, or remove the section until you have them.
 
 - [ ] Eyebrow: “Words that matter”
-- [ ] Title: “Don't Just Take” / “Our Word For It.”
-- [ ] Description: “A few words about the experience of working with us.”
+- [ ] Title: “Don’t Just Take” / “*Our Word For It.*”
 - [ ] Rating label: “Client rating”; "5.0" score and full rating bars **(code)** in `components/sections/home/Reviews.tsx`; "Based on N client reviews" counts the list automatically
 - [ ] Disclaimer: “Demo reviews for illustration. Not verified reviews from any platform.”. Remove only once reviews are real (and say where they come from)
 - [ ] **Ahmed Raza**, Lahore, Pakistan · Software Development: “Team ne hamari requirements bohat achi tarah samjhin. Final software exactly us workflow ke according bana jo humein chahiye tha.”
@@ -212,18 +202,17 @@ File: `content/site.ts` → `home.reviews`
 - [ ] **Ayesha Khan**, Karachi, Pakistan · UI/UX & Product Design: “Honestly, mujhe process kaafi easy laga. Team ne har stage par guide kiya aur result bohat acha tha.”
 - [ ] **Bilal Ahmed**, Faisalabad, Pakistan · AI Voice Agent: “AI calling solution ka concept samajhne se lekar implementation tak team ne achi support provide ki.”
 
-## 10. Home: Final Call to Action
+## 9. Home: Final Call to Action
 
 File: `content/site.ts` → `home.finalCta`
 
 - [ ] Eyebrow: “Your next big idea starts here”
-- [ ] Title: “Have Something in Mind?” / “Let's Build It.”
-- [ ] Description: “Whether you need a simple website, a powerful software platform or an intelligent automation system, we're ready to hear about it.”
-- [ ] Buttons: “Let's Discuss Your Project”, “Explore Our Services”
-- [ ] Supporting line: “Tell us what you're planning. We'll help you figure out the right way forward.”
+- [ ] Title: “Have Something in Mind?” / “*Let’s Build It.*”
+- [ ] Buttons: “Let’s Discuss Your Project”, “Explore Our Services”
+- [ ] Supporting line: “Tell us what you’re planning. We’ll help you figure out the right way forward.”
 - [ ] **(code)** Scrolling service names under the call to action come from `services[].shortTitle`
 
-## 11. Product mockups (demo data inside the visuals)
+## 10. Product mockups (demo data inside the visuals)
 
 Files: `components/mockups/`. These are coded illustrations, not screenshots. Every name, number and order inside them is invented. Replace with your real product screenshots or adjust the data to match a real project.
 
@@ -268,16 +257,16 @@ Files: `components/mockups/`. These are coded illustrations, not screenshots. Ev
 - [ ] Run log #1040 to #1042 with timings, “Last run 2 min ago”
 - [ ] Figure: “Hours saved this week 31 h”
 
-## 12. Services page and the eight service detail pages
+## 11. Services page and the eight service detail pages
 
 Index copy: `content/site.ts` → `servicesPage`. Detail-page labels: `serviceDetail`. Services: `content/services.ts`.
 
 The one-line summaries came from the brand brief; **all detail-page copy (intro, offerings, delivery steps, technologies, deliverables, “good fit if”, timelines) is demo copy** written to illustrate the format. Rewrite it to describe exactly what you deliver, and check every timeline.
 
-- [ ] Services page title: “Everything Digital.” / “All Under One Roof.”
-- [ ] Services page intro: “We don't believe in one-size-fits-all solutions. Every business has different needs, and we build around them. Choose a service to see exactly what we provide and how we deliver it.”
+- [ ] Services page title: “Everything Digital.” / “*All Under One Roof.*”
+- [ ] Services page intro: “We don’t believe in one-size-fits-all solutions. Every business has different needs, and we build around them. Choose a service to see exactly what we provide and how we deliver it.”
 - [ ] Count label: “8 services, one team”; process heading: “Every engagement follows the same clear path.”
-- [ ] Page SEO description: “Software development, AI agents, business automation, websites, mobile apps, e-commerce, UI/UX design and API integrations from NOVARY®.”
+- [ ] Page SEO description: “Software development, AI agents, business automation, websites, mobile apps, e-commerce, UI/UX design and API integrations from Betterflow.”
 
 ### 01. Software Development
 
@@ -331,7 +320,7 @@ The one-line summaries came from the brand brief; **all detail-page copy (intro,
 
 - [ ] Title “Mobile App Development” / short name “Mobile Applications” · URL `/services/mobile-app-development`
 - [ ] Summary: “Intuitive Android and iOS applications designed to deliver meaningful user experiences.”
-- [ ] Intro: “A good app earns a place on someone's home screen. We build Android and iOS apps that are simple to use, reliable on real networks and connected to the systems behind your business.”
+- [ ] Intro: “A good app earns a place on someone’s home screen. We build Android and iOS apps that are simple to use, reliable on real networks and connected to the systems behind your business.”
 - [ ] What we provide (6): Cross-platform apps; Native apps; Business and field apps; Customer apps; App backends and APIs; Store launch and updates (plus a sentence each)
 - [ ] How we deliver (4): Define the core journeys; Prototype and test; Build and integrate; Publish and grow (plus a sentence each)
 - [ ] Technologies: Flutter, React Native, Kotlin, Swift, Firebase, Node.js, PostgreSQL
@@ -375,45 +364,45 @@ The one-line summaries came from the brand brief; **all detail-page copy (intro,
 - [ ] A good fit if: Staff enter the same data in more than one system; Your tools show different numbers for the same thing; Partners need secure access to your data; You are adding a payment, courier or messaging provider
 - [ ] Typical timeline: “2 to 8 weeks”
 
-## 13. Contact page
+## 12. Contact page
 
 File: `content/site.ts` → `contactPage`
 
-- [ ] Title: “Tell Us What” / “You're Planning.”; intro: “Share a few details about your idea. We'll help you figure out the right way forward.”
-- [ ] SEO description: “Tell NOVARY® about your project. We reply within one business day.”
+- [ ] Title: “Tell Us What” / “*You’re Planning.*”; intro: “Share a few details about your idea. We’ll help you figure out the right way forward.”
+- [ ] SEO description: “Tell Betterflow about your project. We reply within one business day.”
 - [ ] Details card labels: “Get in touch”, “Email”, “Studio”, “Response time”, “Follow us”
 - [ ] “What happens next” steps: “We read your message and reply within one business day.” / “A short call to understand your goals and requirements.” / “A clear proposal with approach, timeline and cost.”
 - [ ] Form labels, success and error messages: `contactPage.form` (review wording)
 - [ ] **(code)** Email templates: `lib/email.ts` (subject lines, “We'll reply within one business day” confirmation)
 
-## 14. Footer
+## 13. Footer
 
 File: `content/site.ts` → `footer` (email, location and socials come from `site`, section 1)
 
 - [ ] Statement: “Technology should make things simpler. We build solutions that make it happen.”
 - [ ] Column titles: “Explore”, “What We Do”, “Get In Touch”, “Follow Us”
 - [ ] Services listed: software-development, ai-solutions, business-automation, website-development, mobile-app-development (slugs from `content/services.ts`)
-- [ ] Rights line: “© {year} NOVARY. All rights reserved.” (year updates automatically)
-- [ ] Sign-off: “Built with purpose. Designed for what's next.”
-- [ ] **(code)** Large wordmark at the bottom shows `site.name` + `site.mark`
+- [ ] Rights line: “© {year} Betterflow. All rights reserved.” (year updates automatically)
+- [ ] Sign-off: “Built with purpose. Designed for what’s next.”
+- [ ] **(code)** Large wordmark at the bottom shows `site.name`
 
-## 15. Other pages and messages
+## 14. Other pages and messages
 
-- [ ] 404 page: “This page took a different path.”, “The page you're looking for doesn't exist or has moved.”
-- [ ] Service detail call to action: “Tell us what you're planning. We'll help you figure out the right way forward.” / button “Discuss Your Project”
+- [ ] 404 page: “This page took a different path.”, “The page you’re looking for doesn’t exist or has moved.”
+- [ ] Service detail call to action: “Tell us what you’re planning. We’ll help you figure out the right way forward.” / button “Discuss Your Project”
 
-## 16. Logo, icons and social images
+## 15. Logo, icons and social images
 
-The NOVARY® mark (an N on an ink square) is a demo logo drawn in code.
+The Betterflow mark (a geometric B on a deep pine square) is a demo logo drawn in code.
 
-- [ ] **(code)** Logo in header, footer and menu: `components/ui/Logo.tsx` (`NMark`, `Logo`)
+- [ ] **(code)** Logo in header, footer and menu: `components/ui/Logo.tsx` (`BMark`, `Logo`)
 - [ ] Favicon: `app/icon.svg` and `app/favicon.ico`
 - [ ] Apple touch icon: `app/apple-icon.tsx`
 - [ ] Logo used by search engines (JSON-LD): `public/logo.png` (512 × 512)
 - [ ] Social share image (Open Graph / Twitter): `lib/og.tsx` (uses the hero headline and the isometric blocks)
 - [ ] Organisation data for search engines: `lib/seo.ts` (`organizationJsonLd`: address Karachi, PK; languages English, Urdu)
 
-## 17. Before launch: legal and accuracy
+## 16. Before launch: legal and accuracy
 
 - [ ] Confirm you have rights to the brand name and logo you use
 - [ ] Only show real reviews (and any client names inside mockups) with permission

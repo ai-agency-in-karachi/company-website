@@ -6,33 +6,33 @@ import { Window } from "./Window";
 /* Flat product illustrations, drawn in SVG instead of photos. */
 const Vase = () => (
   <svg viewBox="0 0 80 80" className="h-full w-full" aria-hidden="true">
-    <ellipse cx="40" cy="68" rx="18" ry="3" fill="#111322" opacity="0.12" />
-    <path d="M32 14h16v6c0 4 8 8 8 22 0 14-7 26-16 26S24 56 24 42c0-14 8-18 8-22z" fill="#111322" />
-    <path d="M32 14h16v5H32z" fill="#2A2E4A" />
-    <path d="M40 30c6 0 9 6 9 12" stroke="#93A0F5" strokeWidth="3" fill="none" strokeLinecap="round" />
+    <ellipse cx="40" cy="68" rx="18" ry="3" fill="#1C1C1C" opacity="0.12" />
+    <path d="M32 14h16v6c0 4 8 8 8 22 0 14-7 26-16 26S24 56 24 42c0-14 8-18 8-22z" fill="#1C1C1C" />
+    <path d="M32 14h16v5H32z" fill="#21402F" />
+    <path d="M40 30c6 0 9 6 9 12" stroke="#A9B78D" strokeWidth="3" fill="none" strokeLinecap="round" />
   </svg>
 );
 const Lamp = () => (
   <svg viewBox="0 0 80 80" className="h-full w-full" aria-hidden="true">
-    <ellipse cx="40" cy="70" rx="16" ry="3" fill="#111322" opacity="0.12" />
-    <path d="M24 34l8-20h16l8 20z" fill="#3245D1" />
-    <rect x="38" y="34" width="4" height="30" fill="#111322" />
-    <rect x="28" y="64" width="24" height="5" rx="2.5" fill="#111322" />
+    <ellipse cx="40" cy="70" rx="16" ry="3" fill="#1C1C1C" opacity="0.12" />
+    <path d="M24 34l8-20h16l8 20z" fill="#637545" />
+    <rect x="38" y="34" width="4" height="30" fill="#1C1C1C" />
+    <rect x="28" y="64" width="24" height="5" rx="2.5" fill="#1C1C1C" />
   </svg>
 );
 const Chair = () => (
   <svg viewBox="0 0 80 80" className="h-full w-full" aria-hidden="true">
-    <ellipse cx="40" cy="70" rx="20" ry="3" fill="#111322" opacity="0.12" />
-    <rect x="22" y="14" width="36" height="30" rx="10" fill="#111322" />
-    <rect x="18" y="40" width="44" height="12" rx="6" fill="#2A2E4A" />
-    <path d="M24 52l-3 16M56 52l3 16" stroke="#111322" strokeWidth="4" strokeLinecap="round" />
+    <ellipse cx="40" cy="70" rx="20" ry="3" fill="#1C1C1C" opacity="0.12" />
+    <rect x="22" y="14" width="36" height="30" rx="10" fill="#1C1C1C" />
+    <rect x="18" y="40" width="44" height="12" rx="6" fill="#21402F" />
+    <path d="M24 52l-3 16M56 52l3 16" stroke="#1C1C1C" strokeWidth="4" strokeLinecap="round" />
   </svg>
 );
 
 const products: { name: string; price: string; bg: string; art: ReactNode; tag?: string }[] = [
   { name: "Mehr Ceramic Vase", price: "PKR 4,800", bg: "bg-stone", art: <Vase />, tag: "New" },
-  { name: "Noor Table Lamp", price: "PKR 9,200", bg: "bg-[#E4E1D9]", art: <Lamp /> },
-  { name: "Saba Lounge Chair", price: "PKR 38,500", bg: "bg-cobalt-tint", art: <Chair />, tag: "−15%" },
+  { name: "Noor Table Lamp", price: "PKR 9,200", bg: "bg-[#E6E0D3]", art: <Lamp /> },
+  { name: "Saba Lounge Chair", price: "PKR 38,500", bg: "bg-sage-tint", art: <Chair />, tag: "−15%" },
 ];
 
 /** A modern storefront with quick discovery and an open cart drawer. */
@@ -42,7 +42,7 @@ export function EcommerceMockup() {
       <Window title="alma-living.store" className="text-[12px]">
         <div className="relative bg-white">
           <div className="flex items-center gap-3 border-b border-ink/8 px-4 py-3">
-            <span className="font-display text-[15px] font-extrabold tracking-[-0.03em]">alma.</span>
+            <span className="font-sans text-[15px] font-extrabold tracking-[-0.03em]">alma.</span>
             <span className="hidden gap-3 text-ink/60 @md:flex">
               <span className="font-semibold text-ink">Living</span>
               <span>Lighting</span>
@@ -51,10 +51,10 @@ export function EcommerceMockup() {
             <span className="ml-auto flex h-8 w-28 items-center gap-1.5 rounded-full bg-paper px-3 text-ink/45 @md:w-44">
               <Search aria-hidden="true" className="size-3.5" /> Search
             </span>
-            <span className="relative grid size-8 place-items-center rounded-full bg-ink text-white">
+            <span className="relative grid size-8 place-items-center rounded-full bg-pine text-white">
               <ShoppingBag aria-hidden="true" className="size-3.5" />
               <span
-                className="mk-pop absolute -top-1 -right-1 grid size-4 place-items-center rounded-full bg-cobalt text-[9px] font-bold text-white"
+                className="mk-pop absolute -top-1 -right-1 grid size-4 place-items-center rounded-full bg-sage text-[9px] font-bold text-white"
                 style={cssVars({ "--d": "1300ms" })}
               >
                 2
@@ -63,14 +63,14 @@ export function EcommerceMockup() {
           </div>
 
           <div className="p-4 @xl:pr-[13.5rem]">
-            <div className="flex items-end justify-between gap-3 rounded-xl bg-ink px-4 py-4 text-white">
+            <div className="flex items-end justify-between gap-3 rounded-xl bg-pine px-4 py-4 text-white">
               <div>
                 <p className="text-[10px] font-bold tracking-[0.12em] uppercase opacity-70">Winter edit</p>
-                <p className="mt-0.5 font-display text-[18px] leading-tight font-extrabold tracking-[-0.03em]">
+                <p className="mt-0.5 font-sans text-[18px] leading-tight font-extrabold tracking-[-0.03em]">
                   Warm up every room.
                 </p>
               </div>
-              <span className="shrink-0 rounded-full bg-ink px-3 py-1.5 text-[10.5px] font-semibold text-white">
+              <span className="shrink-0 rounded-full bg-pine px-3 py-1.5 text-[10.5px] font-semibold text-white">
                 Shop now
               </span>
             </div>
@@ -79,7 +79,7 @@ export function EcommerceMockup() {
               {["All", "Under 10k", "Best sellers", "In stock"].map((filter, index) => (
                 <span
                   key={filter}
-                  className={cn("rounded-full px-2.5 py-1", index === 0 ? "bg-ink text-white" : "bg-paper")}
+                  className={cn("rounded-full px-2.5 py-1", index === 0 ? "bg-pine text-white" : "bg-paper")}
                 >
                   {filter}
                 </span>
@@ -108,8 +108,8 @@ export function EcommerceMockup() {
           </div>
 
           {/* Cart drawer */}
-          <aside className="border-t border-ink/8 bg-[#F8F7F4] p-4 @xl:absolute @xl:top-[57px] @xl:bottom-0 @xl:right-0 @xl:w-[12.75rem] @xl:border-t-0 @xl:border-l">
-            <p className="font-display text-[14px] font-bold">Your cart (2)</p>
+          <aside className="border-t border-ink/8 bg-[#F8F6F0] p-4 @xl:absolute @xl:top-[57px] @xl:bottom-0 @xl:right-0 @xl:w-[12.75rem] @xl:border-t-0 @xl:border-l">
+            <p className="font-sans text-[14px] font-bold">Your cart (2)</p>
             <ul className="mt-3 space-y-2.5">
               {products.slice(0, 2).map((product, index) => (
                 <li
@@ -140,7 +140,7 @@ export function EcommerceMockup() {
               <span className="rounded-md bg-white py-1.5">Wallet</span>
               <span className="rounded-md border border-ink bg-white py-1.5">COD</span>
             </div>
-            <span className="mk-pulse mt-3 flex h-9 items-center justify-center gap-1.5 rounded-full bg-ink text-[11px] font-semibold text-white">
+            <span className="mk-pulse mt-3 flex h-9 items-center justify-center gap-1.5 rounded-full bg-pine text-[11px] font-semibold text-white">
               <CreditCard aria-hidden="true" className="size-3.5" /> Checkout
             </span>
           </aside>
@@ -148,10 +148,10 @@ export function EcommerceMockup() {
       </Window>
 
       <div
-        className="mk-pop absolute -top-4 left-4 flex items-center gap-2.5 rounded-xl bg-ink px-3.5 py-2.5 text-white shadow-mock @lg:-left-5"
+        className="mk-pop absolute -top-4 left-4 flex items-center gap-2.5 rounded-xl bg-pine px-3.5 py-2.5 text-white shadow-mock @lg:-left-5"
         style={cssVars({ "--d": "1000ms" })}
       >
-        <Truck aria-hidden="true" className="size-4 text-cobalt-soft" />
+        <Truck aria-hidden="true" className="size-4 text-sage-soft" />
         <div>
           <p className="text-[11px] font-bold">Checkout in under a minute</p>
           <p className="text-[10px] text-white/60">One page · local payments</p>

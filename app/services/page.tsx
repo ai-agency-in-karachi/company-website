@@ -81,7 +81,7 @@ export default function ServicesPage() {
                         <span className="numeral pt-2 text-small font-semibold lg:pt-0">{service.index}</span>
                         <span>
                           <ViewTransition name={`service-title-${service.slug}`} share="morph" default="none">
-                            <span className="block w-fit font-display text-[clamp(1.75rem,1.2rem+2.2vw,3.25rem)] leading-[1] font-bold tracking-[-0.04em]">
+                            <span className="block w-fit font-display text-[clamp(1.75rem,1.2rem+2.2vw,3.25rem)] leading-[1] font-medium tracking-[-0.01em]">
                               {service.title}
                             </span>
                           </ViewTransition>
@@ -136,7 +136,7 @@ export default function ServicesPage() {
               {steps.map((step, index) => (
                 <StaggerItem as="li" key={step.number} index={index} className="bg-canvas p-6 md:p-8">
                   <span className="numeral text-small font-semibold text-accent">{step.number}</span>
-                  <h3 className="mt-3 font-display text-title font-bold text-fg">{step.title}</h3>
+                  <h3 className="mt-3 font-display text-title font-medium text-fg">{step.title}</h3>
                   <p className="mt-2 text-fg-soft">{step.text}</p>
                 </StaggerItem>
               ))}

@@ -112,7 +112,7 @@ export function TechIcon({ name }: { name: string }) {
   const glyph = glyphs[name];
   if (glyph) return <span className="flex size-full items-center justify-center">{glyph}</span>;
   return (
-    <span aria-hidden="true" className="font-display text-[0.8125em] leading-none font-extrabold tracking-[-0.04em]">
+    <span aria-hidden="true" className="font-sans text-[0.8125em] leading-none font-bold tracking-[-0.03em]">
       {monograms[name] ?? name.slice(0, 2)}
     </span>
   );
